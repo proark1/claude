@@ -1,0 +1,10 @@
+# Claude Code local, machine-specific settings (keep launch.json shared)
+.claude/settings.local.json
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Dependencies / build output (none today, but safe defaults)
+node_modules/
+dist/

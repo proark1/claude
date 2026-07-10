@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero to Launched — Learn Claude Code without writing code</title>
+<meta name="description" content="An interactive, animated tutorial that takes you from 'I have an idea' to 'my project is live on the internet' — using the Claude Code app. No coding knowledge needed.">
+<meta property="og:title" content="Zero to Launched">
+<meta property="og:description" content="Learn to build real software with Claude Code — no coding knowledge needed. An interactive, animated tutorial.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions">
+    <a class="header-link" href="starter.html">Starter</a>
+    <a class="header-link" href="builder.html">Builder</a>
+    <a class="header-link" href="max.html">Max</a>
+    <a class="header-link" href="commands.html">Commands</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds">
+      <span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound
+    </button>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"><div class="blob a"></div><div class="blob b"></div></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow reveal">An interactive tutorial · no experience needed</span>
+      <h1 class="reveal" style="--d:.08s">You can build <span class="accent">software</span> now.</h1>
+      <p class="lede reveal" style="--d:.16s">You describe what you want in normal words. Claude Code does the technical work. This tutorial walks you from installing the app to seeing your very own website live on the internet — and you won't write a single line of code.</p>
+      <div class="hero-ctas reveal" style="--d:.24s">
+        <a class="btn btn-accent magnetic" href="starter.html">Start the tutorial <span class="arrow">→</span></a>
+        <a class="btn btn-ghost magnetic" href="#routes">See the three routes</a>
+      </div>
+      <p class="hero-note reveal" style="--d:.3s">Works on Mac &amp; Windows · roughly one afternoon · genuinely zero jargon</p>
+    </div>
+
+    <div class="hero-stage reveal-scale" style="--d:.2s">
+      <div class="cc-window" data-scene="hero">
+        <div class="cc-titlebar">
+          <span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span>
+          <button class="cc-replay">↺ Replay</button>
+        </div>
+        <div class="cc-body">
+          <aside class="cc-sidebar" aria-hidden="true">
+            <div class="cc-side-label">Sessions</div>
+            <div class="cc-session active">my-website</div>
+            <div class="cc-session">ideas &amp; notes</div>
+            <div class="cc-newsession">＋ New session</div>
+          </aside>
+          <div class="cc-main">
+            <div class="cc-chat" aria-live="polite"></div>
+            <div class="cc-composer">
+              <span class="ph">Describe what you want to build…</span><span class="cc-composer-text"></span><span class="cc-caret"></span>
+              <button class="send" aria-hidden="true" tabindex="-1">↑</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-mock hero-site" id="hero-site" aria-hidden="true">
+        <div class="bar"><i></i><i></i><i></i><span class="url">your-name.up.railway.app</span></div>
+        <div class="page">
+          <div class="avatar" data-piece="p1">A</div>
+          <div class="name" data-piece="p1">Alex Rivera</div>
+          <div class="bio" data-piece="p2">Baker, photographer &amp; proud plant parent. Welcome to my corner of the internet.</div>
+          <a class="link-btn" data-piece="p3">📷 My photography</a>
+          <a class="link-btn" data-piece="p4">✉️ Say hello</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><div class="mouse"></div>scroll</div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="chapter">
+  <div class="container">
+    <div class="chapter-head center" style="margin-inline:auto">
+      <span class="eyebrow reveal">The whole idea, in twenty seconds</span>
+      <h2 class="reveal" style="--d:.08s">Talking is the new coding.</h2>
+      <p class="lede reveal" style="--d:.14s">Claude Code is an app for your computer. You tell it what you want. It writes the code, shows you the result, asks permission before big steps — and you steer it with plain English.</p>
+    </div>
+
+    <div class="diagram-wrap reveal-scale">
+      <svg class="draw-on-scroll" viewBox="0 0 900 240" role="img" aria-label="Diagram: your idea in words flows to Claude Code, which builds a live website while asking your permission along the way.">
+        <!-- you -->
+        <g class="pop" style="--d:.1s">
+          <circle cx="110" cy="110" r="52" fill="#FBEDE7" stroke="#D97757" stroke-width="2.5"/>
+          <text x="110" y="103" text-anchor="middle" font-size="30">💡</text>
+          <text x="110" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#29241F">You</text>
+          <text x="110" y="195" text-anchor="middle" font-size="13" fill="#6B6257">Your idea, in normal words</text>
+        </g>
+        <!-- arrow 1 -->
+        <path class="draw-path" style="--d:.5s" d="M175 110 C 240 70, 280 70, 340 105" fill="none" stroke="#D97757" stroke-width="3" stroke-linecap="round" stroke-dasharray="1"/>
+        <path class="pop" style="--d:1s" d="M332 92 l14 12 l-18 5 z" fill="#D97757"/>
+        <!-- claude code -->
+        <g class="pop" style="--d:.9s">
+          <rect x="355" y="55" width="190" height="110" rx="18" fill="#FFFFFF" stroke="#E8E2D6" stroke-width="2.5"/>
+          <rect x="355" y="55" width="190" height="26" rx="13" fill="#F4F0E6"/>
+          <circle cx="372" cy="68" r="4" fill="#F4A69D"/><circle cx="385" cy="68" r="4" fill="#F6D488"/><circle cx="398" cy="68" r="4" fill="#A8D5B2"/>
+          <text x="450" y="115" text-anchor="middle" font-size="16" font-weight="700" fill="#29241F">Claude Code</text>
+          <text x="450" y="138" text-anchor="middle" font-size="12" fill="#6B6257">writes the code for you</text>
+          <text x="450" y="195" text-anchor="middle" font-size="13" fill="#6B6257">…and asks before anything important</text>
+        </g>
+        <!-- permission bubble -->
+        <g class="pop" style="--d:1.6s">
+          <rect x="400" y="12" width="140" height="30" rx="10" fill="#F9F1E0" stroke="#B98A34" stroke-width="1.5"/>
+          <text x="470" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#6B5A33">May I? → You: Yes ✓</text>
+        </g>
+        <!-- arrow 2 -->
+        <path class="draw-path" style="--d:1.4s" d="M560 105 C 620 70, 660 70, 722 105" fill="none" stroke="#52708B" stroke-width="3" stroke-linecap="round" stroke-dasharray="1"/>
+        <path class="pop" style="--d:1.9s" d="M714 92 l14 12 l-18 5 z" fill="#52708B"/>
+        <!-- result -->
+        <g class="pop" style="--d:1.8s">
+          <circle cx="790" cy="110" r="52" fill="#EBF1F5" stroke="#52708B" stroke-width="2.5"/>
+          <text x="790" y="103" text-anchor="middle" font-size="30">🌐</text>
+          <text x="790" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#29241F">Live!</text>
+          <text x="790" y="195" text-anchor="middle" font-size="13" fill="#6B6257">Your real website, online</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="stat-row center reveal" style="justify-content:center; margin-top:56px">
+      <div class="stat"><div class="stat-num" data-count-to="0">0</div><div class="stat-label">lines of code you'll write</div></div>
+      <div class="stat"><div class="stat-num" data-count-to="9">0</div><div class="stat-label">friendly chapters</div></div>
+      <div class="stat"><div class="stat-num" data-count-to="1">0</div><div class="stat-label">real website — yours, live online</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROUTES ============ -->
+<section class="chapter" id="routes">
+  <div class="container">
+    <div class="chapter-head center" style="margin-inline:auto">
+      <span class="eyebrow reveal">Choose your route</span>
+      <h2 class="reveal" style="--d:.08s">Three paths. Same destination: <em>you, building things.</em></h2>
+      <p class="lede reveal" style="--d:.14s">Start from zero, build an app that remembers, then learn to coordinate the full crew. Every route is ready when you are.</p>
+    </div>
+
+    <div class="routes">
+      <a class="route-card reveal" style="--d:.05s" href="starter.html">
+        <span class="badge-start">Start here</span>
+        <span class="route-level">● Starter</span>
+        <span class="route-title">Your first project, live on the internet</span>
+        <span class="route-desc">Install Claude Code, learn to talk to it, and build a personal website together — then put it online for the world to see.</span>
+        <span class="route-meta"><span>⏱ one afternoon</span><span>🎓 zero experience</span></span>
+        <span class="route-cta">Begin the journey <span class="arrow">→</span></span>
+        <span class="route-art" aria-hidden="true"><span class="strip">
+          <span class="chip">⬇ Install</span><span class="chip">💬 First prompt</span><span class="chip">🔨 Build</span><span class="chip">🧪 Test</span><span class="chip">🚀 Go live</span>
+        </span></span>
+      </a>
+
+      <a class="route-card reveal" style="--d:.15s" href="builder.html">
+        <span class="badge-ready">10 chapters</span>
+        <span class="route-level" style="color:var(--slate-deep)">●● Builder</span>
+        <span class="route-title">Real features, real data</span>
+        <span class="route-desc">Build Gather, an event planner with RSVPs, date voting, shared tasks, and a real PostgreSQL database on Railway.</span>
+        <span class="route-meta"><span>⏱ about 3 hours</span><span>🎓 finished Starter</span></span>
+        <span class="route-cta" style="color:var(--slate-deep)">Build Gather <span class="arrow">→</span></span>
+        <span class="route-art" aria-hidden="true"><span class="strip">
+          <span class="chip">📋 Plan Mode</span><span class="chip">🗄 Database</span><span class="chip">🖼 Screenshots</span><span class="chip">⏪ Rewind</span><span class="chip">🧠 CLAUDE.md</span>
+        </span></span>
+      </a>
+
+      <a class="route-card reveal" style="--d:.25s" href="max.html">
+        <span class="badge-ready" style="background:var(--gold-soft);color:#755718">12 chapters</span>
+        <span class="route-level" style="color:var(--gold)">●●● Max</span>
+        <span class="route-title">Turn one builder into a crew</span>
+        <span class="route-desc">Audit and improve Gather with subagents, isolated parallel work, skills, browser tests, hooks, connectors, and reviewed routines.</span>
+        <span class="route-meta"><span>⏱ about 4 hours</span><span>🎓 finished Builder</span></span>
+        <span class="route-cta" style="color:var(--gold)">Run the Gather crew <span class="arrow">→</span></span>
+        <span class="route-art" aria-hidden="true"><span class="strip">
+          <span class="chip">🤖 Subagents</span><span class="chip">🪝 Hooks</span><span class="chip">🔌 Connectors</span><span class="chip">🕑 Routines</span><span class="chip">🌐 Browser testing</span>
+        </span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMANDS TEASER ============ -->
+<section class="chapter">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow reveal">Bonus tab · for when you're rolling</span>
+        <h2 class="reveal" style="--d:.06s">The power-user cheat sheet.</h2>
+        <p class="lede reveal" style="--d:.12s">Claude Code hides a whole menu of shortcuts behind a single key: <span class="keyish">/</span>. Most people use three of them. Our bonus tab showcases the handful that quietly make you twice as capable — plan before building, rewind a wrong turn, review your own code, automate the boring parts.</p>
+        <a class="btn btn-accent magnetic reveal" style="--d:.18s" href="commands.html">Open the cheat sheet <span class="arrow">→</span></a>
+      </div>
+      <div class="reveal-scale" style="--d:.16s">
+        <div class="cmd-palette" aria-label="A preview of the slash-command menu">
+          <div class="cmd-palette-head"><span class="slash">/</span><span class="ph2">Type a command…</span><span class="esc">esc to close</span></div>
+          <div class="cmd-row hi"><span class="c-name">/plan</span><span class="c-desc">Propose an approach before changing anything</span></div>
+          <div class="cmd-row"><span class="c-name">/rewind</span><span class="c-desc">Jump back to an earlier point</span></div>
+          <div class="cmd-row"><span class="c-name">/code-review</span><span class="c-desc">A second pair of eyes on your changes</span></div>
+          <div class="cmd-row"><span class="c-name">/goal</span><span class="c-desc">Keep working until the job is done</span></div>
+          <div class="cmd-row"><span class="c-name">/help</span><span class="c-desc">The full, always-current list</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REASSURANCE ============ -->
+<section class="chapter">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow reveal">Before you worry</span>
+        <h2 class="reveal" style="--d:.06s">"But I'm not technical…"</h2>
+        <p class="lede reveal" style="--d:.12s">Perfect — this was made for you. Every technical word is explained the moment it appears. Try hovering (or tapping) this one: you'll be storing your project in a <button class="term" data-def="A folder for your project that also remembers every version of it — like unlimited undo for your whole project." data-word="repository">repository</button> by chapter 7 and it won't hurt a bit.</p>
+      </div>
+      <div class="cards-2" style="grid-template-columns:1fr">
+        <div class="info-card reveal" style="--d:.1s"><div class="icon">🛡️</div><h4>You can't break anything</h4><p>Claude Code asks permission before important steps, and every change can be rewound. Your computer is safe. Promise.</p></div>
+        <div class="info-card reveal" style="--d:.2s"><div class="icon slate">🗣️</div><h4>Plain English is the tool</h4><p>"Make the header bigger." "Try warmer colors." That's it. That's the skill. This tutorial teaches you how to say it well.</p></div>
+        <div class="info-card reveal" style="--d:.3s"><div class="icon green">🚀</div><h4>You'll finish with something real</h4><p>Not a certificate. Not theory. A real website with a real address you can text to your friends tonight.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="chapter">
+  <div class="narrow">
+    <div class="teaser reveal-scale">
+      <h3>Ready? Your website is waiting to exist.</h3>
+      <p>Chapter 1 takes four minutes and requires nothing but curiosity.</p>
+      <a class="btn btn-accent magnetic" href="starter.html">Start the Starter route <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container foot-grid">
+    <span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span>
+    <span>Made with Claude Code, obviously · <span id="year"></span></span>
+  </div>
+</footer>
+
+<script>
+/* hero scene + assembling website */
+window.ZTL_SCENES = {
+  hero: [
+    { cue: "reset", gap: 200 },
+    { u: "Build me a personal website with my name, a short bio and my links. Warm colors, friendly feel.", gap: 600 },
+    { think: "Claude is thinking…", ms: 1300, gap: 200 },
+    { c: "Love it. I'll build a small, beautiful one-page site. Starting now…", gap: 900 },
+    { files: [ { name: "index.html", add: "64" }, { name: "style.css", add: "38" } ], gap: 800 },
+    { cue: "p1", gap: 300 },
+    { c: "Your <strong>name and photo</strong> are in. Adding the bio…", gap: 900 },
+    { cue: "p2", gap: 900 },
+    { c: "…and your <strong>links</strong>, styled warm and friendly.", gap: 600 },
+    { cue: "p3", gap: 500 },
+    { cue: "p4", gap: 900 },
+    { c: "Done! Want to put it on the real internet? This tutorial shows you exactly how 👇", gap: 400 },
+  ],
+};
+document.addEventListener("DOMContentLoaded", () => {
+  const site = document.getElementById("hero-site");
+  const win = document.querySelector('[data-scene="hero"]');
+  if (site && win) {
+    win.addEventListener("scenecue", (e) => {
+      if (e.detail === "reset") {
+        site.querySelectorAll("[data-piece]").forEach((p) => p.classList.remove("built"));
+      } else {
+        site.querySelectorAll(`[data-piece="${e.detail}"]`).forEach((p) => p.classList.add("built"));
+      }
+    });
+  }
+});
+</script>
+<script src="shared/app.js"></script>
+</body>
+</html>
