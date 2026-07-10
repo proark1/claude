@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Builder Route — Build Gather | Zero to Launched</title>
+<meta name="description" content="Build Gather, a real event planner with RSVPs, date voting, tasks, and a PostgreSQL database on Railway — one interactive chapter at a time.">
+<meta property="og:title" content="Builder Route — Build Gather">
+<meta property="og:description" content="Plan, build, test, and launch an event planner that remembers.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="route-builder">
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Routes">
+    <a class="header-link" href="starter.html">Starter</a>
+    <a class="header-link" href="max.html">Max</a>
+    <a class="header-link" href="commands.html">Commands</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds">
+      <span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound
+    </button>
+  </nav>
+</header>
+
+<div class="rail" aria-label="Builder chapter progress"><div class="rail-track"><div class="rail-fill"></div></div></div>
+
+<!-- HERO -->
+<section class="chapter route-hero" data-chapter="Welcome" id="welcome">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow reveal">Builder route · 10 chapters</span>
+        <h1 class="reveal" style="--d:.08s">Build the app that gets everyone to <em>the same place.</em></h1>
+        <p class="lede reveal" style="--d:.16s">Gather is one calm page for a birthday, dinner, or day out: people vote on a date, RSVP, and share the jobs. You’ll build it from a blank folder, give it a real database, and put it online.</p>
+        <div class="route-meta-line reveal" style="--d:.22s"><span>About 3 hours</span><span>Fresh project</span><span>No hand-written code required</span></div>
+        <p class="hero-note reveal" style="--d:.28s">Best after the <a href="starter.html">Starter route</a>. Work through this page with Claude Code open beside it.</p>
+        <a class="btn btn-accent magnetic reveal" style="--d:.34s" href="#map">Meet Gather <span class="arrow">↓</span></a>
+      </div>
+      <div class="reveal-scale" style="--d:.18s">
+        <div class="gather-board" aria-label="Preview of the Gather event planner">
+          <div class="gather-topbar"><span class="gather-mark">gather</span><span>Friends’ summer dinner</span></div>
+          <div class="gather-content">
+            <span class="gather-date">SAT · 18 JUL</span>
+            <div class="gather-title">Dinner under the trees</div>
+            <div class="gather-place">Riverside Park · 18:30</div>
+            <div class="gather-stats"><div class="gather-stat"><strong>8</strong><span>coming</span></div><div class="gather-stat"><strong>2</strong><span>maybe</span></div><div class="gather-stat"><strong>3/5</strong><span>jobs done</span></div></div>
+            <div class="gather-task done"><i></i> Reserve the long table</div>
+            <div class="gather-task"><i></i> Bring picnic blankets</div>
+            <div class="gather-task"><i></i> Make the playlist</div>
+            <button class="gather-action" tabindex="-1">I’m coming</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="chapter" data-chapter="Map" id="map">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">The journey</span>
+      <h2 class="reveal" style="--d:.08s">One app, built in sensible pieces.</h2>
+      <p class="lede reveal" style="--d:.14s">Every chapter changes Gather in a way you can see. No detached feature tour, no mystery leap from prompt to product.</p>
+    </div>
+    <nav class="route-map reveal-scale" aria-label="Builder chapter map">
+      <a href="#event"><span class="map-num">01</span><span class="map-name">Choose the event</span></a>
+      <a href="#plan"><span class="map-num">02</span><span class="map-name">Plan before editing</span></a>
+      <a href="#page"><span class="map-num">03</span><span class="map-name">Build the page</span></a>
+      <a href="#data"><span class="map-num">04</span><span class="map-name">Map the memories</span></a>
+      <a href="#database"><span class="map-num">05</span><span class="map-name">Add PostgreSQL</span></a>
+      <a href="#forms"><span class="map-num">06</span><span class="map-name">Save real answers</span></a>
+      <a href="#changes"><span class="map-num">07</span><span class="map-name">Edit safely</span></a>
+      <a href="#recover"><span class="map-num">08</span><span class="map-name">Test and recover</span></a>
+      <a href="#instructions"><span class="map-num">09</span><span class="map-name">Teach the project</span></a>
+      <a href="#launch"><span class="map-num">10</span><span class="map-name">Launch Gather</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="chapter" data-chapter="The event" id="event">
+  <div class="container">
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div><span class="chapter-number">01</span><span class="eyebrow">Start with a real reason</span><h2>Pick one gathering you can picture.</h2><p class="lede">Not “an event-management platform.” Think: Sunday lunch, a birthday walk, five friends at the cinema. Familiar details make your instructions sharper.</p></div>
+        <div class="concept-card"><h3>The one-sentence test</h3><p>“Gather helps a group agree on when to meet, say who is coming, and divide the small jobs.” If an idea does not support that sentence, leave it for later.</p></div>
+        <ul class="plain-list"><li>One organizer creates the event</li><li>Guests respond without learning a new system</li><li>Everyone sees the same current plan</li></ul>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window short" data-scene="kickoff">
+          <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span><button class="cc-replay">↻ Replay</button></div>
+          <div class="cc-body"><div class="cc-main"><div class="cc-chat" aria-live="polite"></div><div class="cc-composer"><span class="ph">Describe the project…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div></div></div>
+        </div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Your kickoff prompt</span><button class="copy-btn">Copy</button><div class="pc-text">I want to build Gather, a simple event planner for ordinary gatherings. Start by asking me five questions, one at a time, about the event, the guests, and what they need to decide. Do not build anything yet. End with a short project brief I can approve.</div></div>
+        <div class="try-card" data-checklist="builder-01-event"><h3>Choose your Gather</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Pick a real or imaginary gathering</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Answer Claude’s five questions</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Save the final one-paragraph brief</span></label></li></ul><div class="try-progress"><span class="count">0 / 3</span><span class="bar"><i></i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="chapter" data-chapter="Plan first" id="plan">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Read-only thinking</span><h2>Let Claude inspect and plan before it edits.</h2><p class="lede">Switch to <button class="term" data-word="Plan Mode" data-def="A read-only mode where Claude can inspect your project and propose work, but cannot edit files until you approve the plan.">Plan Mode</button>. This is where you correct the direction while corrections are still free.</p></div>
+    <div class="lesson-grid reverse">
+      <div class="cc-window" data-scene="plan">
+        <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Gather · Plan Mode <span class="cc-badge">read only</span></span><button class="cc-replay">↻ Replay</button></div>
+        <div class="cc-body"><aside class="cc-sidebar"><div class="cc-side-label">Sessions</div><div class="cc-session active">gather-plan</div><div class="cc-newsession">＋ New session</div></aside><div class="cc-main"><div class="cc-chat" aria-live="polite"></div><div class="cc-composer"><span class="ph">Ask Claude to plan…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="compare-row"><div class="compare-card"><strong>Plan Mode</strong><span>Reads, investigates, asks questions, and proposes. It does not edit your app.</span></div><div class="compare-card"><strong>After approval</strong><span>You switch back to an editing mode and ask Claude to execute the agreed plan.</span></div></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Planning prompt</span><button class="copy-btn">Copy</button><div class="pc-text">We are building Gather from the approved brief. In Plan Mode, inspect this empty project and propose the smallest complete version. Include the pages, data we must store, accessibility basics, tests, and a staged build order. Ask before choosing a major technology. Do not edit files.</div></div>
+        <div class="takeaway"><h3>A plan is a conversation, not a receipt.</h3><p>Reply with “move date voting earlier,” “keep sign-in out of version one,” or “explain why we need that.” Approve only when the plan sounds like your project.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="chapter" data-chapter="The page" id="page">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">03</span><span class="eyebrow">First visible version</span><h2>Build one honest screen.</h2><p class="lede">The first version uses sample data. That is deliberate: settle the layout and language before introducing a database.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <h3>Ask for the experience, not the pixels.</h3>
+        <p>Tell Claude what guests should notice first and what they should be able to do. Let it choose the first implementation, then react to what you can see.</p>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Build version one</span><button class="copy-btn">Copy</button><div class="pc-text">Build the first stage from our approved plan using realistic sample data. The event name, date decision, RSVP summary, and shared tasks should be obvious within five seconds. Make it warm, calm, accessible, and excellent on a phone. Start the app and show me the result.</div></div>
+        <div class="note blue"><span class="n-icon">◎</span><span><strong>Review in this order:</strong> meaning, layout, mobile, then decoration. A beautiful button with the wrong action is still wrong.</span></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="firstBuild"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · first build</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Describe the next change…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="try-card" data-checklist="builder-03-page"><h3>The five-second review</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Can a guest name the event and next action?</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Does the narrow phone view stay readable?</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Request one focused improvement</span></label></li></ul><div class="try-progress"><span class="count">0 / 3</span><span class="bar"><i></i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="chapter" data-chapter="Data map" id="data">
+  <div class="container">
+    <div class="lesson-grid reverse">
+      <div class="lesson-stack">
+        <div class="data-map reveal-scale"><div class="data-node"><strong>Event</strong><small>name · place · notes</small></div><div class="data-node"><strong>Date options</strong><small>time · votes</small></div><div class="data-node"><strong>Guests</strong><small>name · RSVP</small></div><div class="data-node"><strong>Tasks</strong><small>owner · done</small></div></div>
+        <div class="takeaway"><h3>A database is a set of carefully labeled lists.</h3><p>The labels matter. “Guest RSVP status” is clearer than “response value,” to you and to Claude.</p></div>
+      </div>
+      <div class="lesson-stack">
+        <div><span class="chapter-number">04</span><span class="eyebrow">What Gather remembers</span><h2>Describe the information before the database.</h2><p class="lede">A <button class="term" data-word="data model" data-def="A plain description of the kinds of information an app stores and how those pieces relate.">data model</button> is simply an agreement about what exists and how it connects.</p></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Data conversation</span><button class="copy-btn">Copy</button><div class="pc-text">Before adding a database, explain Gather’s proposed data model in plain language. Show one realistic example event with guests, three date options, votes, and tasks. Point out duplicate or missing information. Wait for my approval before creating database files.</div></div>
+        <div class="failure-card"><span class="failure-label">Common trap</span><h3>Saving the final date too early</h3><p>Date options and the chosen final date are different things. Ask Claude to keep both so the app can show voting first and the decision later.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="chapter" data-chapter="Database" id="database">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">05</span><span class="eyebrow">A permanent memory</span><h2>Give Gather PostgreSQL on Railway.</h2><p class="lede">The interface is the room people see. PostgreSQL is the labeled cabinet behind it. Railway keeps that cabinet running and gives the app a private address for it.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="steps"><div class="step"><span class="step-num"></span><div><h3>Let Claude inspect first</h3><p>It should identify the app’s runtime, start command, and migration strategy before changing deployment settings.</p></div></div><div class="step"><span class="step-num"></span><div><h3>Create the Railway project</h3><p>Use the Railway CLI from the Gather folder. Review the project and service names before approval.</p></div></div><div class="step"><span class="step-num"></span><div><h3>Add PostgreSQL</h3><p>Ask Claude to use <span class="keyish">railway add --database postgres</span>, then connect the app through a referenced <span class="keyish">DATABASE_URL</span>.</p></div></div><div class="step"><span class="step-num"></span><div><h3>Run migrations</h3><p>Migrations create the agreed tables. They are versioned instructions, not mystery data.</p></div></div></div>
+        <div class="note"><span class="n-icon">🔐</span><span><strong>Never paste a database password into chat or code.</strong> Environment variables keep secrets outside the files you share. Ask Claude to name variables, not reveal their values.</span></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="database"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · Railway setup</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Ask for the database…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Railway prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Use the Railway CLI to create or link a Gather project, add PostgreSQL, connect DATABASE_URL to the app service, and create migrations for our approved model. Explain each command before running it. Do not print secrets. Stop and diagnose if any command fails.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="chapter" data-chapter="Real forms" id="forms">
+  <div class="container">
+    <div class="lesson-grid reverse">
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="forms"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · save an RSVP</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Describe the behavior…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="failure-card"><span class="failure-label">Useful failure</span><h3>“Database connection refused”</h3><p>Symptom: the page loads, but saving fails. Diagnose whether <span class="keyish">DATABASE_URL</span> exists in the environment, correct the connection, restart, then submit one RSVP and reload the page.</p></div>
+      </div>
+      <div class="lesson-stack">
+        <div><span class="chapter-number">06</span><span class="eyebrow">The loop closes</span><h2>Turn taps into saved answers.</h2><p class="lede">A complete form has four moments: understandable fields, validation, a saved result, and clear feedback.</p></div>
+        <div class="compare-row three"><div class="compare-card"><strong>Before</strong><span>Explain what is needed.</span></div><div class="compare-card"><strong>During</strong><span>Prevent impossible answers.</span></div><div class="compare-card"><strong>After</strong><span>Confirm what was saved.</span></div></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Feature prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Connect the existing interface to PostgreSQL. Implement RSVP, date voting, and task creation one at a time. For each: add server-side validation, an accessible success or error message, and a test proving the data still exists after a restart. Show me the result after each feature.</div></div>
+        <div class="try-card" data-checklist="builder-06-forms"><h3>Persistence proof</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Submit a valid RSVP</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Try a blank or impossible answer</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Restart and confirm the valid RSVP remains</span></label></li></ul><div class="try-progress"><span class="count">0 / 3</span><span class="bar"><i></i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="chapter" data-chapter="Safe changes" id="changes">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">07</span><span class="eyebrow">People change their minds</span><h2>Edit freely. Delete carefully.</h2><p class="lede">Real plans move. Guests switch dates, tasks change hands, and accidental taps happen. Gather should make ordinary changes easy and irreversible ones obvious.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="concept-card"><h3>Low-risk action</h3><p>Filtering “coming” guests or marking a task complete can happen immediately and be easy to reverse.</p></div>
+        <div class="concept-card"><h3>High-risk action</h3><p>Deleting the whole event deserves a clear description, confirmation, and preferably a recovery path.</p></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Safety prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Add editing, RSVP filters, task completion, and deletion. Keep reversible actions quick. Before destructive actions, state exactly what will disappear and require confirmation. Add an empty state that tells the organizer what to do next. Test cancel as well as confirm.</div></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window short" data-scene="delete"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · destructive action</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Review the change…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="takeaway"><h3>Test the path you hope nobody takes.</h3><p>Cancel the delete. Confirm it on throwaway data. Reload. A warning that does not prevent the action is only decoration.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="chapter" data-chapter="Recovery" id="recover">
+  <div class="container">
+    <div class="lesson-grid reverse">
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="rewind"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · recovery drill</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Describe the problem…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+      </div>
+      <div class="lesson-stack">
+        <div><span class="chapter-number">08</span><span class="eyebrow">A calm recovery drill</span><h2>Break a copy. Learn the way back.</h2><p class="lede">Claude checkpoints before its file edits. Press <span class="keyish">Esc</span> twice or run <span class="keyish">/rewind</span> to choose what you restore.</p></div>
+        <div class="compare-row three"><div class="compare-card"><strong>Code + chat</strong><span>Return both to an earlier point.</span></div><div class="compare-card"><strong>Code only</strong><span>Undo edits but keep the discussion.</span></div><div class="compare-card"><strong>Chat only</strong><span>Try a new direction with current files.</span></div></div>
+        <div class="note"><span class="n-icon">↺</span><span><strong>Checkpoint is local undo, not permanent history.</strong> It does not track files changed through shell commands or outside the session. Keep Git commits for durable versions.</span></div>
+        <div class="try-card" data-checklist="builder-08-recover"><h3>Recovery drill</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Ask for a harmless visual experiment</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Open /rewind and restore code only</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Verify Gather still saves an RSVP</span></label></li></ul><div class="try-progress"><span class="count">0 / 3</span><span class="bar"><i></i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="chapter" data-chapter="CLAUDE.md" id="instructions">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">09</span><span class="eyebrow">Project memory you control</span><h2>Leave Claude a clear note for next time.</h2><p class="lede"><span class="keyish">CLAUDE.md</span> is read at the start of project sessions. Put stable facts there: how to run Gather, where things live, and what “done” means.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="prompt-card" data-copy-root><span class="pc-label">Create project instructions</span><button class="copy-btn">Copy</button><div class="pc-text">Create a concise project-level CLAUDE.md for Gather. Include the project purpose, architecture, commands to start and test it, database migration rules, accessibility expectations, and the rule that destructive database changes require explicit approval. Keep it specific and under 100 lines. Show me the draft before saving.</div></div>
+        <div class="compare-row"><div class="compare-card"><strong>Put it in CLAUDE.md</strong><span>Stable commands, conventions, architecture, and guardrails.</span></div><div class="compare-card"><strong>Keep it in the task</strong><span>Today’s feature, a temporary experiment, or one-off acceptance criteria.</span></div></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window short" data-scene="memory"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · CLAUDE.md</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Teach the project…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="takeaway"><h3>Instructions guide; hooks enforce.</h3><p>CLAUDE.md helps Claude make good choices, but it is not a security boundary. Max will add automated guardrails where a rule must run every time.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="chapter" data-chapter="Launch" id="launch">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">10</span><span class="eyebrow">The public version</span><h2>Launch with the Railway CLI—and verify.</h2><p class="lede">A deployment is not finished when the command ends. It is finished when the public page loads and a real RSVP survives a reload.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="steps"><div class="step"><span class="step-num"></span><div><h3>Preflight</h3><p>Run tests, confirm migrations, and check that secrets are ignored by Git.</p></div></div><div class="step"><span class="step-num"></span><div><h3>Upload</h3><p>From the linked Gather folder, Claude runs <span class="keyish">railway up</span> and watches the deployment status.</p></div></div><div class="step"><span class="step-num"></span><div><h3>Create the address</h3><p>If needed, use <span class="keyish">railway domain</span> to generate the public Railway URL.</p></div></div><div class="step"><span class="step-num"></span><div><h3>Smoke test</h3><p>Open the public URL, RSVP, reload, and check Railway logs for errors.</p></div></div></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Launch prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Prepare Gather for production and deploy it with the Railway CLI. First run the tests and inspect the migration and environment-variable setup. Then run the deployment, wait for success, generate or find the public domain, and smoke-test the live RSVP flow. Stop on any failure and show me the relevant log before changing anything.</div></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="launch"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · production</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Launch Gather…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="try-card" data-checklist="builder-10-launch"><h3>Builder finish line</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Tests and migrations pass</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Railway deployment reports success</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">A live RSVP survives reload</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Share the link with one future guest</span></label></li></ul><div class="try-progress"><span class="count">0 / 4</span><span class="bar"><i></i></span></div></div>
+      </div>
+    </div>
+
+    <div class="finale route-finale reveal-scale" style="margin-top:70px">
+      <span class="eyebrow" style="justify-content:center">Builder route complete</span>
+      <h2>Gather remembers.<br>And you know why.</h2>
+      <p class="lede" style="margin-inline:auto">You planned before editing, shaped a data model, connected PostgreSQL, built safe forms, recovered from a wrong turn, documented the project, and verified a real production deployment.</p>
+      <button class="btn btn-accent magnetic" id="builder-finale" style="margin-top:10px">Complete Builder 🎉</button>
+      <p class="source-note">Feature details verified against the official <a href="https://code.claude.com/docs/en/common-workflows" target="_blank" rel="noopener">Claude Code workflows</a>, <a href="https://code.claude.com/docs/en/checkpointing" target="_blank" rel="noopener">checkpointing</a>, <a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">memory</a>, and <a href="https://docs.railway.com/cli/up" target="_blank" rel="noopener">Railway CLI</a> documentation.</p>
+    </div>
+
+    <div class="narrow" style="margin-top:44px;padding:0"><div class="teaser reveal-scale"><span class="eyebrow" style="color:#F3D28A">next: Max</span><h3>Gather has an app. Now give it a crew.</h3><p>Use agents, skills, browser testing, connectors, hooks, and routines to turn your good project into a repeatable operation.</p><a class="btn btn-accent magnetic" href="max.html">Start the Max route <span class="arrow">→</span></a></div></div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span><span><a href="index.html">Home</a> · <a href="starter.html">Starter</a> · <a href="max.html">Max</a> · <span id="year"></span></span></div></footer>
+
+<script>
+window.ZTL_SCENES = {
+  kickoff: [
+    { u: "I want to build Gather. Ask me five questions one at a time. Don't build yet.", gap: 400 },
+    { think: "Choosing the first useful question…", ms: 850 },
+    { c: "Great. <strong>Question 1:</strong> what gathering should we use as our real example?", gap: 850 },
+    { u: "A summer dinner for ten friends in the park.", gap: 450 },
+    { c: "Perfect—specific and familiar. Next: what do people need to decide before the day?", gap: 500 }
+  ],
+  plan: [
+    { u: "Plan the smallest complete Gather app from our brief. Do not edit files.", gap: 400 },
+    { think: "Inspecting the folder in read-only mode…", ms: 1000 },
+    { plan: { title: "Gather · version one", items: ["One responsive event page", "Guests, RSVPs, date votes, and tasks", "PostgreSQL persistence", "Validation and core tests", "Railway deployment"], approve: "Approve this plan", ms: 1600 }, gap: 500 },
+    { c: "Plan approved. Switch out of Plan Mode when you want me to build stage one.", gap: 300 }
+  ],
+  firstBuild: [
+    { u: "Build stage one with realistic sample data, then show me the running app.", gap: 350 },
+    { perm: { title: "Claude wants to create the Gather app", desc: "Creates project files inside this folder and installs the chosen dependencies.", allow: "Accept", ms: 1100 }, gap: 350 },
+    { files: [{name:"package.json",add:"34"},{name:"src/app.js",add:"96"},{name:"public/styles.css",add:"180"}], gap: 450 },
+    { preview: '<div style="font-family:system-ui"><strong style="color:#36536D">Dinner under the trees</strong><div style="font-size:.65rem;color:#777;margin:4px 0 8px">Saturday · Riverside Park</div><div style="display:flex;gap:5px"><span style="padding:3px 6px;background:#E7F0F6;border-radius:8px;font-size:.58rem">8 coming</span><span style="padding:3px 6px;background:#F7F2E8;border-radius:8px;font-size:.58rem">3 tasks</span></div></div>', url: "localhost:3000 · Gather", gap: 850 },
+    { c: "Stage one is running. I kept every action visible on a phone-sized screen.", gap: 300 }
+  ],
+  database: [
+    { u: "Set up Railway Postgres with the CLI. Explain commands and never print secrets.", gap: 350 },
+    { c: "I’ll first confirm the linked Railway project, then add PostgreSQL and reference its private DATABASE_URL from the app service.", gap: 450 },
+    { perm: { title: "Run Railway CLI commands", desc: "Creates cloud services in your linked Railway workspace. This can use account resources.", allow: "Review & accept", ms: 1400 }, gap: 450 },
+    { files: [{name:"db/migrations/001_gather.sql",add:"58"},{name:"src/db.js",add:"31"}], gap: 450 },
+    { c: "PostgreSQL is connected. Secret values stayed in Railway; only variable names appear in the project. ✅", gap: 300 }
+  ],
+  forms: [
+    { u: "Connect RSVP to PostgreSQL with validation and a persistence test.", gap: 350 },
+    { think: "Implementing one vertical slice…", ms: 900 },
+    { files: [{name:"src/routes/rsvp.js",add:"67"},{name:"tests/rsvp.test.js",add:"54"}], gap: 450 },
+    { c: "Valid RSVP: saved. Blank name: rejected with an inline message. Restart test: passed. <strong>3/3 checks green.</strong>", gap: 300 }
+  ],
+  delete: [
+    { u: "Add event deletion, but make it difficult to do accidentally.", gap: 350 },
+    { c: "I’ll require a confirmation that names the event, keep Cancel as the safe default, and test both choices.", gap: 450 },
+    { perm: { title: "Delete “Dinner under the trees”?", desc: "This removes the event, its RSVPs, votes, and tasks. This cannot be undone from the app.", allow: "Delete event", ms: 1500 }, gap: 400 },
+    { c: "The simulation used throwaway data. In the real app, Cancel and Confirm now have separate tests.", gap: 300 }
+  ],
+  rewind: [
+    { u: "Try a bright purple theme across Gather.", gap: 300 },
+    { files: [{name:"public/styles.css",add:"24"}], gap: 400 },
+    { u: "That was useful to see, but it's wrong. I opened /rewind and chose Restore code.", gap: 400 },
+    { c: "The theme files are back to the earlier checkpoint; our conversation stays here. I reran the smoke test: RSVP still works. ✅", gap: 300 }
+  ],
+  memory: [
+    { u: "Draft a concise project CLAUDE.md. Show me before saving.", gap: 350 },
+    { think: "Extracting stable project facts…", ms: 800 },
+    { c: "Draft: commands, architecture, migration rule, accessibility bar, and destructive-action approval. No temporary feature notes. 42 lines total.", gap: 500 },
+    { u: "Approved—save it.", gap: 300 },
+    { files: [{name:"CLAUDE.md",add:"42"}], gap: 300 },
+    { c: "Saved. New project sessions will load these instructions automatically.", gap: 250 }
+  ],
+  launch: [
+    { u: "Deploy Gather with the Railway CLI, wait for success, then smoke-test the public app.", gap: 350 },
+    { think: "Running tests and deployment preflight…", ms: 900 },
+    { c: "Tests: 18 passed. Migrations: current. Secrets: not tracked. Ready to upload.", gap: 450 },
+    { perm: { title: "Run railway up", desc: "Uploads the current Gather folder and starts a production deployment.", allow: "Deploy", ms: 1300 }, gap: 500 },
+    { c: "Deployment <strong>SUCCESS</strong> · gather-production.up.railway.app", gap: 450 },
+    { preview: '<div style="text-align:center;font-family:system-ui"><strong style="color:#36536D">You’re coming 🎉</strong><div style="font-size:.64rem;color:#777;margin-top:5px">RSVP saved · 9 guests now</div></div>', url: "gather-production.up.railway.app", gap: 400 }
+  ]
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const done = document.getElementById("builder-finale");
+  if (done) done.addEventListener("click", () => {
+    window.ZTL_celebrate();
+    done.textContent = "Builder complete — Gather is live ✨";
+  });
+});
+</script>
+<script src="shared/app.js"></script>
+</body>
+</html>

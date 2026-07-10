@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max Route — Run the Gather Crew | Zero to Launched</title>
+<meta name="description" content="Take Gather from working app to polished operation with subagents, parallel sessions, skills, browser testing, connectors, hooks, routines, and a real release.">
+<meta property="og:title" content="Max Route — Run the Gather Crew">
+<meta property="og:description" content="Coordinate an AI crew to audit, test, release, and improve Gather.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="route-max">
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Routes">
+    <a class="header-link" href="starter.html">Starter</a>
+    <a class="header-link" href="builder.html">Builder</a>
+    <a class="header-link" href="commands.html">Commands</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
+  </nav>
+</header>
+
+<div class="rail" aria-label="Max chapter progress"><div class="rail-track"><div class="rail-fill"></div></div></div>
+
+<!-- HERO -->
+<section class="chapter route-hero" data-chapter="Welcome" id="welcome">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow reveal">Max route · 12 chapters</span>
+        <h1 class="reveal" style="--d:.08s">Gather has a builder. Now give it <em>a crew.</em></h1>
+        <p class="lede reveal" style="--d:.16s">You will direct focused agents, isolate parallel changes, package repeatable judgment into a skill, test through a real browser, add guardrails, and run a release without losing the plot.</p>
+        <div class="route-meta-line reveal" style="--d:.22s"><span>About 4 hours</span><span>Continues Builder</span><span>Advanced, still plain language</span></div>
+        <p class="hero-note reveal" style="--d:.28s">Start with your finished <a href="builder.html">Builder project</a>. Connector and routine chapters have useful no-account alternatives.</p>
+        <a class="btn btn-accent magnetic reveal" style="--d:.34s" href="#map">Enter the release room <span class="arrow">↓</span></a>
+      </div>
+      <div class="crew-map reveal-scale" style="--d:.18s" aria-label="Four specialist agents reporting to the Gather lead">
+        <div class="crew-hub"><span><small>you coordinate</small>Gather lead</span></div>
+        <div class="crew-agent a"><span>Research<small>find friction</small></span></div>
+        <div class="crew-agent b"><span>Design<small>shape flows</small></span></div>
+        <div class="crew-agent c"><span>Test<small>prove behavior</small></span></div>
+        <div class="crew-agent d"><span>Review<small>guard release</small></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="chapter" data-chapter="Map" id="map">
+  <div class="container">
+    <div class="chapter-head"><span class="eyebrow reveal">The operating plan</span><h2 class="reveal" style="--d:.08s">Twelve moves. One coordinated release.</h2><p class="lede reveal" style="--d:.14s">The goal is not “more agents.” The goal is clearer work, safer boundaries, and evidence you can trust.</p></div>
+    <nav class="route-map reveal-scale" aria-label="Max chapter map">
+      <a href="#audit"><span class="map-num">01</span><span class="map-name">Audit Gather</span></a>
+      <a href="#agents"><span class="map-num">02</span><span class="map-name">Meet the crew</span></a>
+      <a href="#parallel"><span class="map-num">03</span><span class="map-name">Work in parallel</span></a>
+      <a href="#skill"><span class="map-num">04</span><span class="map-name">Package a skill</span></a>
+      <a href="#browser"><span class="map-num">05</span><span class="map-name">Test in Chrome</span></a>
+      <a href="#connect"><span class="map-num">06</span><span class="map-name">Connect planning tools</span></a>
+      <a href="#hooks"><span class="map-num">07</span><span class="map-name">Add guardrails</span></a>
+      <a href="#routine"><span class="map-num">08</span><span class="map-name">Schedule follow-ups</span></a>
+      <a href="#quality"><span class="map-num">09</span><span class="map-name">Run the audit</span></a>
+      <a href="#release"><span class="map-num">10</span><span class="map-name">Open release room</span></a>
+      <a href="#improve"><span class="map-num">11</span><span class="map-name">Watch and improve</span></a>
+      <a href="#host"><span class="map-num">12</span><span class="map-name">Host for real</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="chapter" data-chapter="Audit" id="audit">
+  <div class="container"><div class="lesson-grid">
+    <div class="lesson-stack">
+      <div><span class="chapter-number">01</span><span class="eyebrow">Observe before expanding</span><h2>Audit the app you actually have.</h2><p class="lede">An advanced workflow begins with evidence, not a bigger feature list. Ask Claude to inspect Gather, run it, and separate verified problems from ideas.</p></div>
+      <div class="compare-row"><div class="compare-card"><strong>Defect</strong><span>A promised behavior fails or creates harm.</span></div><div class="compare-card"><strong>Opportunity</strong><span>A possible improvement that needs a priority decision.</span></div></div>
+      <div class="prompt-card" data-copy-root><span class="pc-label">Audit brief</span><button class="copy-btn">Copy</button><div class="pc-text">Audit the current Gather project without editing it. Run the documented checks, inspect the main guest and organizer flows, and return three lists: verified defects with evidence, risks that need investigation, and optional improvements. Rank only the verified defects. Include the command or observation behind every finding.</div></div>
+    </div>
+    <div class="lesson-stack">
+      <div class="cc-window" data-scene="audit"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · read-only audit</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Ask for evidence…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+      <div class="takeaway"><h3>Your first Max move is saying “prove it.”</h3><p>Confidence is not evidence. A screenshot, failing test, console error, or reproducible path is evidence.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 02 -->
+<section class="chapter" data-chapter="Subagents" id="agents">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Isolated attention</span><h2>Give side quests their own context.</h2><p class="lede">A <button class="term" data-word="subagent" data-def="A specialist Claude runs in its own context window, with a focused prompt and selected tools, then returns a result to the main session.">subagent</button> is useful when research, logs, or file exploration would flood the main conversation. It returns a focused report, not another opinion in the same room.</p></div>
+    <div class="lesson-grid reverse">
+      <div class="lesson-stack">
+        <div class="agent-report"><span class="agent-dot">UX</span><div><strong>Guest-flow researcher</strong><p>Read only · reports friction and evidence</p></div></div>
+        <div class="agent-report"><span class="agent-dot">DB</span><div><strong>Data reviewer</strong><p>Read only · checks migrations and integrity</p></div></div>
+        <div class="agent-report"><span class="agent-dot">QA</span><div><strong>Test analyst</strong><p>Runs tests · reports gaps, changes nothing</p></div></div>
+        <div class="note blue"><span class="n-icon">⌁</span><span>Open <span class="keyish">/agents</span> to create or inspect agents. Project agents live in <span class="keyish">.claude/agents/</span> and can be shared with the repository.</span></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="agents"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · specialist reports</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Delegate a bounded task…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Delegate clearly</span><button class="copy-btn">Copy</button><div class="pc-text">Use separate read-only subagents to inspect Gather’s guest flow, database integrity, and test coverage. Give each one a bounded question and require file references or reproducible evidence. They must not edit files. Return a single combined table and call out disagreements.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="chapter" data-chapter="Parallel" id="parallel">
+  <div class="container"><div class="lesson-grid">
+    <div class="lesson-stack">
+      <div><span class="chapter-number">03</span><span class="eyebrow">Speed with boundaries</span><h2>Parallelize independent work—not shared files.</h2><p class="lede">Research can run together easily. Code changes need isolation. Claude Code Desktop can create parallel sessions in separate Git worktrees so one change does not silently overwrite another.</p></div>
+      <div class="compare-row"><div class="compare-card"><strong>Safe together</strong><span>Accessibility research + database analysis + copy review.</span></div><div class="compare-card"><strong>Sequence these</strong><span>Two agents editing the same form, route, schema, or migration.</span></div></div>
+      <div class="failure-card"><span class="failure-label">Conflict drill</span><h3>Two good changes, one shared component</h3><p>Stop before forcing a merge. Read both intentions, choose the desired behavior, integrate once, then rerun the narrow tests and the full suite.</p></div>
+    </div>
+    <div class="lesson-stack">
+      <div class="cc-window" data-scene="parallel"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · parallel work</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><aside class="cc-sidebar"><div class="cc-side-label">Worktrees</div><div class="cc-session active">mobile-rsvp</div><div class="cc-session">empty-states</div><div class="cc-newsession">＋ Isolated session</div></aside><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Coordinate the work…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+      <div class="try-card" data-checklist="max-03-parallel"><h3>Parallel safely</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Choose two changes with no shared files</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Run each in an isolated session or worktree</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Review and integrate one result at a time</span></label></li></ul><div class="try-progress"><span class="count">0 / 3</span><span class="bar"><i></i></span></div></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 04 -->
+<section class="chapter" data-chapter="Skill" id="skill">
+  <div class="container"><div class="lesson-grid reverse">
+    <div class="lesson-stack">
+      <div class="concept-card"><h3>CLAUDE.md says what is true.</h3><p>Commands, architecture, conventions, and stable project rules load every session.</p></div>
+      <div class="concept-card"><h3>A skill says how to do a repeatable job.</h3><p>A release checklist, accessibility review, or event-copy workflow loads only when relevant or invoked.</p></div>
+      <div class="cc-window short" data-scene="skill"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · /gather-release</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Package the workflow…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+    </div>
+    <div class="lesson-stack">
+      <div><span class="chapter-number">04</span><span class="eyebrow">Reusable judgment</span><h2>Turn your release habits into a skill.</h2><p class="lede">A project skill lives in <span class="keyish">.claude/skills/name/SKILL.md</span>. Claude can load it when relevant, or you can invoke it directly with <span class="keyish">/name</span>.</p></div>
+      <div class="prompt-card" data-copy-root><span class="pc-label">Create the skill</span><button class="copy-btn">Copy</button><div class="pc-text">Create a focused project skill named gather-release. It should gather the current change summary, run the documented tests, verify migrations and environment-variable names, check the guest flow in a narrow viewport, and produce a release recommendation. It must never deploy or change data. Keep SKILL.md concise and put longer checklists in a referenced file.</div></div>
+      <div class="takeaway"><h3>Do not turn every prompt into a skill.</h3><p>Package a workflow only after you have performed it successfully and expect to repeat it.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 05 -->
+<section class="chapter" data-chapter="Browser" id="browser">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">05</span><span class="eyebrow">A real user path</span><h2>Let Claude test what the browser actually does.</h2><p class="lede">Claude Code’s Chrome integration is currently beta. It can inspect the DOM and console, click, type, resize, and verify flows in your logged-in browser session.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="steps"><div class="step"><span class="step-num"></span><div><h3>Connect deliberately</h3><p>Run <span class="keyish">/chrome</span> and review the extension and site permissions.</p></div></div><div class="step"><span class="step-num"></span><div><h3>State the path</h3><p>Give a start state, exact actions, expected result, and data-cleanup rule.</p></div></div><div class="step"><span class="step-num"></span><div><h3>Separate observation from repair</h3><p>First reproduce and report. Approve code changes only after the evidence is clear.</p></div></div></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Browser test</span><button class="copy-btn">Copy</button><div class="pc-text">Use Chrome to test Gather at the local URL. In a phone-sized viewport: open the event, RSVP as “Jamie Test,” vote for one date, add a task, reload, and verify all three changes remain. Record console errors and screenshots of failures. Do not edit code during this pass. Remove the test records when finished.</div></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="browser"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · Chrome test</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Test the real flow…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="failure-card"><span class="failure-label">Verified defect</span><h3>Success message disappears below the keyboard</h3><p>The RSVP saves, but a phone user gets no visible confirmation. Fix the message placement, rerun only this path, then keep a regression test.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="chapter" data-chapter="Connectors" id="connect">
+  <div class="container"><div class="lesson-grid reverse">
+    <div class="lesson-stack">
+      <div class="data-map"><div class="data-node"><strong>Gather</strong><small>the source of event truth</small></div><div class="data-node"><strong>Calendar</strong><small>optional date context</small></div><div class="data-node"><strong>Messages</strong><small>draft invitation text</small></div><div class="data-node"><strong>You</strong><small>review before writes</small></div></div>
+      <div class="note"><span class="n-icon">🔌</span><span>In Desktop, use the <strong>＋</strong> beside the prompt and choose <strong>Connectors</strong>. Connect only the service needed for this session, then inspect what the connector can read and write.</span></div>
+    </div>
+    <div class="lesson-stack">
+      <div><span class="chapter-number">06</span><span class="eyebrow">Optional outside context</span><h2>Bring in calendars without giving away the steering wheel.</h2><p class="lede">A connector is an MCP server with a friendly setup flow. For Gather, the useful first move is read-only: compare candidate dates with your own calendar, then draft—not send—an invitation.</p></div>
+      <div class="prompt-card" data-copy-root><span class="pc-label">Connected planning</span><button class="copy-btn">Copy</button><div class="pc-text">Using my connected calendar, check only my availability for Gather’s three candidate dates. Do not inspect unrelated event details, create events, invite anyone, or send messages. Return busy/free windows and draft a short invitation I can review.</div></div>
+      <div class="takeaway"><h3>No connector? The lesson still works.</h3><p>Paste three fictional busy/free windows and ask Claude to compare them. The skill is defining scope and reviewing output, not owning a particular integration.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 07 -->
+<section class="chapter" data-chapter="Hooks" id="hooks">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">07</span><span class="eyebrow">Rules that actually run</span><h2>Add one narrow guardrail.</h2><p class="lede">Hooks fire at specific Claude Code lifecycle events. Unlike a reminder in CLAUDE.md, a command hook executes automatically—so start small, keep it fast, and understand every command.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="compare-row three"><div class="compare-card"><strong>PreToolUse</strong><span>Check or block before a matching tool runs.</span></div><div class="compare-card"><strong>PostToolUse</strong><span>Validate after a successful tool action.</span></div><div class="compare-card"><strong>Failure events</strong><span>Report or guide recovery after a tool fails.</span></div></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Guardrail prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Propose one project hook for Gather: after Claude edits application files, run the existing fast formatter and focused test command. Show the exact configuration and commands before writing them. It must not modify the database, deploy, install packages, or hide failures. Add a short disable-and-debug note.</div></div>
+        <div class="failure-card"><span class="failure-label">Hook failure</span><h3>The guardrail blocks every edit</h3><p>Disable the hook, run its command directly, fix the matcher or command, then re-enable it. Never weaken all permissions just to silence one broken hook.</p></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="hook"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · quality hook</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Add one guardrail…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="try-card" data-checklist="max-07-hook"><h3>Trust the hook because you tested it</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Read the exact hook command</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Trigger one passing run</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Trigger and diagnose one safe failure</span></label></li></ul><div class="try-progress"><span class="count">0 / 3</span><span class="bar"><i></i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="chapter" data-chapter="Routines" id="routine">
+  <div class="container"><div class="lesson-grid reverse">
+    <div class="lesson-stack">
+      <div class="compare-row three"><div class="compare-card"><strong>/loop</strong><span>Session-scoped polling; the open session must remain available.</span></div><div class="compare-card"><strong>Desktop task</strong><span>Persistent on your machine; can use local files.</span></div><div class="compare-card"><strong>Cloud routine</strong><span>Runs autonomously in Anthropic’s cloud; no approval prompts during the run.</span></div></div>
+      <div class="cc-window short" data-scene="routine"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · reminder draft</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Schedule a safe draft…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+    </div>
+    <div class="lesson-stack">
+      <div><span class="chapter-number">08</span><span class="eyebrow">Useful while unattended</span><h2>Automate the preparation, not the decision.</h2><p class="lede">A safe Gather routine checks who has not replied and prepares a reminder draft. It does not message guests, alter RSVPs, or push unrestricted changes.</p></div>
+      <div class="prompt-card" data-copy-root><span class="pc-label">Routine design</span><button class="copy-btn">Copy</button><div class="pc-text">Design a weekly Gather follow-up routine that reads only the event’s RSVP summary, produces a private report, and drafts reminder text for my review. It must not send messages, change event data, or push to unrestricted branches. Include the minimum repository, network, variable, and connector access it needs. Do not create it until I approve the design.</div></div>
+      <div class="note"><span class="n-icon">⚠</span><span><strong>Cloud routines run without approval dialogs.</strong> Remove every repository, connector, network permission, and write capability the job does not require.</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 09 -->
+<section class="chapter" data-chapter="Quality" id="quality">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">09</span><span class="eyebrow">Many lenses, one report</span><h2>Run the quality audit without creating a panic list.</h2><p class="lede">Give each reviewer a narrow lens. Then ask the coordinator to deduplicate findings, verify evidence, and rank impact—not volume.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack"><div class="agent-report"><span class="agent-dot">A11Y</span><div><strong>Accessibility</strong><p>Keyboard, focus, labels, contrast, reduced motion</p></div></div><div class="agent-report"><span class="agent-dot">SEC</span><div><strong>Privacy and security</strong><p>Secrets, input handling, destructive paths, exposure</p></div></div><div class="agent-report"><span class="agent-dot">PERF</span><div><strong>Performance</strong><p>Measured slow paths and unnecessary payloads</p></div></div><div class="agent-report"><span class="agent-dot">UX</span><div><strong>Responsive usability</strong><p>Guest tasks across narrow and wide screens</p></div></div></div>
+      <div class="lesson-stack">
+        <div class="prompt-card" data-copy-root><span class="pc-label">Coordinated audit</span><button class="copy-btn">Copy</button><div class="pc-text">Coordinate four read-only reviewers for accessibility, privacy/security, measured performance, and responsive usability. Each finding needs evidence, affected user, severity rationale, and a verification step. Merge duplicates and challenge unsupported claims. Return at most eight verified findings; do not edit code.</div></div>
+        <div class="takeaway"><h3>“Eight verified findings” beats “forty-seven concerns.”</h3><p>A bounded report forces the crew to distinguish impact from possibility.</p></div>
+        <div class="try-card" data-checklist="max-09-audit"><h3>Audit acceptance</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Every finding has evidence</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Duplicates are merged</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Top three fixes have verification steps</span></label></li></ul><div class="try-progress"><span class="count">0 / 3</span><span class="bar"><i></i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="chapter" data-chapter="Release" id="release">
+  <div class="container"><div class="lesson-grid reverse">
+    <div class="lesson-stack">
+      <div class="cc-window" data-scene="release"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · release room</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Run the release…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+      <div class="release-strip"><span class="release-chip">scope frozen</span><span class="release-chip">tests pass</span><span class="release-chip">migration reviewed</span><span class="release-chip">mobile path passes</span><span class="release-chip">rollback named</span></div>
+    </div>
+    <div class="lesson-stack">
+      <div><span class="chapter-number">10</span><span class="eyebrow">The release room</span><h2>Bring every result back to one decision.</h2><p class="lede">The coordinator owns the release narrative: what changed, what was proven, what remains uncertain, how to deploy, and how to go back.</p></div>
+      <div class="prompt-card" data-copy-root><span class="pc-label">Release prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Run /gather-release for the current candidate. Reconcile the specialist reports, inspect the final diff, run the full test suite and browser smoke path, verify the production migration and rollback point, then present a go/no-go recommendation. Do not deploy until I explicitly say “go.”</div></div>
+      <div class="failure-card"><span class="failure-label">No-go is success</span><h3>A migration test fails five minutes before release</h3><p>Do not “try the deploy and see.” Keep production unchanged, capture the failure, narrow the fix, rerun the complete gate, and make a fresh decision.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 11 -->
+<section class="chapter" data-chapter="Improve" id="improve">
+  <div class="container"><div class="lesson-grid">
+    <div class="lesson-stack">
+      <div><span class="chapter-number">11</span><span class="eyebrow">After launch</span><h2>Watch one signal and improve one thing.</h2><p class="lede">Do not turn a small event into an analytics empire. Logs, one organizer observation, and one guest comment are enough for the first improvement.</p></div>
+      <div class="steps"><div class="step"><span class="step-num"></span><div><h3>Observe</h3><p>What did someone try, and where did they hesitate or fail?</p></div></div><div class="step"><span class="step-num"></span><div><h3>Verify</h3><p>Can the browser test reproduce it? Do logs support the story?</p></div></div><div class="step"><span class="step-num"></span><div><h3>Improve</h3><p>Make the smallest change that solves the verified problem.</p></div></div><div class="step"><span class="step-num"></span><div><h3>Compare</h3><p>Run the same path again and record the result.</p></div></div></div>
+    </div>
+    <div class="lesson-stack">
+      <div class="gather-board"><div class="gather-topbar"><span class="gather-mark">gather</span><span>after the first guests</span></div><div class="gather-content"><span class="gather-date">ONE SIGNAL</span><div class="gather-title">“I couldn’t tell if my vote saved.”</div><div class="gather-place">Reproduced on a narrow screen · no console error</div><div class="gather-task done"><i></i> Move confirmation beside the vote</div><div class="gather-task done"><i></i> Announce update to screen readers</div><div class="gather-task"><i></i> Rerun the same browser path</div></div></div>
+      <div class="prompt-card" data-copy-root><span class="pc-label">Small improvement</span><button class="copy-btn">Copy</button><div class="pc-text">Investigate this guest observation: “I couldn’t tell if my date vote saved.” Reproduce it before editing. If verified, make the smallest accessible feedback improvement, add a regression test, and rerun the same browser path. Report before and after evidence.</div></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 12 -->
+<section class="chapter" data-chapter="Host" id="host">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">12</span><span class="eyebrow">The capstone</span><h2>Use Gather for an actual gathering.</h2><p class="lede">A product becomes real when someone else uses it without you explaining every screen. Keep the event low-stakes, protect people’s information, and observe with kindness.</p></div>
+    <div class="lesson-grid">
+      <div class="try-card" data-checklist="max-12-host"><h3>Host with Gather</h3><ul class="checklist"><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Create one low-stakes event</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Invite two or more people with permission</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Let them respond without coaching</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Record one observation, not private content</span></label></li><li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Ship one verified improvement—or decide none is needed</span></label></li></ul><div class="try-progress"><span class="count">0 / 5</span><span class="bar"><i></i></span></div></div>
+      <div class="lesson-stack">
+        <div class="concept-card"><h3>The Max habit</h3><p>Delegate exploration. Isolate code changes. Demand evidence. Keep permissions narrow. Bring every result back to one accountable decision.</p></div>
+        <div class="concept-card"><h3>The human rule</h3><p>Your guests are not test data. Ask permission, collect only what the event needs, and delete old event information when it no longer has a purpose.</p></div>
+        <div class="release-strip"><span class="release-chip">real event</span><span class="release-chip">real guests</span><span class="release-chip">reviewed release</span><span class="release-chip">one learning</span></div>
+      </div>
+    </div>
+
+    <div class="finale route-finale reveal-scale" style="margin-top:70px">
+      <span class="eyebrow" style="justify-content:center">Max route complete</span>
+      <h2>You did not just build Gather.<br>You learned how to lead the work.</h2>
+      <p class="lede" style="margin-inline:auto">Research, implementation, testing, integrations, automation, and release all stayed connected to one human outcome: helping people meet.</p>
+      <button class="btn btn-accent magnetic" id="max-finale" style="margin-top:10px">Complete Max ✨</button>
+      <p class="source-note">Feature details verified against official Claude Code documentation for <a href="https://code.claude.com/docs/en/sub-agents" target="_blank" rel="noopener">subagents</a>, <a href="https://code.claude.com/docs/en/slash-commands" target="_blank" rel="noopener">skills</a>, <a href="https://code.claude.com/docs/en/chrome" target="_blank" rel="noopener">Chrome</a>, <a href="https://code.claude.com/docs/en/hooks-guide" target="_blank" rel="noopener">hooks</a>, and <a href="https://code.claude.com/docs/en/routines" target="_blank" rel="noopener">routines</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span><span><a href="index.html">Home</a> · <a href="starter.html">Starter</a> · <a href="builder.html">Builder</a> · <span id="year"></span></span></div></footer>
+
+<script>
+window.ZTL_SCENES = {
+  audit: [
+    { u: "Audit Gather without editing. Separate defects, risks, and ideas. Require evidence.", gap: 350 },
+    { think: "Running documented checks and inspecting flows…", ms: 950 },
+    { c: "Verified defect: RSVP confirmation is below the viewport on a 360px screen. Evidence: browser path + screenshot. Two ideas were moved to the optional list.", gap: 400 }
+  ],
+  agents: [
+    { u: "Use three read-only subagents for guest flow, data integrity, and test coverage.", gap: 350 },
+    { think: "Guest-flow agent working…", ms: 650 },
+    { think: "Data reviewer working…", ms: 650 },
+    { think: "Test analyst working…", ms: 650 },
+    { c: "All reports returned. Two findings overlap; one claim lacks evidence and is excluded. <strong>3 verified findings remain.</strong>", gap: 300 }
+  ],
+  parallel: [
+    { u: "Run the mobile RSVP fix and new empty-state copy in isolated parallel sessions.", gap: 350 },
+    { c: "Boundary check: different files and tests, so they can proceed independently in worktrees.", gap: 400 },
+    { files: [{name:"worktree/mobile-rsvp",add:"ready"},{name:"worktree/empty-states",add:"ready"}], gap: 450 },
+    { c: "Both passed their focused tests. I’ll present each diff separately before integration.", gap: 300 }
+  ],
+  skill: [
+    { u: "Create the gather-release skill from our proven checklist. It must never deploy.", gap: 350 },
+    { files: [{name:".claude/skills/gather-release/SKILL.md",add:"58"},{name:".claude/skills/gather-release/references/checklist.md",add:"34"}], gap: 450 },
+    { c: "Skill created. It loads only when relevant or when you run <strong>/gather-release</strong>. Deploy tools are explicitly out of scope.", gap: 300 }
+  ],
+  browser: [
+    { u: "Use Chrome to run the phone RSVP → vote → task → reload path. Observe only.", gap: 350 },
+    { think: "Testing at 360 × 800…", ms: 1000 },
+    { c: "RSVP and vote persist. Defect reproduced: the success message appears under the keyboard. Screenshot and DOM location captured. No code changed.", gap: 350 }
+  ],
+  hook: [
+    { u: "Show me a narrow post-edit formatter and test hook before installing it.", gap: 350 },
+    { plan: { title: "Project hook", items: ["Match edits under src/", "Run existing formatter check", "Run focused unit tests", "Return failures visibly", "Never touch DB or network"], approve: "Install this hook", ms: 1500 }, gap: 450 },
+    { files: [{name:".claude/settings.json",add:"18"}], gap: 300 },
+    { c: "Installed and tested once passing, once with a safe intentional failure. Disable instructions are documented.", gap: 300 }
+  ],
+  routine: [
+    { u: "Design a weekly RSVP follow-up that drafts reminders but sends nothing.", gap: 350 },
+    { c: "Proposed scope: read the RSVP summary, write a private report, draft text. No message connector, no database writes, no unrestricted branch pushes.", gap: 450 },
+    { plan: { title: "Weekly follow-up routine", items: ["Read RSVP summary", "List missing responses", "Draft one reminder", "Save report for review", "Never send or mutate data"], approve: "Review before creating", ms: 1500 }, gap: 300 }
+  ],
+  release: [
+    { u: "Run /gather-release and give me a go/no-go recommendation. Do not deploy.", gap: 350 },
+    { think: "Reconciling reports and running release gates…", ms: 1100 },
+    { c: "Scope frozen · 26 tests pass · migration dry run passes · mobile browser path passes · rollback is deployment 7f21. <strong>Recommendation: GO.</strong>", gap: 450 },
+    { u: "Go. Deploy with Railway CLI and verify the live path.", gap: 350 },
+    { perm: { title: "Deploy the reviewed release", desc: "Uploads the approved candidate to Gather’s linked Railway production service.", allow: "Deploy", ms: 1300 }, gap: 450 },
+    { c: "Production healthy. Live RSVP smoke test passed; temporary record removed. Release complete. ✅", gap: 300 }
+  ]
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const done = document.getElementById("max-finale");
+  if (done) done.addEventListener("click", () => {
+    window.ZTL_celebrate();
+    done.textContent = "Max complete — you lead the crew ✨";
+  });
+});
+</script>
+<script src="shared/app.js"></script>
+</body>
+</html>

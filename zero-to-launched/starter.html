@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starter Route — Zero to Launched</title>
+<meta name="description" content="Your first project, live on the internet. Install Claude Code, learn to talk to it, build a personal website together — no coding knowledge needed.">
+<meta property="og:title" content="Starter Route — Zero to Launched">
+<meta property="og:description" content="From installing Claude Code to your own website, live on the internet. Zero jargon.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shared/styles.css">
+<style>
+/* ---- page-specific bits ---- */
+.journey { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 26px; }
+.journey .jstep { background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 7px 16px; font-size: .85rem; font-weight: 700; color: var(--ink-2); box-shadow: var(--shadow-1); }
+.journey .jarrow { color: var(--ink-3); }
+
+/* tour window extras */
+.cc-toolbar { display: flex; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--line-soft); background: #FBF9F4; font-size: .68rem; color: var(--ink-2); }
+.cc-chipbtn { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 3px 10px; font-weight: 600; white-space: nowrap; }
+.cc-footrow { display: flex; gap: 8px; padding: 0 14px 12px; font-size: .66rem; color: var(--ink-3); align-items: center; }
+.tour-stage { position: relative; }
+
+/* prompt anatomy */
+.anatomy { font-family: var(--mono); font-size: .92rem; line-height: 2; background: var(--ink); color: #F2EDE3; border-radius: 16px; padding: 26px 28px; box-shadow: var(--shadow-2); }
+.anatomy .a { padding: 2px 7px; border-radius: 7px; white-space: normal; }
+.a-goal { background: rgba(217,119,87,.35); outline: 1px solid rgba(246,196,174,.5); }
+.a-aud  { background: rgba(82,112,139,.45); outline: 1px solid rgba(160,190,214,.5); }
+.a-must { background: rgba(62,142,99,.4); outline: 1px solid rgba(150,210,175,.5); }
+.a-look { background: rgba(185,138,52,.4); outline: 1px solid rgba(233,196,106,.55); }
+.a-ask  { background: rgba(255,255,255,.14); outline: 1px dashed rgba(255,255,255,.4); }
+.legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.legend span { font-size: .78rem; font-weight: 700; padding: 4px 12px; border-radius: 99px; }
+.lg-goal { background: var(--accent-soft); color: var(--accent-deep); }
+.lg-aud { background: var(--slate-soft); color: var(--slate-deep); }
+.lg-must { background: var(--green-soft); color: var(--green); }
+.lg-look { background: var(--gold-soft); color: var(--gold); }
+.lg-ask { background: var(--paper-2); color: var(--ink-2); }
+
+/* permission-mode chips */
+.mode-chips { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 18px; }
+@media (max-width: 640px) { .mode-chips { grid-template-columns: 1fr; } }
+.mode-chip { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 13px 16px; font-size: .86rem; }
+.mode-chip strong { display: block; margin-bottom: 2px; }
+.mode-chip.active { border-color: var(--accent); background: var(--accent-softer); }
+.mode-chip.active strong::after { content: " · the safe default"; color: var(--accent-deep); font-size: .78em; }
+
+/* rewind mock */
+.rewind-mock { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow-2); overflow: hidden; font-size: .84rem; max-width: 420px; }
+.rewind-mock .rw-head { padding: 10px 16px; font-weight: 700; border-bottom: 1px solid var(--line-soft); background: var(--paper-2); font-size: .78rem; letter-spacing: .06em; }
+.rewind-mock .rw-item { display: flex; justify-content: space-between; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2); }
+.rewind-mock .rw-item.sel { background: var(--accent-softer); color: var(--ink); font-weight: 600; }
+.rewind-mock .rw-item .kbd-hint { font-size: .7rem; color: var(--ink-3); }
+.rewind-mock .rw-item.sel .restore { color: var(--accent-deep); font-weight: 700; font-size: .76rem; white-space: nowrap; }
+
+/* the big launch moment */
+.moment { text-align: center; padding: clamp(30px, 5vw, 60px) 0 0; }
+.moment .site-mock { max-width: 380px; margin: 26px auto 0; transform: rotate(-1deg); }
+.moment .url-reveal { font-family: var(--mono); font-size: clamp(1rem, 3vw, 1.5rem); font-weight: 700; color: var(--accent-deep); background: var(--accent-softer); border: 1.5px dashed var(--accent); border-radius: 14px; display: inline-block; padding: 12px 26px; margin-top: 26px; }
+
+/* bug formula */
+.formula { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 760px) { .formula { grid-template-columns: 1fr; } }
+.formula .f-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 18px; font-size: .9rem; }
+.formula .f-card .f-tag { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--slate-deep); background: var(--slate-soft); border-radius: 99px; padding: 3px 10px; display: inline-block; margin-bottom: 10px; }
+.formula .f-card em { color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions">
+    <a class="header-link" href="index.html#routes">All routes</a>
+    <a class="header-link" href="builder.html">Builder</a>
+    <a class="header-link" href="commands.html">Commands</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds">
+      <span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound
+    </button>
+  </nav>
+</header>
+
+<div class="rail" aria-hidden="true"><div class="rail-track"><div class="rail-fill"></div></div></div>
+
+<!-- ============ CHAPTER 0 — WELCOME ============ -->
+<section class="chapter" data-chapter="Welcome" style="padding-top:140px">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow reveal">Starter route · chapter 0</span>
+        <h1 class="reveal" style="--d:.08s; font-size:clamp(2.3rem,5vw,3.6rem)">Together, we'll put <em>your</em> website on the internet.</h1>
+        <p class="lede reveal" style="--d:.16s">One continuous project, start to finish: a personal mini-website with your name, a short bio, your photo and your links. By the last chapter it will have a real address anyone in the world can visit. You will not write code. You'll do something better — you'll <strong>direct</strong>.</p>
+        <div class="journey reveal" style="--d:.24s" aria-label="The journey ahead">
+          <span class="jstep">⬇ Install</span><span class="jarrow">→</span>
+          <span class="jstep">🔑 Accounts</span><span class="jarrow">→</span>
+          <span class="jstep">💡 Idea</span><span class="jarrow">→</span>
+          <span class="jstep">✍️ Prompt</span><span class="jarrow">→</span>
+          <span class="jstep">🔨 Build</span><span class="jarrow">→</span>
+          <span class="jstep">🧪 Test</span><span class="jarrow">→</span>
+          <span class="jstep">🚀 Launch</span>
+        </div>
+        <p class="hero-note reveal" style="--d:.3s">Your progress in the checklists saves automatically — leave and come back anytime.</p>
+      </div>
+      <div class="reveal-scale" style="--d:.2s">
+        <div class="site-mock" style="max-width:340px; margin-inline:auto; transform:rotate(1.5deg)">
+          <div class="bar"><i></i><i></i><i></i><span class="url">your-name.up.railway.app</span></div>
+          <div class="page">
+            <div class="avatar built" data-piece>You</div>
+            <div class="name built" data-piece>Your Name Here</div>
+            <div class="bio built" data-piece>The internet has a you-shaped space waiting. Let's fill it.</div>
+            <a class="link-btn built" data-piece>🌱 The thing you love</a>
+            <a class="link-btn built" data-piece>✉️ Say hello</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 1 — WHAT IS CLAUDE CODE ============ -->
+<section class="chapter" data-chapter="The idea">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">Chapter 1 · 60 seconds, zero jargon</span>
+      <h2 class="reveal" style="--d:.08s">What is Claude Code?</h2>
+      <p class="lede reveal" style="--d:.14s">Imagine a skilled builder who lives inside your computer. You describe what you want in normal language — the builder does all the technical work, shows you the result, and <strong>asks your permission</strong> before doing anything important. That's Claude Code. It's an app, like any other app, with buttons and panels. No black screens with green text.</p>
+    </div>
+
+    <div class="diagram-wrap reveal-scale">
+      <svg class="draw-on-scroll" viewBox="0 0 900 250" role="img" aria-label="Diagram: you provide the idea in words, Claude Code does the work and asks before acting, and the result is real files that become a real website.">
+        <g class="pop" style="--d:.1s">
+          <circle cx="110" cy="115" r="52" fill="#FBEDE7" stroke="#D97757" stroke-width="2.5"/>
+          <text x="110" y="108" text-anchor="middle" font-size="30">🧑</text>
+          <text x="110" y="137" text-anchor="middle" font-size="14" font-weight="700" fill="#29241F">You</text>
+          <text x="110" y="200" text-anchor="middle" font-size="13" fill="#6B6257">“I want a website that…”</text>
+        </g>
+        <path class="draw-path" style="--d:.5s" d="M175 115 C 240 75, 280 75, 340 110" fill="none" stroke="#D97757" stroke-width="3" stroke-linecap="round"/>
+        <path class="pop" style="--d:1s" d="M332 97 l14 12 l-18 5 z" fill="#D97757"/>
+        <g class="pop" style="--d:.9s">
+          <rect x="355" y="60" width="190" height="110" rx="18" fill="#FFFFFF" stroke="#E8E2D6" stroke-width="2.5"/>
+          <rect x="355" y="60" width="190" height="26" rx="13" fill="#F4F0E6"/>
+          <circle cx="372" cy="73" r="4" fill="#F4A69D"/><circle cx="385" cy="73" r="4" fill="#F6D488"/><circle cx="398" cy="73" r="4" fill="#A8D5B2"/>
+          <text x="450" y="120" text-anchor="middle" font-size="16" font-weight="700" fill="#29241F">Claude Code</text>
+          <text x="450" y="143" text-anchor="middle" font-size="12" fill="#6B6257">does the technical work</text>
+        </g>
+        <g class="pop" style="--d:1.6s">
+          <rect x="398" y="15" width="145" height="30" rx="10" fill="#F9F1E0" stroke="#B98A34" stroke-width="1.5"/>
+          <text x="470" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="#6B5A33">“May I?” → You: Yes ✓</text>
+        </g>
+        <path class="draw-path" style="--d:1.4s" d="M560 110 C 620 75, 660 75, 722 110" fill="none" stroke="#52708B" stroke-width="3" stroke-linecap="round"/>
+        <path class="pop" style="--d:1.9s" d="M714 97 l14 12 l-18 5 z" fill="#52708B"/>
+        <g class="pop" style="--d:1.8s">
+          <circle cx="790" cy="115" r="52" fill="#EBF1F5" stroke="#52708B" stroke-width="2.5"/>
+          <text x="790" y="108" text-anchor="middle" font-size="30">🌐</text>
+          <text x="790" y="137" text-anchor="middle" font-size="14" font-weight="700" fill="#29241F">Your site</text>
+          <text x="790" y="200" text-anchor="middle" font-size="13" fill="#6B6257">Real files → a real website</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="cards-3" style="margin-top:40px">
+      <div class="info-card reveal" style="--d:.05s"><div class="icon">🛡️</div><h4>You can't break your computer</h4><p>This fear stops more beginners than anything else, so let's kill it now: Claude Code works inside one project folder, asks before important actions, and every change can be rewound. Worst case? You say “undo that.”</p></div>
+      <div class="info-card reveal" style="--d:.15s"><div class="icon slate">↩️</div><h4>Everything can be undone</h4><p>The app automatically saves a restore point every time you send a message. Later we'll show you the exact two-key shortcut that opens the rewind menu.</p></div>
+      <div class="info-card reveal" style="--d:.25s"><div class="icon green">👀</div><h4>You stay in charge</h4><p>Claude proposes, you decide. Files it creates are normal files in a normal folder on your computer — you can look at them anytime, even if you can't read them yet.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 2 — INSTALL ============ -->
+<section class="chapter" data-chapter="Install" data-os-scope>
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">Chapter 2 · get it on your computer</span>
+      <h2 class="reveal" style="--d:.08s">Ten minutes of setup, a lifetime of building.</h2>
+      <p class="lede reveal" style="--d:.14s">Claude Code lives inside the <strong>Claude desktop app</strong>. We detected your computer type below — tap the other tab if we guessed wrong.</p>
+    </div>
+
+    <div class="os-tabs reveal" role="tablist">
+      <button class="os-tab" role="tab" data-os="mac" aria-selected="false"> Mac</button>
+      <button class="os-tab" role="tab" data-os="windows" aria-selected="false">⊞ Windows</button>
+    </div>
+
+    <div class="split" style="align-items:start">
+      <div>
+        <div data-os-panel="mac" hidden>
+          <div class="steps">
+            <div class="step"><span class="step-num"></span><div><h4>Download the Claude app</h4><p>Go to <a href="https://code.claude.com/docs/en/desktop-quickstart" target="_blank" rel="noopener">code.claude.com/docs → Desktop quickstart</a> and download the Mac version. You'll get a file ending in <span class="keyish">.dmg</span>.</p></div></div>
+            <div class="step"><span class="step-num"></span><div><h4>Drag it into Applications</h4><p>Open the downloaded file. A window appears — drag the Claude icon into the <strong>Applications</strong> folder. That's the whole install.</p></div></div>
+            <div class="step"><span class="step-num"></span><div><h4>Open it and sign in</h4><p>Launch Claude from your Applications folder and sign in with your Claude account. One honest sentence about money: Claude Code needs a paid plan — <strong>Pro</strong> (from $17/month) or above. You can subscribe at <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>.</p></div></div>
+            <div class="step"><span class="step-num"></span><div><h4>Click the “Code” tab</h4><p>At the top center of the app you'll see tabs. Click <strong>Code</strong>. Welcome to your new workshop. 🔨</p></div></div>
+          </div>
+        </div>
+        <div data-os-panel="windows" hidden>
+          <div class="steps">
+            <div class="step"><span class="step-num"></span><div><h4>Download the Claude app</h4><p>Go to <a href="https://code.claude.com/docs/en/desktop-quickstart" target="_blank" rel="noopener">code.claude.com/docs → Desktop quickstart</a> and download the Windows version. You'll get an installer ending in <span class="keyish">.exe</span>.</p></div></div>
+            <div class="step"><span class="step-num"></span><div><h4>Run the installer</h4><p>Double-click the downloaded file and follow the prompts. When it finishes, open <strong>Claude</strong> from your Start menu.</p></div></div>
+            <div class="step"><span class="step-num"></span><div><h4>Sign in — and add one free helper</h4><p>Sign in with your Claude account (Claude Code needs a paid plan — <strong>Pro</strong>, from $17/month, at <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>). On Windows, the app also needs a free helper program called <strong>Git</strong> — it's what remembers versions of your project. Download it from <a href="https://git-scm.com" target="_blank" rel="noopener">git-scm.com</a>, install it with all the default choices (just keep clicking “Next”), then restart the Claude app.</p></div></div>
+            <div class="step"><span class="step-num"></span><div><h4>Click the “Code” tab</h4><p>At the top center of the app you'll see tabs. Click <strong>Code</strong>. Welcome to your new workshop. 🔨</p></div></div>
+          </div>
+        </div>
+        <div class="note" style="margin-top:22px"><span class="n-icon">💡</span><span>Screens update sometimes — if yours looks slightly different, the idea is the same. And here's a secret: you can always ask Claude itself. “How do I…?” is a perfectly good message.</span></div>
+      </div>
+
+      <div>
+        <p class="reveal" style="font-weight:700; margin-bottom:14px">👇 Your first look around — tap the numbered dots:</p>
+        <div class="tour-stage reveal-scale">
+          <div class="cc-window">
+            <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Claude — Code tab</span></div>
+            <div class="cc-toolbar"><span class="cc-chipbtn">📁 Select folder ▾</span><span class="cc-chipbtn">Local ▾</span></div>
+            <div class="cc-body" style="min-height:280px">
+              <aside class="cc-sidebar">
+                <div class="cc-side-label">Sessions</div>
+                <div class="cc-session active">my-website</div>
+                <div class="cc-session">holiday ideas</div>
+                <div class="cc-newsession">＋ New session</div>
+              </aside>
+              <div class="cc-main">
+                <div class="cc-chat"><div class="cc-msg claude" style="animation:none">Hi! Pick a folder and tell me what you'd like to build.</div></div>
+                <div class="cc-composer"><span class="ph">Describe what you want to build…</span><span class="cc-composer-text"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div>
+                <div class="cc-footrow"><span class="cc-chipbtn">＋</span><span class="cc-chipbtn">Manual ▾</span><span style="margin-left:auto">model ▾</span></div>
+              </div>
+            </div>
+            <button class="hotspot" style="top:110px; left:60px" data-tip="<strong>Your sessions.</strong> Each project conversation lives here. Click “+ New session” to start something fresh — you can have several going at once." aria-label="Explain the sessions sidebar">1</button>
+            <button class="hotspot" style="top:44px; left:150px" data-tip="<strong>Select folder.</strong> This tells Claude which folder on your computer to work in. For our project you'll make a new empty folder called “my-website”." aria-label="Explain the folder selector">2</button>
+            <button class="hotspot" style="bottom:74px; right:120px" data-tip="<strong>This is where you talk to Claude.</strong> Normal words, full sentences, even typos — it all works. Press Enter to send." aria-label="Explain the message box">3</button>
+            <button class="hotspot" style="bottom:26px; left:150px" data-tip="<strong>The + button.</strong> Attach photos, screenshots and files to your message. You'll use this in chapter 6 — it's a superpower." aria-label="Explain the plus button">4</button>
+            <button class="hotspot" style="bottom:26px; left:210px" data-tip="<strong>Permission mode.</strong> “Manual” means Claude asks before every important action — the safe default. Leave it right there for now." aria-label="Explain the permission mode selector">5</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-card" data-checklist="ch2-install">
+      <h4>Get set up for real</h4>
+      <ul class="checklist">
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Download and install the Claude desktop app for your computer</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Sign in with a Claude account on a paid plan (Pro or above)</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Windows only: install Git from git-scm.com, then restart the app</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Click the <strong>Code</strong> tab and just look around — touch nothing, break nothing</span></label></li>
+      </ul>
+      <div class="try-progress"><span class="count">0 / 4</span><span class="bar"><i></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 3 — ACCOUNTS ============ -->
+<section class="chapter" data-chapter="Accounts">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">Chapter 3 · your supporting cast</span>
+      <h2 class="reveal" style="--d:.08s">Two free accounts that make you unstoppable.</h2>
+      <p class="lede reveal" style="--d:.14s">Create these now; Claude Code will handle the technical connections later, when we ask it to. You'll never touch the complicated parts.</p>
+    </div>
+
+    <div class="cards-2">
+      <div class="info-card reveal" style="--d:.05s">
+        <div class="icon">🐙</div>
+        <h4>GitHub — the safe home for your project</h4>
+        <p style="margin-bottom:12px">A <button class="term" data-def="A folder for your project that also remembers every version of it — like unlimited undo for your whole project." data-word="repository">repository</button> on GitHub is where your project lives safely: every version remembered, nothing ever lost, even if your laptop takes a swim. When we're ready, you'll simply tell Claude <em>“save this to my GitHub”</em> — it does the pushing and pulling for you.</p>
+        <p><strong>Sign up free:</strong> go to <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a> → enter your email, choose a password and a username → confirm the verification code GitHub emails you. Done.</p>
+      </div>
+      <div class="info-card reveal" style="--d:.15s">
+        <div class="icon slate">🚄</div>
+        <h4>Railway — the service that puts you online</h4>
+        <p style="margin-bottom:12px">Railway takes your project and puts it on the real internet — this is called <button class="term" data-def="Copying your project onto a computer that's always on and connected, so anyone in the world can visit it." data-word="deploying">deploying</button>. It can also give your future projects a <button class="term" data-def="A place where an app permanently remembers things — like names people type into a guest book. Your Starter website won't need one yet." data-word="database">database</button> — that's a Builder-route adventure.</p>
+        <p><strong>Sign up:</strong> go to <a href="https://railway.com" target="_blank" rel="noopener">railway.com</a> and choose <strong>“Sign in with GitHub”</strong> — one click, using the account you just made. This also links the two services together, which we'll need in chapter 7.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:22px"><span class="n-icon">💰</span><span><strong>Honest money note:</strong> GitHub is free, full stop. Railway gives new accounts a one-time <strong>$5 trial credit (lasts up to 30 days)</strong> — plenty for this tutorial. Brand-new GitHub accounts sometimes get a “limited” trial; if Railway asks, you can verify your account at railway.com/verify. After the trial, keeping a site up may need the Hobby plan (<strong>$5/month</strong>). If you'd rather pay nothing ever, chapter 7 has a one-line free alternative too.</span></div>
+
+    <div class="try-card" data-checklist="ch3-accounts">
+      <h4>Assemble your toolkit</h4>
+      <ul class="checklist">
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Create a free GitHub account at github.com/signup (don't forget the email verification!)</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Create a Railway account at railway.com — use “Sign in with GitHub”</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Write both passwords somewhere safe (future-you says thanks)</span></label></li>
+      </ul>
+      <div class="try-progress"><span class="count">0 / 3</span><span class="bar"><i></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 4 — THE PROMPT ============ -->
+<section class="chapter" data-chapter="Your prompt">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">Chapter 4 · the most important skill</span>
+      <h2 class="reveal" style="--d:.08s">From idea to a great prompt.</h2>
+      <p class="lede reveal" style="--d:.14s">A <button class="term" data-def="The message you send Claude describing what you want. The better the prompt, the better the result." data-word="prompt">prompt</button> is just your wish, written down. Here's the secret nobody tells beginners: <strong>you don't have to write the perfect prompt alone.</strong> Claude will interview you and write it <em>with</em> you. Watch:</p>
+    </div>
+
+    <div class="split" style="align-items:start">
+      <div class="reveal-scale">
+        <div class="cc-window tall" data-scene="interview">
+          <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span><button class="cc-replay">↺ Replay</button></div>
+          <div class="cc-body">
+            <aside class="cc-sidebar" aria-hidden="true"><div class="cc-side-label">Sessions</div><div class="cc-session active">my-website</div><div class="cc-newsession">＋ New session</div></aside>
+            <div class="cc-main">
+              <div class="cc-chat" aria-live="polite"></div>
+              <div class="cc-composer"><span class="ph">Describe what you want to build…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="reveal">The interview trick</h3>
+        <p class="reveal" style="--d:.08s; color:var(--ink-2)">Instead of guessing what to write, ask Claude to ask <em>you</em>. It pulls the idea out of your head one friendly question at a time, then turns your answers into a professional build plan. Steal this opener word for word:</p>
+        <div class="prompt-card reveal-scale" style="--d:.14s" data-copy-root>
+          <span class="pc-label">Copy this prompt</span>
+          <button class="copy-btn">Copy</button>
+          <span class="pc-text">I want a personal website. Ask me questions one at a time about what it should include and how it should look. Then write me a complete build plan in plain language.</span>
+        </div>
+        <h3 class="reveal" style="margin-top:34px">The anatomy of a great prompt</h3>
+        <div class="anatomy reveal-scale" style="--d:.08s">
+          <span class="a a-goal">Build me a one-page personal website</span> <span class="a a-aud">for friends, family and future clients to find me</span>. <span class="a a-must">It must include: my name and photo, a short bio, a photo gallery, and a contact button.</span> <span class="a a-look">Look &amp; feel: warm colors, big friendly type, works beautifully on phones.</span> <span class="a a-ask">Ask me questions if anything is unclear.</span>
+        </div>
+        <div class="legend reveal" style="--d:.14s">
+          <span class="lg-goal">the goal</span><span class="lg-aud">who it's for</span><span class="lg-must">must-haves</span><span class="lg-look">look &amp; feel</span><span class="lg-ask">the magic sentence</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:64px">
+      <h3 class="center reveal">Now build <em>your</em> prompt — try the machine ✨</h3>
+      <p class="center lede reveal" style="--d:.06s; margin-inline:auto">Fill the fields (or load a preset) and watch a professional prompt assemble itself.</p>
+      <div class="builder-widget reveal-scale" style="margin-top:26px">
+        <div class="builder-grid">
+          <div class="builder-form">
+            <div class="presets">
+              <button class="preset-btn" data-preset="personal">🙋 Personal site</button>
+              <button class="preset-btn" data-preset="club">🎾 Hobby club page</button>
+              <button class="preset-btn" data-preset="business">💼 Small business card</button>
+            </div>
+            <div class="field"><label for="pb-what">What are you building?</label><input type="text" id="pb-what" placeholder="e.g. a personal website about me and my baking"></div>
+            <div class="field"><label for="pb-who">Who is it for?</label><input type="text" id="pb-who" placeholder="e.g. friends, family, and people who find me online"></div>
+            <div class="field"><label for="pb-must">What must it include?</label><textarea id="pb-must" rows="2" placeholder="e.g. my name and photo, a short bio, my links, a contact button"></textarea></div>
+            <div class="field"><label>Pick a style</label>
+              <div class="swatches" role="group" aria-label="Style choices">
+                <button class="swatch" data-style="warm and friendly, cream background, terracotta accents, rounded corners" aria-pressed="true"><span class="sw" style="background:linear-gradient(120deg,#FAF3E7,#E8A87C)"></span>Warm &amp; friendly</button>
+                <button class="swatch" data-style="clean and minimal, lots of white space, black text, one accent color" aria-pressed="false"><span class="sw" style="background:linear-gradient(120deg,#FFFFFF,#D8D8D4)"></span>Clean &amp; minimal</button>
+                <button class="swatch" data-style="bold and playful, bright colors, big shapes, fun hover effects" aria-pressed="false"><span class="sw" style="background:linear-gradient(120deg,#FFD166,#EF6461)"></span>Bold &amp; playful</button>
+                <button class="swatch" data-style="elegant and classic, serif headlines, muted colors, editorial feel" aria-pressed="false"><span class="sw" style="background:linear-gradient(120deg,#EDE9E0,#8A9BA8)"></span>Elegant &amp; classic</button>
+              </div>
+            </div>
+          </div>
+          <div class="builder-output" data-copy-root>
+            <span class="out-label">Your prompt, assembling live</span>
+            <div class="out-text" id="pb-out"></div>
+            <div class="copy-row"><button class="copy-btn">Copy my prompt</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-card" data-checklist="ch4-prompt">
+      <h4>Create your build plan</h4>
+      <ul class="checklist">
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Make a new, empty folder on your computer called <span class="keyish">my-website</span> (Desktop is fine)</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">In Claude Code: click <strong>+ New session</strong>, then <strong>Select folder</strong> and pick <span class="keyish">my-website</span></span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Paste the interview prompt (or your Prompt-Machine creation) and answer Claude's questions honestly</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Read the build plan Claude writes — change anything you don't love (“actually, no gallery”) </span></label></li>
+      </ul>
+      <div class="try-progress"><span class="count">0 / 4</span><span class="bar"><i></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 5 — WATCH IT BUILD ============ -->
+<section class="chapter" data-chapter="Build">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">Chapter 5 · the magic part</span>
+      <h2 class="reveal" style="--d:.08s">Watch it build — and stay in control.</h2>
+      <p class="lede reveal" style="--d:.14s">Send the plan, then just… watch. Claude narrates what it's doing as it works. Below is a real-shaped session: notice the <strong>permission card</strong> (that's your safety net) and how the visitor steers with three tiny plain-English messages.</p>
+    </div>
+
+    <div class="split" style="align-items:start">
+      <div class="reveal-scale">
+        <div class="cc-window tall" data-scene="build">
+          <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span><button class="cc-replay">↺ Replay</button></div>
+          <div class="cc-body">
+            <aside class="cc-sidebar" aria-hidden="true"><div class="cc-side-label">Sessions</div><div class="cc-session active">my-website</div><div class="cc-newsession">＋ New session</div></aside>
+            <div class="cc-main">
+              <div class="cc-chat" aria-live="polite"></div>
+              <div class="cc-composer"><span class="ph">Describe what you want to build…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="reveal">The golden loop 🔁</h3>
+        <p class="reveal" style="--d:.06s; color:var(--ink-2)">Look → say what you want different → look again. You never touch the code. “Make the header bigger.” “Try something warmer.” “Add a section for my photos.” Short, honest, human sentences are the entire skill.</p>
+
+        <h3 class="reveal" style="margin-top:30px; --d:.1s">Those permission cards, decoded</h3>
+        <p class="reveal" style="--d:.14s; color:var(--ink-2)">When Claude wants to create files or run something, the app pauses and asks. That's a feature, not a problem — you're the boss signing off. Next to the send button you'll find the mode selector:</p>
+        <div class="mode-chips reveal" style="--d:.18s">
+          <div class="mode-chip active"><strong>Manual</strong>Asks before each important action. Your home for this whole tutorial.</div>
+          <div class="mode-chip"><strong>Accept edits</strong>Auto-approves file edits, still asks for bigger things. For when you trust the flow.</div>
+          <div class="mode-chip"><strong>Plan</strong>Claude only <em>proposes</em> a plan — touches nothing until you approve. Great for big ideas.</div>
+          <div class="mode-chip"><strong>…and more</strong>Other modes exist for pros. The Builder route tours them properly.</div>
+        </div>
+
+        <h3 class="reveal" style="margin-top:30px; --d:.2s">And if you hate where it went?</h3>
+        <p class="reveal" style="--d:.24s; color:var(--ink-2)">Every message you send automatically creates a restore point (a <strong>checkpoint</strong>). Press <span class="keyish">Esc</span> twice — or type <span class="keyish">/rewind</span> — and pick the moment to return to:</p>
+        <div class="rewind-mock reveal-scale" style="--d:.28s">
+          <div class="rw-head">⏪ REWIND — choose a moment</div>
+          <div class="rw-item"><span>“Build the website from the plan…”</span><span class="kbd-hint">2:14 pm</span></div>
+          <div class="rw-item sel"><span>“Make the header bigger”</span><span class="restore">Restore code ↩</span></div>
+          <div class="rw-item"><span>“Try something warmer”</span><span class="kbd-hint">2:31 pm</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-card" data-checklist="ch5-build">
+      <h4>Build your first version</h4>
+      <ul class="checklist">
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Tell Claude: <em>“Build the website from the plan we just made.”</em></span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">When a permission card appears, read it (it's one sentence), then click <strong>Accept</strong></span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Ask for at least three changes in plain English — practice the golden loop</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Try the rewind menu once (<span class="keyish">Esc</span> <span class="keyish">Esc</span>) just to see it — then close it. Now you know the exit exists.</span></label></li>
+      </ul>
+      <div class="try-progress"><span class="count">0 / 4</span><span class="bar"><i></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 6 — TEST ============ -->
+<section class="chapter" data-chapter="Test">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">Chapter 6 · quality time</span>
+      <h2 class="reveal" style="--d:.08s">Test it like a pro (without being technical).</h2>
+      <p class="lede reveal" style="--d:.14s">Claude Code has a built-in <strong>Browser pane</strong> — a little browser inside the app that opens your site automatically as Claude works. Claude even checks its own work in there. But <em>you</em> are the taste-tester. Click every button. Read every word. Then use the superpower below.</p>
+    </div>
+
+    <div class="split" style="align-items:start">
+      <div>
+        <h3 class="reveal">The superpower: screenshots are instructions 📸</h3>
+        <p class="reveal" style="--d:.06s; color:var(--ink-2)">Most beginners never learn this: you can <strong>paste a screenshot straight into the message box</strong> (with the + button, drag &amp; drop, or <span class="keyish">Ctrl/Cmd + V</span>) and say “this looks wrong.” Claude <em>sees</em> the image. Watch it happen →</p>
+
+        <h3 class="reveal" style="margin-top:30px; --d:.1s">Describing a problem, the easy formula</h3>
+        <div class="formula reveal" style="--d:.14s">
+          <div class="f-card"><span class="f-tag">1 · What you did</span>“I clicked the contact button…”</div>
+          <div class="f-card"><span class="f-tag">2 · What you expected</span>“…expecting my email app to open…”</div>
+          <div class="f-card"><span class="f-tag">3 · What happened</span>“…but nothing happened at all.”</div>
+        </div>
+        <p class="reveal" style="--d:.18s; color:var(--ink-2); margin-top:14px">Those three sentences are better bug reports than most professionals write. Truly.</p>
+      </div>
+      <div class="reveal-scale">
+        <div class="cc-window" data-scene="screenshot">
+          <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span><button class="cc-replay">↺ Replay</button></div>
+          <div class="cc-body">
+            <aside class="cc-sidebar" aria-hidden="true"><div class="cc-side-label">Sessions</div><div class="cc-session active">my-website</div><div class="cc-newsession">＋ New session</div></aside>
+            <div class="cc-main">
+              <div class="cc-chat" aria-live="polite"></div>
+              <div class="cc-composer"><span class="ph">Describe what you want to build…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-card" data-checklist="ch6-test">
+      <h4>The pre-launch quality check</h4>
+      <ul class="checklist">
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Click every single link and button in the Browser pane — do they all do something sensible?</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Make the window skinny like a phone — does everything still look good?</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Hunt for leftover placeholder text (“lorem ipsum”, “Your Name Here”) — tell Claude to replace any you find</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Check your name's spelling. Yes, really. It's always the name.</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Found something off? Screenshot it, paste it to Claude, use the three-sentence formula</span></label></li>
+      </ul>
+      <div class="try-progress"><span class="count">0 / 5</span><span class="bar"><i></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 7 — LAUNCH ============ -->
+<section class="chapter" data-chapter="Launch">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">Chapter 7 · the payoff</span>
+      <h2 class="reveal" style="--d:.08s">Put it on the internet. For real.</h2>
+      <p class="lede reveal" style="--d:.14s">Two moves: first your project gets its safe home on GitHub (Claude does it), then Railway puts it online (a few clicks on their website). Fifteen minutes from now, your site has an address.</p>
+    </div>
+
+    <div class="split" style="align-items:start">
+      <div>
+        <h3 class="reveal">Move 1 — Claude saves it to GitHub</h3>
+        <p class="reveal" style="--d:.06s; color:var(--ink-2)">One sentence. Claude creates the <button class="term" data-def="A folder for your project that also remembers every version of it — like unlimited undo for your whole project." data-word="repository">repository</button> and <button class="term" data-def="Sending a copy of your project's files up to GitHub. Your files stay on your computer too — it's a copy, not a move." data-word="pushes">pushes</button> your files for you. It may ask you to confirm a GitHub sign-in — that's normal, click through it.</p>
+        <div class="reveal-scale" style="--d:.1s; margin-top:16px">
+          <div class="cc-window short" data-scene="github">
+            <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span><button class="cc-replay">↺ Replay</button></div>
+            <div class="cc-body">
+              <div class="cc-main">
+                <div class="cc-chat" aria-live="polite"></div>
+                <div class="cc-composer"><span class="ph">Describe what you want to build…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="reveal">Move 2 — Railway puts it online</h3>
+        <p class="reveal" style="--d:.06s; color:var(--ink-2)">This part happens on Railway's website, in your normal browser. Because your site is a simple one, Railway needs <strong>zero configuration</strong> — it recognizes it automatically.</p>
+        <div class="steps" style="margin-top:18px">
+          <div class="step"><span class="step-num"></span><div><h4>Go to railway.com/new</h4><p>Sign in (with GitHub — you linked them in chapter 3) and choose <strong>“Deploy from GitHub repo.”</strong></p></div></div>
+          <div class="step"><span class="step-num"></span><div><h4>Pick <span class="keyish">my-website</span></h4><p>Railway may ask permission to see your GitHub repositories the first time — allow it, then select your project. It starts building immediately.</p></div></div>
+          <div class="step"><span class="step-num"></span><div><h4>Wait for the green “Success”</h4><p>Usually under a minute. Railway automatically detects your site and serves it. From now on, every time Claude pushes an update to GitHub, Railway re-publishes it. Automatically. Forever.</p></div></div>
+          <div class="step"><span class="step-num"></span><div><h4>Generate your address</h4><p>Click your service, then <strong>Settings → Networking → Generate Domain</strong>. Railway hands you a free address ending in <span class="keyish">.up.railway.app</span> — that's your site's home on the internet.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note blue" style="margin-top:26px"><span class="n-icon">🧭</span><span><strong>Stuck anywhere?</strong> Ask Claude Code — really. Paste a screenshot of the Railway screen you're looking at and ask “what do I click?” It knows the way. And the free-forever alternative we promised: tell Claude <em>“publish my site with GitHub Pages instead”</em> — same result, hosted free by GitHub, slightly less shiny address.</span></div>
+
+    <div class="moment">
+      <span class="eyebrow reveal" style="justify-content:center">the moment</span>
+      <h2 class="reveal" style="--d:.06s">Someone in Tokyo can see your website right now.</h2>
+      <div class="site-mock reveal-scale" style="--d:.12s">
+        <div class="bar"><i></i><i></i><i></i><span class="url">https://my-website.up.railway.app</span></div>
+        <div class="page">
+          <div class="avatar built" data-piece>You</div>
+          <div class="name built" data-piece>Your Name</div>
+          <div class="bio built" data-piece>Live. On the actual internet. Because you built it.</div>
+          <a class="link-btn built" data-piece>🌍 Share with everyone</a>
+        </div>
+      </div>
+      <div class="url-reveal reveal" style="--d:.2s">https://my-website.up.railway.app</div><br>
+      <button class="btn btn-accent magnetic reveal" style="--d:.26s; margin-top:26px" id="celebrate-btn">I'm live — let's celebrate 🎉</button>
+    </div>
+
+    <div class="try-card" data-checklist="ch7-launch">
+      <h4>Launch sequence</h4>
+      <ul class="checklist">
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Tell Claude: <em>“Save this project to my GitHub account.”</em> Approve what it asks.</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">On railway.com/new: <strong>Deploy from GitHub repo</strong> → pick <span class="keyish">my-website</span></span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt"><strong>Settings → Networking → Generate Domain</strong> — copy your new address</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Open it on your phone. Feel that? That's you, shipping software.</span></label></li>
+        <li><label><input type="checkbox"><span class="box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4.5"/></svg></span><span class="txt">Send the link to one person you love</span></label></li>
+      </ul>
+      <div class="try-progress"><span class="count">0 / 5</span><span class="bar"><i></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 8 — HABITS & FINALE ============ -->
+<section class="chapter" data-chapter="Habits">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="eyebrow reveal">Chapter 8 · going forward</span>
+      <h2 class="reveal" style="--d:.08s">The five habits of people who build.</h2>
+    </div>
+
+    <div class="cards-3">
+      <div class="info-card reveal" style="--d:.02s"><span class="num-badge">1</span><h4>Talk like a smart colleague</h4><p>Context and plain language beat technical vocabulary every time. Say <em>why</em> you want something and Claude makes better choices.</p></div>
+      <div class="info-card reveal" style="--d:.1s"><span class="num-badge">2</span><h4>Small steps, then look</h4><p>Ask, check, ask again. Ten small requests beat one giant one — you catch wrong turns while they're still cheap.</p></div>
+      <div class="info-card reveal" style="--d:.18s"><span class="num-badge">3</span><h4>When in doubt, ask Claude to explain</h4><p>“Explain what you just did like I'm new to this” is always allowed. You'll be surprised how fast you start understanding.</p></div>
+      <div class="info-card reveal" style="--d:.26s"><span class="num-badge">4</span><h4>Nothing is ever ruined</h4><p>Checkpoints rewind mistakes. GitHub remembers every version. Fear of breaking things is the only real obstacle — and you've deleted it.</p></div>
+      <div class="info-card reveal" style="--d:.34s"><span class="num-badge">5</span><h4>Save to GitHub when you're happy</h4><p>End every good session with <em>“save this to GitHub.”</em> It's the “save game” button for your project — and it re-publishes your live site too.</p></div>
+      <div class="info-card reveal" style="--d:.42s; background:var(--accent-softer); border-color:var(--accent)"><span class="num-badge">★</span><h4>Bonus: keep a wish list</h4><p>Keep a note of ideas (“add a dark photo page”, “make a site for mom”). Each one is a fun evening with Claude now. That's your new reality.</p></div>
+    </div>
+
+    <div class="finale reveal-scale" style="margin-top:64px">
+      <span class="eyebrow" style="justify-content:center">🏁 starter route complete</span>
+      <h2>You built and launched<br>a real website.</h2>
+      <p class="lede" style="margin-inline:auto">Installed a developer tool. Interviewed with an AI. Directed a build. Tested like a pro. Shipped to the internet. Three weeks ago you might have said “I'm not technical.” Look at you now.</p>
+      <button class="btn btn-accent magnetic" id="finale-btn" style="margin-top:10px">Finish the route 🎓</button>
+    </div>
+
+    <div class="narrow" style="margin-top:44px; padding:0">
+      <div class="teaser reveal-scale">
+        <span class="eyebrow" style="color:#F6C4AE">next: the builder route</span>
+        <h3>Ready for apps that <em>remember</em> things?</h3>
+        <p>Build Gather, an event planner for a birthday, dinner, or day out. Add RSVPs, date voting, shared tasks, a real Railway database, recovery practice, and a public launch.</p>
+        <a class="btn btn-accent magnetic" href="builder.html">Start the Builder route <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container foot-grid">
+    <span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span>
+    <span><a href="index.html">Home</a> · <a href="builder.html">Builder</a> · <a href="max.html">Max</a> · <span id="year"></span></span>
+  </div>
+</footer>
+
+<script>
+/* ------- scenes ------- */
+window.ZTL_SCENES = {
+  interview: [
+    { u: "I want a personal website. Ask me questions one at a time about what it should include and how it should look. Then write me a complete build plan.", gap: 500 },
+    { think: "Claude is thinking…", ms: 1100, gap: 200 },
+    { c: "Happy to! <strong>Question 1:</strong> What's your name, and what do you do — in one friendly sentence?", gap: 1100 },
+    { u: "I'm Alex. I bake sourdough and photograph houseplants.", gap: 700 },
+    { c: "Lovely. <strong>Question 2:</strong> What should visitors be able to do here — read about you, see photos, get in touch?", gap: 1000 },
+    { u: "See my photos and send me a message.", gap: 700 },
+    { think: "Writing your build plan…", ms: 1500, gap: 300 },
+    { plan: { title: "Build plan — Alex's website", items: [ "One page: friendly intro with photo", "Gallery for 6 plant photos", "Big “Say hello” contact button", "Warm cream colors, works great on phones" ], approve: "Looks good — build it", ms: 2000 }, gap: 700 },
+    { c: "Plan approved! Whenever you're ready, say the word and I'll start building. 🔨", gap: 400 },
+  ],
+
+  build: [
+    { u: "Build the website from the plan we just made.", gap: 400 },
+    { think: "Reading the plan…", ms: 1100, gap: 200 },
+    { perm: { title: "Claude wants to create files in “my-website”", desc: "index.html and style.css — new files inside your project folder. Nothing outside it is touched.", allow: "Accept", ms: 1700 }, gap: 600 },
+    { files: [ { name: "index.html", add: "82" }, { name: "style.css", add: "47" } ], gap: 800 },
+    { c: "First version is ready — opening it in the Browser pane so we can both look… 👀", gap: 900 },
+    { preview: '<div style="text-align:center"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#F3C5A8,#DE8E63);margin:0 auto 6px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.8rem">A</div><div style="font-weight:700;font-size:.8rem">Alex Rivera</div><div style="font-size:.6rem;color:#6B6257">sourdough · plants · photos</div></div>', url: "localhost:3000 — live preview", gap: 1300 },
+    { u: "Make the header bigger.", gap: 500 },
+    { c: "Done — bumped it up two sizes. Anything else?", gap: 900 },
+    { u: "I don't like the green. Try something warmer.", gap: 500 },
+    { think: "Restyling…", ms: 900, gap: 200 },
+    { c: "Swapped to cream &amp; terracotta. 🎨 Warmer already.", gap: 900 },
+    { u: "Add a section for my plant photos.", gap: 500 },
+    { files: [ { name: "style.css", add: "18" }, { name: "index.html", add: "12" } ], gap: 700 },
+    { c: "Added a gallery with room for six photos. You're steering like a pro — <strong>this</strong> is the whole job.", gap: 400 },
+  ],
+
+  screenshot: [
+    { u: "The menu looks squished on my phone — please fix it.", attach: "IMG_2041.png", gap: 400 },
+    { think: "Looking at your screenshot…", ms: 1400, gap: 200 },
+    { c: "I see it — the menu items don't fit side-by-side on small screens. Fixing…", gap: 800 },
+    { files: [ { name: "style.css", add: "9" } ], gap: 700 },
+    { c: "Fixed: on phones the menu now stacks neatly. Check the preview! 📱", gap: 400 },
+  ],
+
+  github: [
+    { u: "Save this project to my GitHub account.", gap: 400 },
+    { think: "Setting up your repository…", ms: 1200, gap: 200 },
+    { perm: { title: "Claude wants to run: create repository &amp; push", desc: "This sends a copy of your project to your GitHub account. Your files stay on your computer too.", allow: "Accept", ms: 1600 }, gap: 600 },
+    { c: "Saved! Your project now lives at <strong>github.com/you/my-website</strong> — every version, remembered forever. ✅", gap: 400 },
+  ],
+};
+
+/* ------- prompt builder ------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const what = document.getElementById("pb-what");
+  const who = document.getElementById("pb-who");
+  const must = document.getElementById("pb-must");
+  const out = document.getElementById("pb-out");
+  const swatches = Array.from(document.querySelectorAll(".swatch"));
+  let style = swatches[0].dataset.style;
+
+  const PRESETS = {
+    personal: { what: "a personal website about me", who: "friends, family, and people who find me online", must: "my name and photo, a short bio, my links, a contact button", style: 0 },
+    club: { what: "a simple website for my local tennis club", who: "current members and curious neighbors", must: "our meeting times, a photo of the courts, how to join, a contact email", style: 2 },
+    business: { what: "a one-page site for my small bakery", who: "local customers searching for us", must: "our opening hours, three photos of our bread, our address with a map link, a phone button", style: 3 },
+  };
+
+  function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+  function render() {
+    const w = what.value.trim() || "a personal website about me";
+    const a = who.value.trim() || "friends, family, and people who find me online";
+    const m = must.value.trim() || "my name and photo, a short bio, my links";
+    out.innerHTML =
+      'I want you to build me <span class="hl">' + esc(w) + '</span>.\n' +
+      'It\'s for <span class="hl">' + esc(a) + '</span>.\n\n' +
+      'It must include: <span class="hl">' + esc(m) + '</span>.\n\n' +
+      'Look &amp; feel: <span class="hl">' + esc(style) + '</span>. It must look great on phones.\n\n' +
+      'Please ask me questions one at a time if anything is unclear, and show me the result when it\'s ready.';
+  }
+  [what, who, must].forEach((el) => el.addEventListener("input", render));
+  swatches.forEach((s) => s.addEventListener("click", () => {
+    swatches.forEach((x) => x.setAttribute("aria-pressed", "false"));
+    s.setAttribute("aria-pressed", "true");
+    style = s.dataset.style;
+    render();
+  }));
+  document.querySelectorAll(".preset-btn").forEach((b) => b.addEventListener("click", () => {
+    const p = PRESETS[b.dataset.preset];
+    what.value = p.what; who.value = p.who; must.value = p.must;
+    swatches.forEach((x, i) => x.setAttribute("aria-pressed", i === p.style ? "true" : "false"));
+    style = swatches[p.style].dataset.style;
+    render();
+  }));
+  render();
+
+  /* celebrations */
+  const cb = document.getElementById("celebrate-btn");
+  if (cb) cb.addEventListener("click", () => window.ZTL_celebrate());
+  const fb = document.getElementById("finale-btn");
+  if (fb) fb.addEventListener("click", () => {
+    window.ZTL_celebrate();
+    fb.textContent = "Route complete — you're a builder now 🎓✨";
+  });
+});
+</script>
+<script src="shared/app.js"></script>
+</body>
+</html>

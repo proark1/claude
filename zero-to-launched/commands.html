@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power Commands — the cheat sheet | Zero to Launched</title>
+<meta name="description" content="The Claude Code slash commands and shortcuts most people never discover — plan before building, rewind mistakes, review your own code, and automate the boring parts.">
+<meta property="og:title" content="Power Commands — the Claude Code cheat sheet">
+<meta property="og:description" content="The slash commands and gestures worth stealing, grouped by what you're trying to do.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="route-commands">
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Routes">
+    <a class="header-link" href="starter.html">Starter</a>
+    <a class="header-link" href="builder.html">Builder</a>
+    <a class="header-link" href="max.html">Max</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
+  </nav>
+</header>
+
+<div class="rail" aria-label="Cheat-sheet progress"><div class="rail-track"><div class="rail-fill"></div></div></div>
+
+<!-- HERO -->
+<section class="chapter route-hero" data-chapter="The / menu" id="top">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow reveal">Bonus tab · the power-user cheat sheet</span>
+        <h1 class="reveal" style="--d:.08s">The commands most people <em>never discover.</em></h1>
+        <p class="lede reveal" style="--d:.16s">Type one key — <span class="keyish">/</span> — in the message box and a whole menu of shortcuts appears. Most people use three of them. This page is the handful that quietly make you twice as capable, grouped by what you're trying to do.</p>
+        <div class="route-meta-line reveal" style="--d:.22s"><span>Lives in the Code tab</span><span>Type <span class="keyish">/</span> to see yours</span><span>No memorizing required</span></div>
+        <a class="btn btn-accent magnetic reveal" style="--d:.3s" href="#steer">Show me the good ones <span class="arrow">↓</span></a>
+      </div>
+      <div class="reveal-scale" style="--d:.18s">
+        <div class="cmd-palette" aria-label="A preview of the slash-command menu">
+          <div class="cmd-palette-head"><span class="slash">/</span><span class="ph2">Type a command…</span><span class="esc">esc to close</span></div>
+          <div class="cmd-row hi reveal" style="--d:.1s"><span class="c-name">/plan</span><span class="c-desc">Propose an approach before changing anything</span></div>
+          <div class="cmd-row reveal" style="--d:.16s"><span class="c-name">/rewind</span><span class="c-desc">Jump back to an earlier point</span></div>
+          <div class="cmd-row reveal" style="--d:.22s"><span class="c-name">/code-review</span><span class="c-desc">Get a second pair of eyes on your changes</span></div>
+          <div class="cmd-row reveal" style="--d:.28s"><span class="c-name">/compact</span><span class="c-desc">Free up room without losing the thread</span></div>
+          <div class="cmd-row reveal" style="--d:.34s"><span class="c-name">/help</span><span class="c-desc">The full, always-current list</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONESTY NOTE -->
+<section class="chapter" data-chapter="How to read this" style="padding-top:10px">
+  <div class="container">
+    <div class="note blue reveal"><span class="n-icon">🧭</span><span><strong>The truth is always one keystroke away.</strong> Your exact commands depend on your app version and any skills you've added, so treat this as a friendly tour, not gospel. In Claude Code, type <span class="keyish">/</span> to see <em>your</em> live menu, or <span class="keyish">/help</span> for the full list. If a name here has moved, the app has the current one.</span></div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="chapter" data-chapter="Map" id="map" style="padding-top:20px">
+  <div class="container">
+    <div class="chapter-head"><span class="eyebrow reveal">Five kinds of power move</span><h2 class="reveal" style="--d:.08s">Pick by what you're doing right now.</h2></div>
+    <nav class="route-map reveal-scale" aria-label="Cheat-sheet groups">
+      <a href="#steer"><span class="map-num">01</span><span class="map-name">Steer &amp; stay safe</span></a>
+      <a href="#ship"><span class="map-num">02</span><span class="map-name">Ship with confidence</span></a>
+      <a href="#scale"><span class="map-num">03</span><span class="map-name">Work bigger</span></a>
+      <a href="#tune"><span class="map-num">04</span><span class="map-name">Set up &amp; tune</span></a>
+      <a href="#gestures"><span class="map-num">05</span><span class="map-name">Gestures, not commands</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- 01 STEER -->
+<section class="chapter" data-chapter="Steer" id="steer">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">01</span><span class="eyebrow">The four everyone should know</span><h2 class="reveal">Stay in the driver's seat.</h2><p class="lede reveal" style="--d:.1s">These four turn Claude Code from "hope it goes well" into "I'm steering." Learn only these and you're ahead of most people.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="steer">
+          <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span><button class="cc-replay">↺ Replay</button></div>
+          <div class="cc-body"><aside class="cc-sidebar" aria-hidden="true"><div class="cc-side-label">Sessions</div><div class="cc-session active">my-project</div><div class="cc-newsession">＋ New session</div></aside><div class="cc-main"><div class="cc-chat" aria-live="polite"></div><div class="cc-composer"><span class="ph">Try a slash command…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div></div></div>
+        </div>
+      </div>
+      <div class="cmd-grid" style="grid-template-columns:1fr">
+        <div class="cmd-card reveal"><span class="cc-name">Plan mode · Shift+Tab</span><h4>Think first, build second</h4><p>Press <span class="keyish">Shift</span>+<span class="keyish">Tab</span> to cycle into Plan mode (or type <span class="keyish">/plan</span>). Claude explores and proposes an approach <em>without editing a thing</em> until you approve.</p><span class="when"><b>Reach for it when:</b> the task is bigger than a one-liner.</span></div>
+        <div class="cmd-card reveal" style="--d:.08s"><span class="cc-name">/rewind · Esc Esc</span><h4>Undo a wrong turn</h4><p>Every message you send is a save point. Press <span class="keyish">Esc</span> twice or type <span class="keyish">/rewind</span> to travel back — restore the code, the conversation, or both.</p><span class="when"><b>Reach for it when:</b> "I liked it better a few steps ago."</span></div>
+        <div class="cmd-card reveal" style="--d:.16s"><span class="cc-name">/compact</span><h4>Reclaim breathing room</h4><p>Long sessions fill up Claude's memory of the chat. <span class="keyish">/compact</span> summarizes what's happened so far so you can keep going without starting over.</p><span class="when"><b>Reach for it when:</b> a session gets long and sluggish.</span></div>
+        <div class="cmd-card reveal" style="--d:.24s"><span class="cc-name">/fewer-permission-prompts</span><h4>Stop being asked twice</h4><p>Tired of approving the same safe action repeatedly? This scans your session and offers to pre-approve the harmless, repetitive ones.</p><span class="when"><b>Reach for it when:</b> permission pop-ups start to nag.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SHIP -->
+<section class="chapter" data-chapter="Ship" id="ship">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Quality on demand</span><h2 class="reveal">Let Claude check its own work.</h2><p class="lede reveal" style="--d:.1s">You don't need to be able to read the code to ask for a review. Claude can grade its own changes — and even send a whole crew of reviewers into the cloud.</p></div>
+    <div class="lesson-grid reverse">
+      <div class="cmd-grid" style="grid-template-columns:1fr">
+        <div class="cmd-card reveal"><span class="cc-name">/code-review</span><h4>A second pair of eyes</h4><p>Reviews the changes in your current session for bugs and rough edges, and offers to fix what it finds. Fast, and free with your plan.</p><span class="when"><b>Reach for it when:</b> before you call something "done."</span></div>
+        <div class="cmd-card reveal" style="--d:.08s"><span class="cc-name">/code-review ultra</span><h4>Send in the whole crew</h4><p>Launches a fleet of independent reviewers in the cloud to hunt harder for bugs. It's a paid, deeper pass (billed per run) for when it really matters.</p><span class="when"><b>Reach for it when:</b> shipping something people depend on.</span></div>
+        <div class="cmd-card reveal" style="--d:.16s"><span class="cc-name">/security-review</span><h4>Check the locks</h4><p>Looks specifically for security problems in your pending changes — leaked secrets, unsafe input, risky permissions.</p><span class="when"><b>Reach for it when:</b> anything handles real people's data.</span></div>
+        <div class="cmd-card reveal" style="--d:.24s"><span class="cc-name">/verify</span><h4>Actually try it</h4><p>Goes beyond "the tests pass" and drives the real feature end-to-end to confirm it behaves the way you meant.</p><span class="when"><b>Reach for it when:</b> you want proof, not a promise.</span></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window" data-scene="ship">
+          <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span><button class="cc-replay">↺ Replay</button></div>
+          <div class="cc-body"><div class="cc-main"><div class="cc-chat" aria-live="polite"></div><div class="cc-composer"><span class="ph">Ask for a review…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div></div></div>
+        </div>
+        <div class="takeaway reveal"><h3>Reviewing costs minutes. Not reviewing costs evenings.</h3><p>Make <span class="keyish">/code-review</span> a reflex at the end of every change — it's the cheapest quality you'll ever buy.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 SCALE -->
+<section class="chapter" data-chapter="Bigger" id="scale">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">03</span><span class="eyebrow">Do more without doing it yourself</span><h2 class="reveal">Set goals, repeat work, run on a schedule.</h2><p class="lede reveal" style="--d:.1s">These hand Claude a bigger slice of the job — a target to keep working toward, a task to repeat, or a whole app to launch and test.</p></div>
+    <div class="cmd-grid">
+      <div class="cmd-card reveal"><span class="cc-name">/goal</span><h4>Keep going until it's done</h4><p>Give Claude a finish line — "make every page work on mobile" — and it keeps working toward that goal instead of stopping after one step.</p><span class="when"><b>Reach for it when:</b> the job needs several rounds.</span></div>
+      <div class="cmd-card reveal" style="--d:.06s"><span class="cc-name">/run</span><h4>Launch &amp; drive your app</h4><p>Starts your project and clicks through it so you can see the change working for real — not just a promise that it does.</p><span class="when"><b>Reach for it when:</b> "show me it actually runs."</span></div>
+      <div class="cmd-card reveal" style="--d:.12s"><span class="cc-name">/loop</span><h4>Do it on repeat</h4><p>Runs a prompt or command again on an interval — "re-run the tests every 10 minutes" — or lets Claude pace itself.</p><span class="when"><b>Reach for it when:</b> you're watching for something to change.</span></div>
+      <div class="cmd-card reveal" style="--d:.18s"><span class="cc-name">/schedule</span><h4>Wake it up later</h4><p>Creates a recurring cloud task — a "routine" — that runs on a schedule even when your laptop is closed.</p><span class="when"><b>Reach for it when:</b> "every morning, do this for me."</span></div>
+      <div class="cmd-card reveal" style="--d:.24s"><span class="cc-name">/deep-research</span><h4>Send a research party</h4><p>Fans out across many sources, checks its own claims, and comes back with a cited report — great before a big decision.</p><span class="when"><b>Reach for it when:</b> you need answers you can trust.</span></div>
+      <div class="cmd-card reveal" style="--d:.3s"><span class="cc-name">/simplify</span><h4>Tidy up afterwards</h4><p>Reviews recent code purely for cleanups — shorter, clearer, less repetition — and applies the improvements.</p><span class="when"><b>Reach for it when:</b> it works, but it got messy.</span></div>
+    </div>
+    <div class="note reveal" style="margin-top:22px"><span class="n-icon">⚡</span><span><strong>The pattern behind all of these:</strong> describe the outcome you want, hand Claude room to work, then check the result. Bigger commands don't mean less control — you still approve what matters.</span></div>
+  </div>
+</section>
+
+<!-- 04 TUNE -->
+<section class="chapter" data-chapter="Tune" id="tune">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">04</span><span class="eyebrow">Housekeeping worth knowing</span><h2 class="reveal">Set things up and keep them tidy.</h2></div>
+    <div class="cmd-grid">
+      <div class="cmd-card reveal"><span class="cc-name">/init</span><h4>Teach the project</h4><p>Creates a <span class="keyish">CLAUDE.md</span> — a note Claude reads at the start of every session — describing your project's rules and how to run it.</p><span class="when"><b>New project?</b> Run this first.</span></div>
+      <div class="cmd-card reveal" style="--d:.05s"><span class="cc-name">/memory</span><h4>Edit what it remembers</h4><p>Opens the notes Claude keeps about your work so you can add, correct, or remove them.</p><span class="when"><b>When it keeps</b> forgetting or misremembering.</span></div>
+      <div class="cmd-card reveal" style="--d:.1s"><span class="cc-name">/model</span><h4>Swap the brain</h4><p>Switch models mid-session — a faster one for simple edits, the most capable for hard problems.</p><span class="when"><b>Hard problem?</b> Reach for the strongest model.</span></div>
+      <div class="cmd-card reveal" style="--d:.15s"><span class="cc-name">/mcp</span><h4>Manage connections</h4><p>See and reconnect the outside tools Claude is linked to — GitHub, Slack, your calendar, and more.</p><span class="when"><b>When a</b> connected tool stops responding.</span></div>
+      <div class="cmd-card reveal" style="--d:.2s"><span class="cc-name">/chrome</span><h4>Give Claude a browser</h4><p>Connects the Chrome integration so Claude can click through your live app like a real tester.</p><span class="when"><b>When you</b> want it to test what you see.</span></div>
+      <div class="cmd-card reveal" style="--d:.25s"><span class="cc-name">/clear</span><h4>Fresh start</h4><p>Begins a clean conversation. The old one isn't lost — you can still find it in your sessions.</p><span class="when"><b>When you</b> switch to a totally new task.</span></div>
+      <div class="cmd-card reveal" style="--d:.3s"><span class="cc-name">/config</span><h4>Open settings</h4><p>Jump to Claude Code's settings to adjust preferences without hunting through menus.</p><span class="when"><b>When you</b> want to change how it behaves.</span></div>
+      <div class="cmd-card reveal" style="--d:.35s"><span class="cc-name">/help</span><h4>The master list</h4><p>Shows every command available to <em>you</em> right now. When in doubt, this is home base.</p><span class="when"><b>Always safe</b> to run. Start here.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 GESTURES -->
+<section class="chapter" data-chapter="Gestures" id="gestures">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">05</span><span class="eyebrow">No slash required</span><h2 class="reveal">Four moves that aren't commands at all.</h2><p class="lede reveal" style="--d:.1s">Some of the most useful power moves are just things you can do in the message box — and beginners almost never realize they exist.</p></div>
+    <div class="gesture-row">
+      <div class="gesture reveal"><div class="g-key">＠</div><strong>@ a file</strong><span>Type <span class="keyish">@</span> and a filename to pull that file into the conversation — no copy-paste.</span></div>
+      <div class="gesture reveal" style="--d:.08s"><div class="g-key">🖼️</div><strong>Paste a screenshot</strong><span>Drag or paste an image of what looks wrong. Claude can see it and fix from the picture.</span></div>
+      <div class="gesture reveal" style="--d:.16s"><div class="g-key">👁️</div><strong>Ctrl+O views</strong><span>Cycle Normal, Verbose, and Summary to see as much — or as little — of Claude's work as you want.</span></div>
+      <div class="gesture reveal" style="--d:.24s"><div class="g-key">＋</div><strong>The + button</strong><span>Beside the message box: attach files, add Skills, connect tools, and install plugins.</span></div>
+    </div>
+
+    <div class="finale route-finale reveal-scale" style="margin-top:70px">
+      <span class="eyebrow" style="justify-content:center">that's the cheat sheet</span>
+      <h2>You don't have to remember them.<br>You just have to know they're there.</h2>
+      <p class="lede" style="margin-inline:auto">Bookmark this tab. Next time you're stuck doing something the slow way, there's probably a <span class="keyish">/</span> for it — and <span class="keyish">/help</span> will always show you the current, real list.</p>
+      <button class="btn btn-accent magnetic" id="commands-finale" style="margin-top:10px">Steal these ✨</button>
+      <p class="source-note">Command names verified against the official <a href="https://code.claude.com/docs/en/commands" target="_blank" rel="noopener">Claude Code commands</a> and <a href="https://code.claude.com/docs/en/desktop" target="_blank" rel="noopener">desktop</a> documentation. Because the menu grows often, type <span class="keyish">/help</span> in the app for the definitive, up-to-date list.</p>
+    </div>
+
+    <div class="narrow" style="margin-top:44px;padding:0"><div class="teaser reveal-scale"><span class="eyebrow" style="color:#9BD3B2">keep going</span><h3>New here? Start with the journey.</h3><p>The cheat sheet makes the most sense once you've built something. If you haven't yet, the Starter route gets you from zero to a live website in an afternoon.</p><a class="btn btn-accent magnetic" href="starter.html">Take the Starter route <span class="arrow">→</span></a></div></div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span><span><a href="index.html">Home</a> · <a href="starter.html">Starter</a> · <a href="builder.html">Builder</a> · <a href="max.html">Max</a> · <span id="year"></span></span></div></footer>
+
+<script>
+window.ZTL_SCENES = {
+  steer: [
+    { u: "Wait — plan it first, don't edit anything yet.", gap: 450 },
+    { c: "Good call. Switching to <strong>Plan mode</strong> (Shift+Tab) — I'll look around and propose an approach without touching your files.", gap: 700 },
+    { think: "Exploring in read-only Plan mode…", ms: 1000 },
+    { plan: { title: "Proposed approach", items: ["Add a newsletter box to the footer", "Check the email looks valid", "Save each signup", "Show a friendly thank-you"], approve: "Approve & build", ms: 1700 }, gap: 500 },
+    { c: "Approved — building now. And if you ever dislike where things went: press <strong>Esc Esc</strong> (or type <strong>/rewind</strong>) to jump back to any earlier point. Nothing here is ever permanent. ↩", gap: 400 }
+  ],
+  ship: [
+    { u: "/code-review", gap: 550 },
+    { think: "Reviewing your recent changes…", ms: 1100 },
+    { c: "Found <strong>2 things</strong>: a button that can't be reached with the keyboard, and a date that would show wrong in other time zones. Want me to fix both?", gap: 600 },
+    { u: "Yes please, fix them.", gap: 450 },
+    { files: [ { name: "src/app.js", add: "12" }, { name: "src/styles.css", add: "4" } ], gap: 550 },
+    { c: "Fixed and re-checked — both clear now. ✅ That took about a minute and saved a bug reaching real people.", gap: 400 }
+  ]
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const done = document.getElementById("commands-finale");
+  if (done) done.addEventListener("click", () => {
+    window.ZTL_celebrate();
+    done.textContent = "Cheat sheet unlocked ✨";
+  });
+});
+</script>
+<script src="shared/app.js"></script>
+</body>
+</html>
