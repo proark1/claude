@@ -1,0 +1,12 @@
+{
+  "name": "zero-to-launched-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static host for the Zero to Launched tutorial site (serves zero-to-launched/ on $PORT).",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
