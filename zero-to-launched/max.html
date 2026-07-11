@@ -18,6 +18,7 @@
     <a class="header-link" href="starter.html">Starter</a>
     <a class="header-link" href="builder.html">Builder</a>
     <a class="header-link" href="commands.html">Commands</a>
+    <a class="header-link" href="news.html">News</a>
     <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
   </nav>
 </header>
@@ -34,14 +35,19 @@
         <p class="lede reveal" style="--d:.16s">You will direct focused agents, isolate parallel changes, package repeatable judgment into a skill, test through a real browser, add guardrails, and run a release without losing the plot.</p>
         <div class="route-meta-line reveal" style="--d:.22s"><span>About 4 hours</span><span>Continues Builder</span><span>Advanced, still plain language</span></div>
         <p class="hero-note reveal" style="--d:.28s">Start with your finished <a href="builder.html">Builder project</a>. Connector and routine chapters have useful no-account alternatives.</p>
-        <a class="btn btn-accent magnetic reveal" style="--d:.34s" href="#map">Enter the release room <span class="arrow">↓</span></a>
+        <a class="btn btn-accent magnetic reveal" style="--d:.34s" href="#map">See the operating plan <span class="arrow">↓</span></a>
       </div>
-      <div class="crew-map reveal-scale" style="--d:.18s" aria-label="Four specialist agents reporting to the Gather lead">
-        <div class="crew-hub"><span><small>you coordinate</small>Gather lead</span></div>
-        <div class="crew-agent a"><span>Research<small>find friction</small></span></div>
-        <div class="crew-agent b"><span>Design<small>shape flows</small></span></div>
-        <div class="crew-agent c"><span>Test<small>prove behavior</small></span></div>
-        <div class="crew-agent d"><span>Review<small>guard release</small></span></div>
+      <div class="crew-pipeline reveal-scale" style="--d:.18s" aria-label="Agents move through research, build, test and release, then report back to the Gather lead — the single coordinating thread">
+        <div class="cp-track">
+          <div class="cp-line" aria-hidden="true"></div>
+          <div class="cp-runner" aria-hidden="true"></div>
+          <div class="cp-stage s1"><span class="cp-ico">🔎</span><strong>Research</strong><small>find friction</small></div>
+          <div class="cp-stage s2"><span class="cp-ico">🔧</span><strong>Build</strong><small>make the change</small></div>
+          <div class="cp-stage s3"><span class="cp-ico">🧪</span><strong>Test</strong><small>prove behavior</small></div>
+          <div class="cp-stage s4"><span class="cp-ico">🚀</span><strong>Release</strong><small>ship on purpose</small></div>
+        </div>
+        <div class="cp-return" aria-hidden="true"></div>
+        <div class="cp-lead"><small>every result reports back to</small>Gather lead · you</div>
       </div>
     </div>
   </div>
@@ -106,7 +112,7 @@
 <section class="chapter" data-chapter="Parallel" id="parallel">
   <div class="container"><div class="lesson-grid">
     <div class="lesson-stack">
-      <div><span class="chapter-number">03</span><span class="eyebrow">Speed with boundaries</span><h2>Parallelize independent work—not shared files.</h2><p class="lede">Research can run together easily. Code changes need isolation. Claude Code Desktop can create parallel sessions in separate Git worktrees so one change does not silently overwrite another.</p></div>
+      <div><span class="chapter-number">03</span><span class="eyebrow">Speed with boundaries</span><h2>Parallelize independent work—not shared files.</h2><p class="lede">Research can run together easily. Code changes need isolation. Claude Code Desktop can create parallel sessions in separate <button class="term" data-word="Git worktree" data-def="A second, isolated copy of your project in its own folder, so two changes can run at once without overwriting each other.">Git worktrees</button> so one change does not silently overwrite another.</p></div>
       <div class="compare-row"><div class="compare-card"><strong>Safe together</strong><span>Accessibility research + database analysis + copy review.</span></div><div class="compare-card"><strong>Sequence these</strong><span>Two agents editing the same form, route, schema, or migration.</span></div></div>
       <div class="failure-card"><span class="failure-label">Conflict drill</span><h3>Two good changes, one shared component</h3><p>Stop before forcing a merge. Read both intentions, choose the desired behavior, integrate once, then rerun the narrow tests and the full suite.</p></div>
     </div>
@@ -126,7 +132,7 @@
       <div class="cc-window short" data-scene="skill"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · /gather-release</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Package the workflow…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
     </div>
     <div class="lesson-stack">
-      <div><span class="chapter-number">04</span><span class="eyebrow">Reusable judgment</span><h2>Turn your release habits into a skill.</h2><p class="lede">A project skill lives in <span class="keyish">.claude/skills/name/SKILL.md</span>. Claude can load it when relevant, or you can invoke it directly with <span class="keyish">/name</span>.</p></div>
+      <div><span class="chapter-number">04</span><span class="eyebrow">Reusable judgment</span><h2>Turn your release habits into a skill.</h2><p class="lede">A project <button class="term" data-word="skill" data-def="A reusable set of instructions for a repeatable job, saved in your project so Claude can load it when relevant or you can invoke it by name.">skill</button> lives in <span class="keyish">.claude/skills/name/SKILL.md</span>. Claude can load it when relevant, or you can invoke it directly with <span class="keyish">/name</span>.</p></div>
       <div class="prompt-card" data-copy-root><span class="pc-label">Create the skill</span><button class="copy-btn">Copy</button><div class="pc-text">Create a focused project skill named gather-release. It should gather the current change summary, run the documented tests, verify migrations and environment-variable names, check the guest flow in a narrow viewport, and produce a release recommendation. It must never deploy or change data. Keep SKILL.md concise and put longer checklists in a referenced file.</div></div>
       <div class="takeaway"><h3>Do not turn every prompt into a skill.</h3><p>Package a workflow only after you have performed it successfully and expect to repeat it.</p></div>
     </div>
@@ -158,7 +164,7 @@
       <div class="note"><span class="n-icon">🔌</span><span>In Desktop, use the <strong>＋</strong> beside the prompt and choose <strong>Connectors</strong>. Connect only the service needed for this session, then inspect what the connector can read and write.</span></div>
     </div>
     <div class="lesson-stack">
-      <div><span class="chapter-number">06</span><span class="eyebrow">Optional outside context</span><h2>Bring in calendars without giving away the steering wheel.</h2><p class="lede">A connector is an MCP server with a friendly setup flow. For Gather, the useful first move is read-only: compare candidate dates with your own calendar, then draft—not send—an invitation.</p></div>
+      <div><span class="chapter-number">06</span><span class="eyebrow">Optional outside context</span><h2>Bring in calendars without giving away the steering wheel.</h2><p class="lede">A <button class="term" data-word="connector" data-def="A friendly, pre-packaged link between Claude and an outside tool — a calendar, Slack, a database — with a guided setup.">connector</button> is an <button class="term" data-word="MCP" data-def="Model Context Protocol — the open standard that lets Claude talk to outside tools and data in a consistent way.">MCP server</button> with a friendly setup flow. For Gather, the useful first move is read-only: compare candidate dates with your own calendar, then draft—not send—an invitation.</p></div>
       <div class="prompt-card" data-copy-root><span class="pc-label">Connected planning</span><button class="copy-btn">Copy</button><div class="pc-text">Using my connected calendar, check only my availability for Gather’s three candidate dates. Do not inspect unrelated event details, create events, invite anyone, or send messages. Return busy/free windows and draft a short invitation I can review.</div></div>
       <div class="takeaway"><h3>No connector? The lesson still works.</h3><p>Paste three fictional busy/free windows and ask Claude to compare them. The skill is defining scope and reviewing output, not owning a particular integration.</p></div>
     </div>
@@ -168,7 +174,7 @@
 <!-- 07 -->
 <section class="chapter" data-chapter="Hooks" id="hooks">
   <div class="container">
-    <div class="chapter-head"><span class="chapter-number">07</span><span class="eyebrow">Rules that actually run</span><h2>Add one narrow guardrail.</h2><p class="lede">Hooks fire at specific Claude Code lifecycle events. Unlike a reminder in CLAUDE.md, a command hook executes automatically—so start small, keep it fast, and understand every command.</p></div>
+    <div class="chapter-head"><span class="chapter-number">07</span><span class="eyebrow">Rules that actually run</span><h2>Add one narrow guardrail.</h2><p class="lede"><button class="term" data-word="hook" data-def="A command that runs automatically at a set moment — for example, formatting and testing right after Claude edits a file.">Hooks</button> fire at specific Claude Code lifecycle events. Unlike a reminder in CLAUDE.md, a command hook executes automatically—so start small, keep it fast, and understand every command.</p></div>
     <div class="lesson-grid">
       <div class="lesson-stack">
         <div class="compare-row three"><div class="compare-card"><strong>PreToolUse</strong><span>Check or block before a matching tool runs.</span></div><div class="compare-card"><strong>PostToolUse</strong><span>Validate after a successful tool action.</span></div><div class="compare-card"><strong>Failure events</strong><span>Report or guide recovery after a tool fails.</span></div></div>
@@ -191,7 +197,7 @@
       <div class="cc-window short" data-scene="routine"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">Gather · reminder draft</span><button class="cc-replay">↻ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Schedule a safe draft…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
     </div>
     <div class="lesson-stack">
-      <div><span class="chapter-number">08</span><span class="eyebrow">Useful while unattended</span><h2>Automate the preparation, not the decision.</h2><p class="lede">A safe Gather routine checks who has not replied and prepares a reminder draft. It does not message guests, alter RSVPs, or push unrestricted changes.</p></div>
+      <div><span class="chapter-number">08</span><span class="eyebrow">Useful while unattended</span><h2>Automate the preparation, not the decision.</h2><p class="lede">A safe Gather <button class="term" data-word="routine" data-def="A saved task that runs on a schedule — often in the cloud — without you watching, within limits you set.">routine</button> checks who has not replied and prepares a reminder draft. It does not message guests, alter RSVPs, or push unrestricted changes.</p></div>
       <div class="prompt-card" data-copy-root><span class="pc-label">Routine design</span><button class="copy-btn">Copy</button><div class="pc-text">Design a weekly Gather follow-up routine that reads only the event’s RSVP summary, produces a private report, and drafts reminder text for my review. It must not send messages, change event data, or push to unrestricted branches. Include the minimum repository, network, variable, and connector access it needs. Do not create it until I approve the design.</div></div>
       <div class="note"><span class="n-icon">⚠</span><span><strong>Cloud routines run without approval dialogs.</strong> Remove every repository, connector, network permission, and write capability the job does not require.</span></div>
     </div>
@@ -260,7 +266,7 @@
       <h2>You did not just build Gather.<br>You learned how to lead the work.</h2>
       <p class="lede" style="margin-inline:auto">Research, implementation, testing, integrations, automation, and release all stayed connected to one human outcome: helping people meet.</p>
       <button class="btn btn-accent magnetic" id="max-finale" style="margin-top:10px">Complete Max ✨</button>
-      <p class="source-note">Feature details verified against official Claude Code documentation for <a href="https://code.claude.com/docs/en/sub-agents" target="_blank" rel="noopener">subagents</a>, <a href="https://code.claude.com/docs/en/slash-commands" target="_blank" rel="noopener">skills</a>, <a href="https://code.claude.com/docs/en/chrome" target="_blank" rel="noopener">Chrome</a>, <a href="https://code.claude.com/docs/en/hooks-guide" target="_blank" rel="noopener">hooks</a>, and <a href="https://code.claude.com/docs/en/routines" target="_blank" rel="noopener">routines</a>.</p>
+      <p class="source-note">Feature details verified against official Claude Code documentation for <a href="https://code.claude.com/docs/en/sub-agents" target="_blank" rel="noopener">subagents</a>, <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">skills</a>, <a href="https://code.claude.com/docs/en/chrome" target="_blank" rel="noopener">Chrome</a>, <a href="https://code.claude.com/docs/en/hooks-guide" target="_blank" rel="noopener">hooks</a>, and <a href="https://code.claude.com/docs/en/routines" target="_blank" rel="noopener">routines</a>.</p>
     </div>
   </div>
 </section>

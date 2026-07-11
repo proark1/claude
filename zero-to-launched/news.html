@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's new with Claude — News &amp; Updates | Zero to Launched</title>
+<meta name="description" content="A friendly, plain-language roundup of the latest Claude and Claude Code news — the newest models, features, and updates from the last two weeks, plus a map of Anthropic's official resources.">
+<meta property="og:title" content="What's new with Claude — News &amp; Updates">
+<meta property="og:description" content="The latest Claude and Claude Code news in plain language: new models, new features, and where to follow along.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="route-news">
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Sections">
+    <a class="header-link" href="starter.html">Starter</a>
+    <a class="header-link" href="builder.html">Builder</a>
+    <a class="header-link" href="max.html">Max</a>
+    <a class="header-link" href="commands.html">Commands</a>
+    <a class="header-link" href="news.html" aria-current="page">News</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
+  </nav>
+</header>
+
+<div class="rail" aria-label="News progress"><div class="rail-track"><div class="rail-fill"></div></div></div>
+
+<!-- HERO -->
+<section class="chapter route-hero" data-chapter="Latest" id="top">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow reveal">News · the last two weeks</span>
+        <h1 class="reveal" style="--d:.08s">What's new with <em>Claude.</em></h1>
+        <p class="lede reveal" style="--d:.16s">The world of Claude and Claude Code moves fast — new models, new abilities, new places to work. This page is a friendly, plain-language catch-up on everything that shipped in the last fortnight, with a link to the source for each story.</p>
+        <div class="route-meta-line reveal" style="--d:.22s">
+          <span>June 27 – July 11, 2026</span>
+          <span>Plain language, no hype</span>
+          <span>Every story sourced</span>
+        </div>
+        <div class="reveal" style="--d:.3s;margin-top:22px">
+          <span class="asof"><span class="pulse" aria-hidden="true"></span> Snapshot as of <strong>&nbsp;July 11, 2026</strong></span>
+        </div>
+      </div>
+      <div class="reveal-scale" style="--d:.18s">
+        <div class="cmd-palette" aria-label="A glimpse of the headlines">
+          <div class="cmd-palette-head"><span class="slash">✦</span><span class="ph2">This fortnight in Claude…</span><span class="esc">10 stories</span></div>
+          <div class="cmd-row hi reveal" style="--d:.1s"><span class="c-name">Sonnet 5</span><span class="c-desc">A new agentic model, now the default</span></div>
+          <div class="cmd-row reveal" style="--d:.16s"><span class="c-name">Cowork</span><span class="c-desc">Now on web &amp; mobile, not just desktop</span></div>
+          <div class="cmd-row reveal" style="--d:.22s"><span class="c-name">Reflect</span><span class="c-desc">See how you actually use Claude</span></div>
+          <div class="cmd-row reveal" style="--d:.28s"><span class="c-name">Claude Code</span><span class="c-desc">Five releases in five days</span></div>
+          <div class="cmd-row reveal" style="--d:.34s"><span class="c-name">…and more</span><span class="c-desc">Scroll for the full feed</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONESTY NOTE -->
+<section class="chapter" data-chapter="How to read this" style="padding-top:10px">
+  <div class="container">
+    <div class="note blue reveal"><span class="n-icon">📰</span><span><strong>A snapshot, not a live feed.</strong> News moves faster than any page can. This roundup was compiled from Anthropic's official newsroom, the Claude Code changelog, and the Claude release notes for <em>June 27 – July 11, 2026</em>. Dates and details were accurate when written — for the very latest, the <a href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom</a> always has the current story.</span></div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="chapter" data-chapter="Map" id="map" style="padding-top:20px">
+  <div class="container">
+    <div class="chapter-head"><span class="eyebrow reveal">Jump to</span><h2 class="reveal" style="--d:.08s">Four ways in.</h2></div>
+    <nav class="route-map reveal-scale" aria-label="News sections">
+      <a href="#headline"><span class="map-num">01</span><span class="map-name">The headline</span></a>
+      <a href="#feed"><span class="map-num">02</span><span class="map-name">The full feed</span></a>
+      <a href="#models"><span class="map-num">03</span><span class="map-name">Models at a glance</span></a>
+      <a href="#resources"><span class="map-num">04</span><span class="map-name">Follow along</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- HEADLINE / FEATURED -->
+<section class="chapter" data-chapter="Headline" id="headline">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">01</span><span class="eyebrow">The story of the fortnight</span><h2 class="reveal">Meet Claude Sonnet 5.</h2><p class="lede reveal" style="--d:.1s">If you only read one update, read this one — it's the model now doing the work behind Claude Code for most people.</p></div>
+    <div class="news-lead reveal-scale">
+      <div class="lead-body">
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+          <span class="news-date">Jun 30, 2026</span><span class="news-tag model">New model</span>
+        </div>
+        <h2>A faster, cheaper model that acts on its own.</h2>
+        <p>Sonnet 5 is Anthropic's new mid-tier model built for <strong>agentic work</strong> — it can make plans, use tools like browsers and terminals, and run through multi-step jobs on its own, checking itself as it goes. Anthropic says it closes much of the gap with the flagship Opus 4.8 while costing a fraction as much. It's the new default for Free and Pro users, and it became the default model inside Claude Code too.</p>
+        <a class="btn btn-accent magnetic" href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Read the announcement <span class="arrow">→</span></a>
+      </div>
+      <div class="lead-side">
+        <div class="lead-spec"><span class="ls-k">Price</span><span>$2 / $10 per million tokens (introductory, through Aug 31) — then $3 / $15.</span></div>
+        <div class="lead-spec"><span class="ls-k">API</span><span><code>claude-sonnet-5</code></span></div>
+        <div class="lead-spec"><span class="ls-k">Where</span><span>Free, Pro, Max, Team, Enterprise, Claude Code &amp; the Claude Platform.</span></div>
+        <div class="lead-spec"><span class="ls-k">Good at</span><span>Coding, tool use, and long autonomous tasks.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL FEED -->
+<section class="chapter" data-chapter="The feed" id="feed">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Everything else, newest first</span><h2 class="reveal">The full feed.</h2><p class="lede reveal" style="--d:.1s">Ten more stories from the last two weeks — models, features, and the places Claude now shows up. Each card links to the source.</p></div>
+
+    <div class="news-feed">
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jul 9, 2026</span><span class="news-tag product">Feature</span></div>
+        <div>
+          <h3>Reflect: a mirror for how you use Claude</h3>
+          <p>A new dashboard (Settings → Reflect) shows the topics you spend time on, your most active day and peak hour, and gentle observations about how you work with Claude. It's in beta on Free, Pro, and Max — on the web and desktop — and needs memory switched on. Sensitive subjects are shown only at a high level, health topics are excluded, and Anthropic says the insights aren't used for anything else.</p>
+          <a class="nc-src" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jul 7–11</span><span class="news-tag code">Claude Code</span></div>
+        <div>
+          <h3>Claude Code: five releases in five days</h3>
+          <p>A steady run of updates (versions 2.1.203 → 2.1.207) sharpened the agent workflows and fixed a lot of rough edges: a full <code>/doctor</code> setup checkup, protection against tampering with session transcripts, smarter linking of sessions to their pull requests, big Windows reliability fixes, a clearer agents view with live status, and auto-update downloads that stream to disk to save roughly 400&nbsp;MB of memory.</p>
+          <a class="nc-src" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jul 8, 2026</span><span class="news-tag code">Editors</span></div>
+        <div>
+          <h3>VS Code adds multi-chat for Claude sessions</h3>
+          <p>Visual Studio Code 1.128 lets a single Claude agent session hold several related chats, so you can compare approaches side by side, branch from an earlier point in the conversation, and run work in parallel — a small change that makes exploring options far less fiddly.</p>
+          <a class="nc-src" href="https://visualstudiomagazine.com/articles/2026/07/08/claude-ai-gets-yet-another-boost-in-vs-code-1-128.aspx" target="_blank" rel="noopener">Visual Studio Magazine <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jul 7, 2026</span><span class="news-tag product">Product</span></div>
+        <div>
+          <h3>Cowork breaks free of the desktop</h3>
+          <p>Claude Cowork — the assistant that works alongside you across your files and apps — arrived on web and mobile, starting with Max subscribers. Sessions and files now follow you between devices, tasks keep running in the background even with no device online, and you can approve steps from your phone. Anthropic notes that more than 90% of Cowork use isn't coding at all — it's everyday business and content work.</p>
+          <a class="nc-src" href="https://claude.com/blog/cowork-web-mobile" target="_blank" rel="noopener">Claude blog <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jul 7, 2026</span><span class="news-tag product">Connectors</span></div>
+        <div>
+          <h3>Claude can now write to Microsoft 365</h3>
+          <p>The Microsoft 365 connector graduated from read-only to hands-on: with an administrator's consent, Claude can draft and send email, manage calendar events, tidy mailbox settings, and create or update files in OneDrive and SharePoint. (The Teams connector stays read-only for now.)</p>
+          <a class="nc-src" href="https://support.claude.com/en/articles/12138966-release-notes" target="_blank" rel="noopener">Claude release notes <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jul 6, 2026</span><span class="news-tag code">Feature story</span></div>
+        <div>
+          <h3>The making of Claude Code</h3>
+          <p>Anthropic told the origin story of its coding agent — how it grew from a one-person internal experiment into a product used across the whole company, with engineers shipping dozens of internal releases a day. The team even debated whether to release it publicly at all. One striking number: pull-request throughput rose about 67% as the engineering team doubled.</p>
+          <a class="nc-src" href="https://www.anthropic.com/features/making-of-claude-code" target="_blank" rel="noopener">Anthropic features <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jul 2, 2026</span><span class="news-tag">Safety</span></div>
+        <div>
+          <h3>More on Fable 5's safeguards</h3>
+          <p>Following Fable 5's global redeployment on July 1, Anthropic published more detail on the model's cyber safeguards and proposed an industry framework for grading how severe a jailbreak really is — an attempt to make "the model was jailbroken" a measurable claim rather than a headline.</p>
+          <a class="nc-src" href="https://www.anthropic.com/news/redeploying-fable-5" target="_blank" rel="noopener">Anthropic newsroom <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jun 30, 2026</span><span class="news-tag product">Product</span></div>
+        <div>
+          <h3>Claude Science: a workbench for researchers</h3>
+          <p>Anthropic launched Claude Science, an environment that brings research tools and flexible computing together in one place for scientists — aimed at the kind of literature-heavy, data-heavy work that doesn't fit a normal chat window.</p>
+          <a class="nc-src" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jun 29, 2026</span><span class="news-tag">Public sector</span></div>
+        <div>
+          <h3>California partners with Anthropic</h3>
+          <p>In a first-of-its-kind agreement, California state agencies can access Claude at a roughly 50% per-seat discount, bundled with free workforce training and hands-on technical help — a sign of how quickly these tools are moving into government work.</p>
+          <a class="nc-src" href="https://www.gov.ca.gov/2026/06/29/governor-newsom-announces-a-first-of-its-kind-partnership-providing-anthropic-tools-to-state-agencies-and-improving-services-for-californians/" target="_blank" rel="noopener">Office of the Governor <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal">
+        <div class="nc-meta"><span class="news-date">Jul 9, 2026</span><span class="news-tag">Company</span></div>
+        <div>
+          <h3>Ben Bernanke joins Anthropic's trust</h3>
+          <p>Former Federal Reserve chair Ben Bernanke was appointed to Anthropic's Long-Term Benefit Trust, the governance body designed to keep the company accountable to its mission as it grows.</p>
+          <a class="nc-src" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODELS AT A GLANCE -->
+<section class="chapter" data-chapter="Models" id="models">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">03</span><span class="eyebrow">Information about Claude</span><h2 class="reveal">The model line-up, in plain terms.</h2><p class="lede reveal" style="--d:.1s">Claude isn't one model — it's a small family, each tuned for a different job. In Claude Code you can switch between them any time with <span class="keyish">/model</span>. Here's who's who as of July 2026.</p></div>
+    <div class="model-grid">
+      <div class="model-card flag reveal">
+        <span class="m-flagtag">Flagship</span>
+        <div class="m-name">Opus 4.8</div>
+        <div class="m-id">claude-opus-4-8</div>
+        <p class="m-role">Anthropic's most capable model, for the hardest reasoning and the trickiest coding. Reach for it when a problem is genuinely difficult.</p>
+        <div class="m-tags"><span class="m-pill">Deep reasoning</span><span class="m-pill">Hard coding</span><span class="m-pill">Most capable</span></div>
+      </div>
+      <div class="model-card reveal" style="--d:.06s">
+        <span class="m-flagtag" style="background:#3E8E63">Newest</span>
+        <div class="m-name">Sonnet 5</div>
+        <div class="m-id">claude-sonnet-5</div>
+        <p class="m-role">The new all-rounder built for agentic work — fast, affordable, and strong at multi-step tasks. Now the default in Claude Code and for Free &amp; Pro users.</p>
+        <div class="m-tags"><span class="m-pill">Agents</span><span class="m-pill">Great value</span><span class="m-pill">1M-token context</span></div>
+      </div>
+      <div class="model-card reveal" style="--d:.12s">
+        <div class="m-name">Haiku 4.5</div>
+        <div class="m-id">claude-haiku-4-5</div>
+        <p class="m-role">The small, quick one. Ideal for simple edits, fast replies, and high-volume work where speed and cost matter more than raw power.</p>
+        <div class="m-tags"><span class="m-pill">Fastest</span><span class="m-pill">Lowest cost</span></div>
+      </div>
+      <div class="model-card reveal" style="--d:.18s">
+        <div class="m-name">Fable 5</div>
+        <div class="m-id">claude-fable-5</div>
+        <p class="m-role">Part of the Claude 5 family, redeployed globally on July 1, 2026 with expanded cyber safeguards and a new framework for grading jailbreak severity.</p>
+        <div class="m-tags"><span class="m-pill">Claude 5 family</span><span class="m-pill">Redeployed</span></div>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:22px"><span class="n-icon">🧠</span><span><strong>Not sure which to use?</strong> A good rule: start on Sonnet 5, and switch up to Opus 4.8 the moment something feels hard. Model names and prices change often — in the app, <span class="keyish">/model</span> always shows the current, real list available to you.</span></div>
+  </div>
+</section>
+
+<!-- FOLLOW ALONG / RESOURCES -->
+<section class="chapter" data-chapter="Follow along" id="resources">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">04</span><span class="eyebrow">The official websites worth bookmarking</span><h2 class="reveal">Where to follow along yourself.</h2><p class="lede reveal" style="--d:.1s">This page is a friendly digest — but the real, always-current sources are all free to read. These are the ones worth keeping a tab open on.</p></div>
+    <div class="resource-grid">
+      <a class="resource-link reveal" href="https://www.anthropic.com/news" target="_blank" rel="noopener">
+        <span class="r-ico">📰</span>
+        <span><strong>Anthropic Newsroom</strong><span>Every official announcement, model launch, and research post.</span><span class="r-host">anthropic.com/news</span></span>
+      </a>
+      <a class="resource-link reveal" style="--d:.05s" href="https://code.claude.com/docs" target="_blank" rel="noopener">
+        <span class="r-ico">📘</span>
+        <span><strong>Claude Code Docs</strong><span>How the app and CLI actually work — the definitive guide.</span><span class="r-host">code.claude.com/docs</span></span>
+      </a>
+      <a class="resource-link reveal" style="--d:.1s" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">
+        <span class="r-ico">🗒️</span>
+        <span><strong>Claude Code Changelog</strong><span>Every release, in detail. Updated constantly.</span><span class="r-host">code.claude.com/docs/en/changelog</span></span>
+      </a>
+      <a class="resource-link reveal" style="--d:.15s" href="https://support.claude.com/en/articles/12138966-release-notes" target="_blank" rel="noopener">
+        <span class="r-ico">✅</span>
+        <span><strong>Claude Release Notes</strong><span>What's new across the Claude apps and connectors.</span><span class="r-host">support.claude.com</span></span>
+      </a>
+      <a class="resource-link reveal" style="--d:.2s" href="https://platform.claude.com/docs" target="_blank" rel="noopener">
+        <span class="r-ico">🛠️</span>
+        <span><strong>Claude Platform &amp; API</strong><span>For when you're ready to build with Claude in your own code.</span><span class="r-host">platform.claude.com/docs</span></span>
+      </a>
+      <a class="resource-link reveal" style="--d:.25s" href="https://claude.ai" target="_blank" rel="noopener">
+        <span class="r-ico">💬</span>
+        <span><strong>Claude.ai</strong><span>The chat app itself — the fastest way to just try Claude.</span><span class="r-host">claude.ai</span></span>
+      </a>
+    </div>
+
+    <div class="finale route-finale reveal-scale" style="margin-top:70px">
+      <span class="eyebrow" style="justify-content:center">caught up</span>
+      <h2>That's the fortnight.<br>Now go build something.</h2>
+      <p class="lede" style="margin-inline:auto">Knowing what's new is half the fun — using it is the other half. If you haven't yet, the Starter route takes you from zero to a live website in an afternoon, with everything you just read about built in.</p>
+      <button class="btn btn-accent magnetic" id="news-finale" style="margin-top:10px">Nice — I'm caught up ✨</button>
+      <p class="source-note">Compiled from the official <a href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom</a>, the <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog</a>, and the <a href="https://support.claude.com/en/articles/12138966-release-notes" target="_blank" rel="noopener">Claude release notes</a>, covering June 27 – July 11, 2026. News changes fast — always check the source links for the current details.</p>
+    </div>
+
+    <div class="narrow" style="margin-top:44px;padding:0"><div class="teaser reveal-scale"><span class="eyebrow" style="justify-content:center">start here</span><h3>New to all of this?</h3><p>The news makes a lot more sense once you've built something yourself. The Starter route is the gentlest possible on-ramp — no experience needed.</p><a class="btn btn-accent magnetic" href="starter.html">Take the Starter route <span class="arrow">→</span></a></div></div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span><span><a href="index.html">Home</a> · <a href="starter.html">Starter</a> · <a href="builder.html">Builder</a> · <a href="max.html">Max</a> · <a href="commands.html">Commands</a> · <span id="year"></span></span></div></footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const done = document.getElementById("news-finale");
+  if (done) done.addEventListener("click", () => {
+    window.ZTL_celebrate && window.ZTL_celebrate();
+    done.textContent = "All caught up ✨";
+  });
+});
+</script>
+<script src="shared/app.js"></script>
+</body>
+</html>

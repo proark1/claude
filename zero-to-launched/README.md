@@ -8,6 +8,7 @@ An interactive, scroll-driven tutorial website that teaches complete beginners h
 - `builder.html` — **Builder route**, complete (10 chapters): build and deploy Gather with PostgreSQL
 - `max.html` — **Max route**, complete (12 chapters): agents, skills, browser tests, hooks, connectors, routines, and release practice
 - `commands.html` — **Commands cheat sheet** (bonus tab): powerful, underused slash commands and gestures, grouped by intent; uses `body.route-commands` (green theme) plus the `.cmd-palette` / `.cmd-card` / `.gesture` components. Anchored on the honesty rule: it tells readers to type `/` or `/help` for their live, version-specific list.
+- `news.html` — **News & Updates tab**: a plain-language roundup of the latest Claude / Claude Code news (a rolling ~two-week window), plus a "models at a glance" reference and a directory of official resources. Uses `body.route-news` (violet theme) plus `.news-lead` / `.news-card` / `.model-card` / `.resource-link` / `.asof` components. Carries a visible "snapshot as of &lt;date&gt;" stamp and links every story to its source — **re-verify and re-date before each refresh**, since it is the most time-sensitive page on the site.
 - `shared/styles.css` — the whole design system (light, warm, editorial)
 - `shared/app.js` — animation engine: reveals, SVG drawing, progress rail, sound,
   confetti, checklists, glossary tooltips, and the **scene player**
