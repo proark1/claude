@@ -27,19 +27,21 @@
   </nav>
 </header>
 
+<div class="rail" aria-label="Page progress"><div class="rail-track"><div class="rail-fill"></div></div></div>
+
 <!-- ============ HERO ============ -->
-<section class="hero">
+<section class="hero chapter" data-chapter="Welcome">
   <div class="hero-bg" aria-hidden="true"><div class="blob a"></div><div class="blob b"></div></div>
   <div class="container hero-grid">
     <div>
       <span class="eyebrow reveal">An interactive tutorial · no experience needed</span>
-      <h1 class="reveal" style="--d:.08s">You can build <span class="accent">software</span> now.</h1>
-      <p class="lede reveal" style="--d:.16s">You describe what you want in normal words. Claude Code does the technical work. This tutorial walks you from installing the app to seeing your very own website live on the internet — and you won't write a single line of code.</p>
+      <h1 class="reveal" style="--d:.08s">You're one afternoon from your <span class="accent">own website.</span></h1>
+      <p class="lede reveal" style="--d:.16s">You describe what you want in normal words. Claude does the technical work. Together you'll go from a blank page to a real website — live on the internet — without writing a single line of code.</p>
       <div class="hero-ctas reveal" style="--d:.24s">
-        <a class="btn btn-accent magnetic" href="starter.html">Start the tutorial <span class="arrow">→</span></a>
-        <a class="btn btn-ghost magnetic" href="#routes">See the three routes</a>
+        <a class="btn btn-accent magnetic" href="starter.html">Start with the basics <span class="arrow">→</span></a>
+        <a class="btn btn-ghost magnetic" href="#hello">Is this for me? <span class="arrow">↓</span></a>
       </div>
-      <p class="hero-note reveal" style="--d:.3s">Works on Mac &amp; Windows · roughly one afternoon · genuinely zero jargon</p>
+      <p class="hero-note reveal" style="--d:.3s">Works on Mac &amp; Windows · about one afternoon · genuinely zero jargon</p>
     </div>
 
     <div class="hero-stage reveal-scale" style="--d:.2s">
@@ -81,28 +83,150 @@
   <div class="scroll-hint" aria-hidden="true"><div class="mouse"></div>scroll</div>
 </section>
 
+<!-- ============ HELLO — a note from Claude ============ -->
+<section class="chapter" data-chapter="Meet Claude" id="hello">
+  <div class="container">
+    <div class="split">
+      <div class="reveal-scale" style="--d:.12s">
+        <div class="cc-window short" data-scene="hello">
+          <div class="cc-titlebar">
+            <span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="cc-title">Claude Code <span class="cc-badge">simulation</span></span>
+            <button class="cc-replay">↺ Replay</button>
+          </div>
+          <div class="cc-body"><div class="cc-main"><div class="cc-chat" aria-live="polite"></div>
+            <div class="cc-composer"><span class="ph">Say hello…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="claude-letter">
+        <span class="eyebrow reveal">A quick hello</span>
+        <div class="letter-body">
+          <p class="reveal" style="--d:.04s">Hi — I'm Claude.</p>
+          <p class="reveal" style="--d:.12s">If you've ever looked at an app or a website and thought <em>"I could never make that"</em> — I'd love to change your mind.</p>
+          <p class="reveal" style="--d:.2s">You don't need to know how to code. You tell me what you want in normal words, and I do the technical part. You stay in charge the whole way — and <strong>nothing you do here can break anything.</strong></p>
+          <p class="reveal" style="--d:.28s">We'll go one small step at a time. Ready when you are.</p>
+          <p class="letter-sign reveal" style="--d:.34s">— Claude</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU CAN BUILD (interactive) ============ -->
+<section class="chapter" data-chapter="What you can build" id="build">
+  <div class="container">
+    <div class="chapter-head center" style="margin-inline:auto">
+      <span class="eyebrow reveal">What you could make</span>
+      <h2 class="reveal" style="--d:.08s">Real things. One plain sentence each.</h2>
+      <p class="lede reveal" style="--d:.14s">Scroll slowly — watch a single sentence turn into each of these. Some are little websites; some are everyday help. Yours doesn't have to be on the list. That's the whole point.</p>
+    </div>
+
+    <div class="showcase usecases" data-showcase data-mode="replace" data-sticky-top="96" data-mobile="820">
+      <div class="show-stage">
+        <div class="uc-window">
+          <div class="uc-bar"><span class="dots"><i></i><i></i><i></i></span><span class="cc-title" style="font-size:.74rem">Claude Code</span></div>
+          <div class="uc-screen">
+            <div class="uc-view on" data-stage="rsvp">
+              <div class="uc-ask"><b>You:</b> Build a birthday RSVP page where friends can say if they're coming.</div>
+              <div class="uc-site"><span class="u-title">Maya's 30th 🎉</span><span class="u-sub">Sat 26 July · Riverside Park · 6pm</span><div class="uc-row"><span class="uc-pill">8 coming</span><span class="uc-pill">2 maybe</span><span class="uc-pill solid">I'm in ✓</span></div></div>
+            </div>
+            <div class="uc-view" data-stage="bakery">
+              <div class="uc-ask"><b>You:</b> Make a one-page site for my little home bakery.</div>
+              <div class="uc-site"><span class="u-title">Rosa's Kitchen 🍰</span><span class="u-sub">Fresh bakes, made to order in Leeds</span><div class="uc-row"><span class="uc-pill">Menu</span><span class="uc-pill">Find us</span><span class="uc-pill solid">Order a cake</span></div></div>
+            </div>
+            <div class="uc-view" data-stage="books">
+              <div class="uc-ask"><b>You:</b> Help me keep track of the books I read.</div>
+              <div class="uc-site"><span class="u-title">My Reading 📚</span><span class="u-sub">23 books so far this year</span><div class="uc-row"><span class="uc-pill">Reading · 2</span><span class="uc-pill">Finished · 21</span><span class="uc-pill solid">＋ Add a book</span></div></div>
+            </div>
+            <div class="uc-view" data-stage="trip">
+              <div class="uc-ask"><b>You:</b> Plan a relaxed 3-day trip to Lisbon.</div>
+              <div class="uc-chat"><div class="uc-msg me">Plan a relaxed 3-day trip to Lisbon.</div><div class="uc-msg ai">Day 1 — wander Alfama, sunset at Miradouro. Day 2 — Belém &amp; pastéis de nata. Day 3 — a slow day trip to Sintra. Want it as a checklist you can tick off?</div></div>
+            </div>
+            <div class="uc-view" data-stage="letter">
+              <div class="uc-ask"><b>You:</b> Explain this official letter in plain English.</div>
+              <div class="uc-chat"><div class="uc-msg me">What does this letter actually mean?</div><div class="uc-msg ai">In short: they need one form back by the 14th. I've listed the three things to do — none of it is urgent, and nothing's wrong.</div></div>
+            </div>
+            <div class="uc-view" data-stage="notes">
+              <div class="uc-ask"><b>You:</b> Turn my messy notes into a clear checklist.</div>
+              <div class="uc-chat"><div class="uc-msg me">Here are my scattered move-house notes…</div><div class="uc-msg ai">Done — 9 tasks, grouped by week, with every deadline pulled out and sorted. Want me to add reminders?</div></div>
+            </div>
+          </div>
+          <div class="uc-caption">✦ <span data-showcase-stamp>A birthday RSVP page</span></div>
+        </div>
+      </div>
+
+      <div class="show-steps">
+        <div class="show-step" data-stage="rsvp" data-label="A birthday RSVP page">
+          <span class="uc-kind build">Build · a website</span>
+          <h3>"Is everyone coming?"</h3>
+          <p>A friendly page where people tap "I'm in," pick a date, and see who else is coming — no group-chat chaos.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Say this</span><button class="copy-btn">Copy</button><span class="pc-text">Build a birthday RSVP page where friends can say if they're coming and vote on a date.</span></div>
+          <div class="ss-visual"><div class="uc-mini"><span class="um-ico">🎉</span><span><strong>Maya's 30th</strong><span>8 coming · 2 maybe</span></span></div></div>
+        </div>
+        <div class="show-step" data-stage="bakery" data-label="A home-bakery site">
+          <span class="uc-kind build">Build · a website</span>
+          <h3>Your little business, online</h3>
+          <p>A warm one-page site with your menu, your story, and a button people can actually order from.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Say this</span><button class="copy-btn">Copy</button><span class="pc-text">Make a one-page site for my home bakery with a menu, my story, and an order button.</span></div>
+          <div class="ss-visual"><div class="uc-mini"><span class="um-ico">🍰</span><span><strong>Rosa's Kitchen</strong><span>Menu · Order a cake</span></span></div></div>
+        </div>
+        <div class="show-step" data-stage="books" data-label="A reading tracker">
+          <span class="uc-kind build">Build · a website</span>
+          <h3>Keep track of what you love</h3>
+          <p>Books, films, recipes, plants — a simple personal tracker that remembers things for you.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Say this</span><button class="copy-btn">Copy</button><span class="pc-text">Help me keep track of the books I read, with what I'm reading now and what I've finished.</span></div>
+          <div class="ss-visual"><div class="uc-mini"><span class="um-ico">📚</span><span><strong>My Reading</strong><span>21 finished this year</span></span></div></div>
+        </div>
+        <div class="show-step" data-stage="trip" data-label="A trip, planned">
+          <span class="uc-kind everyday">Everyday · just ask</span>
+          <h3>Plan the whole thing in one message</h3>
+          <p>Not everything is a website. Ask for a plan, a summary, or an idea — and get something you can actually use.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Say this</span><button class="copy-btn">Copy</button><span class="pc-text">Plan a relaxed 3-day trip to Lisbon, then give it to me as a checklist.</span></div>
+          <div class="ss-visual"><div class="uc-mini"><span class="um-ico">🧳</span><span><strong>Lisbon, 3 days</strong><span>A relaxed day-by-day plan</span></span></div></div>
+        </div>
+        <div class="show-step" data-stage="letter" data-label="Plain-English answers">
+          <span class="uc-kind everyday">Everyday · just ask</span>
+          <h3>Make the confusing stuff make sense</h3>
+          <p>Paste a scary letter, a contract, or a form. Get it back in plain words, with what to actually do.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Say this</span><button class="copy-btn">Copy</button><span class="pc-text">Explain this official letter in plain English and tell me exactly what I need to do.</span></div>
+          <div class="ss-visual"><div class="uc-mini"><span class="um-ico">📄</span><span><strong>In plain English</strong><span>One form, due the 14th</span></span></div></div>
+        </div>
+        <div class="show-step" data-stage="notes" data-label="Order from chaos">
+          <span class="uc-kind everyday">Everyday · just ask</span>
+          <h3>Turn a mess into a plan</h3>
+          <p>Dump your scattered notes and let Claude sort them into a clear, grouped checklist with the dates pulled out.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Say this</span><button class="copy-btn">Copy</button><span class="pc-text">Turn my messy notes into a clear checklist, grouped by week, with the deadlines pulled out.</span></div>
+          <div class="ss-visual"><div class="uc-mini"><span class="um-ico">✅</span><span><strong>9 tasks, sorted</strong><span>Grouped by week</span></span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="center reveal" style="text-align:center;margin-top:36px">
+      <a class="btn btn-ghost magnetic" href="starter.html">Start with the simplest one <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ HOW IT WORKS ============ -->
-<section class="chapter">
+<section class="chapter" data-chapter="How it works">
   <div class="container">
     <div class="chapter-head center" style="margin-inline:auto">
       <span class="eyebrow reveal">The whole idea, in twenty seconds</span>
-      <h2 class="reveal" style="--d:.08s">Talking is the new coding.</h2>
-      <p class="lede reveal" style="--d:.14s">Claude Code is an app for your computer. You tell it what you want. It writes the code, shows you the result, asks permission before big steps — and you steer it with plain English.</p>
+      <h2 class="reveal" style="--d:.08s">Talking is the new building.</h2>
+      <p class="lede reveal" style="--d:.14s">Claude Code is an app for your computer. You tell it what you want. It writes the code, shows you the result, and asks permission before anything important — and you steer it with plain English.</p>
     </div>
 
     <div class="diagram-wrap reveal-scale">
       <svg class="draw-on-scroll" viewBox="0 0 900 240" role="img" aria-label="Diagram: your idea in words flows to Claude Code, which builds a live website while asking your permission along the way.">
-        <!-- you -->
         <g class="pop" style="--d:.1s">
           <circle cx="110" cy="110" r="52" fill="#FBEDE7" stroke="#D97757" stroke-width="2.5"/>
           <text x="110" y="103" text-anchor="middle" font-size="30">💡</text>
           <text x="110" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#29241F">You</text>
           <text x="110" y="195" text-anchor="middle" font-size="13" fill="#6B6257">Your idea, in normal words</text>
         </g>
-        <!-- arrow 1 -->
         <path class="draw-path" style="--d:.5s" d="M175 110 C 240 70, 280 70, 340 105" fill="none" stroke="#D97757" stroke-width="3" stroke-linecap="round" stroke-dasharray="1"/>
         <path class="pop" style="--d:1s" d="M332 92 l14 12 l-18 5 z" fill="#D97757"/>
-        <!-- claude code -->
         <g class="pop" style="--d:.9s">
           <rect x="355" y="55" width="190" height="110" rx="18" fill="#FFFFFF" stroke="#E8E2D6" stroke-width="2.5"/>
           <rect x="355" y="55" width="190" height="26" rx="13" fill="#F4F0E6"/>
@@ -111,15 +235,12 @@
           <text x="450" y="138" text-anchor="middle" font-size="12" fill="#6B6257">writes the code for you</text>
           <text x="450" y="195" text-anchor="middle" font-size="13" fill="#6B6257">…and asks before anything important</text>
         </g>
-        <!-- permission bubble -->
         <g class="pop" style="--d:1.6s">
           <rect x="400" y="12" width="140" height="30" rx="10" fill="#F9F1E0" stroke="#B98A34" stroke-width="1.5"/>
           <text x="470" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#6B5A33">May I? → You: Yes ✓</text>
         </g>
-        <!-- arrow 2 -->
         <path class="draw-path" style="--d:1.4s" d="M560 105 C 620 70, 660 70, 722 105" fill="none" stroke="#52708B" stroke-width="3" stroke-linecap="round" stroke-dasharray="1"/>
         <path class="pop" style="--d:1.9s" d="M714 92 l14 12 l-18 5 z" fill="#52708B"/>
-        <!-- result -->
         <g class="pop" style="--d:1.8s">
           <circle cx="790" cy="110" r="52" fill="#EBF1F5" stroke="#52708B" stroke-width="2.5"/>
           <text x="790" y="103" text-anchor="middle" font-size="30">🌐</text>
@@ -137,127 +258,108 @@
   </div>
 </section>
 
-<!-- ============ ROUTES ============ -->
-<section class="chapter" id="routes">
-  <div class="container">
-    <div class="chapter-head center" style="margin-inline:auto">
-      <span class="eyebrow reveal">Choose your route</span>
-      <h2 class="reveal" style="--d:.08s">Three paths. Same destination: <em>you, building things.</em></h2>
-      <p class="lede reveal" style="--d:.14s">Start from zero, build an app that remembers, then learn to coordinate the full crew. Every route is ready when you are.</p>
-    </div>
-
-    <div class="routes">
-      <a class="route-card reveal" style="--d:.05s" href="starter.html">
-        <span class="badge-start">Start here</span>
-        <span class="route-level">● Starter</span>
-        <span class="route-title">Your first project, live on the internet</span>
-        <span class="route-desc">Install Claude Code, learn to talk to it, and build a personal website together — then put it online for the world to see.</span>
-        <span class="route-meta"><span>⏱ one afternoon</span><span>🎓 zero experience</span></span>
-        <span class="route-cta">Begin the journey <span class="arrow">→</span></span>
-        <span class="route-art" aria-hidden="true"><span class="strip">
-          <span class="chip">⬇ Install</span><span class="chip">💬 First prompt</span><span class="chip">🔨 Build</span><span class="chip">🧪 Test</span><span class="chip">🚀 Go live</span>
-        </span></span>
-      </a>
-
-      <a class="route-card reveal" style="--d:.15s" href="builder.html">
-        <span class="badge-ready">10 chapters</span>
-        <span class="route-level" style="color:var(--slate-deep)">●● Builder</span>
-        <span class="route-title">Real features, real data</span>
-        <span class="route-desc">Build Gather, an event planner with RSVPs, date voting, shared tasks, and a real PostgreSQL database on Railway.</span>
-        <span class="route-meta"><span>⏱ about 3 hours</span><span>🎓 finished Starter</span></span>
-        <span class="route-cta" style="color:var(--slate-deep)">Build Gather <span class="arrow">→</span></span>
-        <span class="route-art" aria-hidden="true"><span class="strip">
-          <span class="chip">📋 Plan Mode</span><span class="chip">🗄 Database</span><span class="chip">🖼 Screenshots</span><span class="chip">⏪ Rewind</span><span class="chip">🧠 CLAUDE.md</span>
-        </span></span>
-      </a>
-
-      <a class="route-card reveal" style="--d:.25s" href="max.html">
-        <span class="badge-ready" style="background:var(--gold-soft);color:#755718">12 chapters</span>
-        <span class="route-level" style="color:var(--gold)">●●● Max</span>
-        <span class="route-title">Turn one builder into a crew</span>
-        <span class="route-desc">Audit and improve Gather with subagents, isolated parallel work, skills, browser tests, hooks, connectors, and reviewed routines.</span>
-        <span class="route-meta"><span>⏱ about 4 hours</span><span>🎓 finished Builder</span></span>
-        <span class="route-cta" style="color:var(--gold)">Run the Gather crew <span class="arrow">→</span></span>
-        <span class="route-art" aria-hidden="true"><span class="strip">
-          <span class="chip">🤖 Subagents</span><span class="chip">🪝 Hooks</span><span class="chip">🔌 Connectors</span><span class="chip">🕑 Routines</span><span class="chip">🌐 Browser testing</span>
-        </span></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMMANDS TEASER ============ -->
-<section class="chapter">
-  <div class="container">
-    <div class="split">
-      <div>
-        <span class="eyebrow reveal">Bonus tab · for when you're rolling</span>
-        <h2 class="reveal" style="--d:.06s">The power-user cheat sheet.</h2>
-        <p class="lede reveal" style="--d:.12s">Claude Code hides a whole menu of shortcuts behind a single key: <span class="keyish">/</span>. Most people use three of them. Our bonus tab showcases the handful that quietly make you twice as capable — plan before building, rewind a wrong turn, review your own code, automate the boring parts.</p>
-        <a class="btn btn-accent magnetic reveal" style="--d:.18s" href="commands.html">Open the cheat sheet <span class="arrow">→</span></a>
-      </div>
-      <div class="reveal-scale" style="--d:.16s">
-        <div class="cmd-palette" aria-label="A preview of the slash-command menu">
-          <div class="cmd-palette-head"><span class="slash">/</span><span class="ph2">Type a command…</span><span class="esc">esc to close</span></div>
-          <div class="cmd-row hi"><span class="c-name">/plan</span><span class="c-desc">Propose an approach before changing anything</span></div>
-          <div class="cmd-row"><span class="c-name">/rewind</span><span class="c-desc">Jump back to an earlier point</span></div>
-          <div class="cmd-row"><span class="c-name">/code-review</span><span class="c-desc">A second pair of eyes on your changes</span></div>
-          <div class="cmd-row"><span class="c-name">/goal</span><span class="c-desc">Keep working until the job is done</span></div>
-          <div class="cmd-row"><span class="c-name">/help</span><span class="c-desc">The full, always-current list</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ NEWS TEASER ============ -->
-<section class="chapter">
-  <div class="container">
-    <div class="split">
-      <div class="reveal-scale" style="--d:.16s">
-        <div class="cmd-palette" aria-label="A glimpse of the latest Claude news">
-          <div class="cmd-palette-head"><span class="slash">✦</span><span class="ph2">This fortnight in Claude…</span><span class="esc">the News tab</span></div>
-          <div class="cmd-row hi"><span class="c-name">Sonnet 5</span><span class="c-desc">A new agentic model — now the default</span></div>
-          <div class="cmd-row"><span class="c-name">Cowork</span><span class="c-desc">Now on web &amp; mobile, not just desktop</span></div>
-          <div class="cmd-row"><span class="c-name">Reflect</span><span class="c-desc">See how you actually use Claude</span></div>
-          <div class="cmd-row"><span class="c-name">Claude Code</span><span class="c-desc">Five releases in five days</span></div>
-        </div>
-      </div>
-      <div>
-        <span class="eyebrow reveal">New tab · what's happening now</span>
-        <h2 class="reveal" style="--d:.06s">Keep up with Claude.</h2>
-        <p class="lede reveal" style="--d:.12s">Claude moves fast — new models, new features, new places to work. The News tab is a friendly, plain-language catch-up on everything that shipped recently, plus a models-at-a-glance guide and links to every official source worth bookmarking.</p>
-        <a class="btn btn-accent magnetic reveal" style="--d:.18s" href="news.html">Read the latest <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ REASSURANCE ============ -->
-<section class="chapter">
+<!-- ============ YOU CAN'T BREAK ANYTHING ============ -->
+<section class="chapter" data-chapter="You're safe">
   <div class="container">
     <div class="split">
       <div>
         <span class="eyebrow reveal">Before you worry</span>
         <h2 class="reveal" style="--d:.06s">"But I'm not technical…"</h2>
-        <p class="lede reveal" style="--d:.12s">Perfect — this was made for you. Every technical word is explained the moment it appears. Try hovering (or tapping) this one: you'll be storing your project in a <button class="term" data-def="A folder for your project that also remembers every version of it — like unlimited undo for your whole project." data-word="repository">repository</button> by chapter 7 and it won't hurt a bit.</p>
+        <p class="lede reveal" style="--d:.12s">Perfect — this was made for you. Every technical word is explained the moment it appears. Try hovering (or tapping) this one: you'll be storing your project in a <button class="term" data-def="A folder for your project that also remembers every version of it — like unlimited undo for your whole project." data-word="repository">repository</button> by the end, and it won't hurt a bit.</p>
       </div>
       <div class="cards-2" style="grid-template-columns:1fr">
-        <div class="info-card reveal" style="--d:.1s"><div class="icon">🛡️</div><h4>You can't break anything</h4><p>Claude Code asks permission before important steps, and every change can be rewound. Your computer is safe. Promise.</p></div>
-        <div class="info-card reveal" style="--d:.2s"><div class="icon slate">🗣️</div><h4>Plain English is the tool</h4><p>"Make the header bigger." "Try warmer colors." That's it. That's the skill. This tutorial teaches you how to say it well.</p></div>
+        <div class="info-card reveal" style="--d:.1s"><div class="icon">🛡️</div><h4>You can't break anything</h4><p>Claude asks permission before important steps, and every change can be rewound. Your computer is safe. Promise.</p></div>
+        <div class="info-card reveal" style="--d:.2s"><div class="icon slate">🗣️</div><h4>Plain English is the tool</h4><p>"Make the header bigger." "Try warmer colors." That's it. That's the skill — and this tutorial teaches you how to say it well.</p></div>
         <div class="info-card reveal" style="--d:.3s"><div class="icon green">🚀</div><h4>You'll finish with something real</h4><p>Not a certificate. Not theory. A real website with a real address you can text to your friends tonight.</p></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============ THE JOURNEY (routes, reframed) ============ -->
+<section class="chapter" data-chapter="Your journey" id="journey">
+  <div class="container">
+    <div class="chapter-head center" style="margin-inline:auto">
+      <span class="eyebrow reveal">Your journey</span>
+      <h2 class="reveal" style="--d:.08s">One path, three steps. <em>You start at step one.</em></h2>
+      <p class="lede reveal" style="--d:.14s">Everyone begins in the same place — building a website together. When you're ready (and only then), two more steps take you further.</p>
+    </div>
+
+    <a class="journey-primary reveal-scale magnetic" href="starter.html">
+      <span class="jp-num">1</span>
+      <span class="jp-body">
+        <h3>Starter — your first website, live online</h3>
+        <p>Install Claude Code, learn to talk to it, and put a real website on the internet. Zero experience needed · about one afternoon.</p>
+      </span>
+      <span class="jp-cta">Start here <span class="arrow">→</span></span>
+    </a>
+
+    <div class="journey-next">
+      <a class="journey-stop reveal" href="builder.html">
+        <span class="js-num">2</span>
+        <span><h4>Builder — an app that remembers</h4><p>Build Gather, an event planner with RSVPs, date voting, and a real database.</p><span class="js-when">When you've finished Starter</span></span>
+      </a>
+      <a class="journey-stop reveal" style="--d:.08s" href="max.html">
+        <span class="js-num">3</span>
+        <span><h4>Max — a whole crew of helpers</h4><p>Coordinate agents, browser tests, hooks, and reviewed automations.</p><span class="js-when">When you've finished Builder</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE PAYOFF ============ -->
+<section class="chapter" data-chapter="Where it goes">
+  <div class="container">
+    <div class="payoff-wrap reveal-scale">
+      <div class="payoff-copy">
+        <span class="eyebrow">Where this goes</span>
+        <h2>One afternoon from now…</h2>
+        <p>…there's a real web address you can text to anyone. Someone on the other side of the world can open your site — because <em>you</em> made it.</p>
+      </div>
+      <div class="uc-window" aria-hidden="true">
+        <div class="uc-bar"><span class="dots"><i></i><i></i><i></i></span><span class="uc-url">alex-rivera.up.railway.app</span></div>
+        <div class="uc-screen" style="height:210px">
+          <div class="uc-view on"><div class="uc-site"><span class="u-title">Alex Rivera</span><span class="u-sub">Baker, photographer &amp; proud plant parent.</span><div class="uc-row"><span class="uc-pill">📷 Photography</span><span class="uc-pill solid">✉️ Say hello</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALSO HERE ============ -->
+<section class="chapter" data-chapter="Also here">
+  <div class="container">
+    <div class="chapter-head center" style="margin-inline:auto">
+      <span class="eyebrow reveal">Two more tabs, for later</span>
+      <h2 class="reveal" style="--d:.08s">Once you're rolling.</h2>
+    </div>
+    <div class="also-grid">
+      <a class="also-card reveal" href="commands.html">
+        <span class="ac-eyebrow">Cheat sheet</span>
+        <h3>The commands most people never find</h3>
+        <p>A handful of shortcuts that quietly make you twice as capable — plan before building, rewind a wrong turn, review your own work.</p>
+      </a>
+      <a class="also-card reveal" style="--d:.1s" href="news.html">
+        <span class="ac-eyebrow">News &amp; updates</span>
+        <h3>Keep up with Claude</h3>
+        <p>Plain-language updates on everything new — models, features, and where Claude shows up next.</p>
+        <div class="also-news">
+          <span class="an-item"><span class="an-date">Jun 30</span> Claude Sonnet 5 — a new, faster model</span>
+          <span class="an-item"><span class="an-date">Jul 7</span> Cowork comes to web &amp; mobile</span>
+          <span class="an-item"><span class="an-date">Jul 9</span> Reflect — see how you use Claude</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FINAL CTA ============ -->
-<section class="chapter">
+<section class="chapter" data-chapter="Start">
   <div class="narrow">
     <div class="teaser reveal-scale">
       <h3>Ready? Your website is waiting to exist.</h3>
-      <p>Chapter 1 takes four minutes and requires nothing but curiosity.</p>
-      <a class="btn btn-accent magnetic" href="starter.html">Start the Starter route <span class="arrow">→</span></a>
+      <p>Chapter 1 takes about four minutes and asks nothing but curiosity.</p>
+      <a class="btn btn-accent magnetic" href="starter.html">Start with the basics <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -265,12 +367,12 @@
 <footer class="site-footer">
   <div class="container foot-grid">
     <span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span>
-    <span>Made with Claude Code, obviously · <span id="year"></span></span>
+    <span><a href="starter.html">Starter</a> · <a href="builder.html">Builder</a> · <a href="max.html">Max</a> · <a href="commands.html">Commands</a> · <a href="news.html">News</a> · <span id="year"></span></span>
   </div>
 </footer>
 
 <script>
-/* hero scene + assembling website */
+/* hero scene + assembling website, and Claude's hello */
 window.ZTL_SCENES = {
   hero: [
     { cue: "reset", gap: 200 },
@@ -285,6 +387,11 @@ window.ZTL_SCENES = {
     { cue: "p3", gap: 500 },
     { cue: "p4", gap: 900 },
     { c: "Done! Want to put it on the real internet? This tutorial shows you exactly how 👇", gap: 400 },
+  ],
+  hello: [
+    { u: "Hi Claude — I want to make something, but I've never written code.", gap: 500 },
+    { think: "Reading your idea…", ms: 900 },
+    { c: "Perfect — that's exactly who this is for. Come on, I'll show you how it works. 👋", gap: 400 },
   ],
 };
 document.addEventListener("DOMContentLoaded", () => {

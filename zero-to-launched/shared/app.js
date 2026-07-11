@@ -641,9 +641,132 @@
     secs.forEach((s) => io.observe(s));
   }
 
+  /* ---------------- mobile menu ---------------- */
+  function initMobileNav() {
+    const header = $(".site-header");
+    if (!header) return;
+    const nav = $(".header-actions", header);
+    const links = nav ? $$(".header-link", nav) : [];
+    if (!links.length) return;
+
+    const toggle = el("button", "nav-toggle", "<span></span><span></span><span></span>");
+    toggle.setAttribute("aria-label", "Open menu");
+    toggle.setAttribute("aria-expanded", "false");
+
+    const menu = el("nav", "mobile-menu");
+    menu.setAttribute("aria-label", "Site");
+    links.forEach((l) => {
+      const a = el("a", "mm-link", l.textContent.trim());
+      a.href = l.getAttribute("href");
+      if (l.getAttribute("aria-current")) a.setAttribute("aria-current", l.getAttribute("aria-current"));
+      menu.appendChild(a);
+    });
+    const scrim = el("div", "mobile-scrim");
+
+    header.appendChild(toggle);
+    document.body.appendChild(scrim);
+    document.body.appendChild(menu);
+
+    const setOpen = (open) => {
+      document.body.classList.toggle("menu-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      toggle.classList.toggle("is-open", open);
+    };
+    toggle.addEventListener("click", () => { setOpen(!document.body.classList.contains("menu-open")); Sound.click(); });
+    scrim.addEventListener("click", () => setOpen(false));
+    menu.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+    addEventListener("resize", () => { if (innerWidth > 640) setOpen(false); });
+  }
+
+  /* ---------------- scroll showcase (generalized sticky-unlock) ----
+     Markup:
+       <div data-showcase data-mode="replace|accrue" data-sticky-top="92" data-mobile="820">
+         <div class="show-stage"> …layers with [data-stage]… <x data-showcase-stamp></x> </div>
+         <div class="show-steps">
+           <div class="show-step" data-stage="a" data-label="Caption">…</div> …
+         </div>
+       </div>
+     Each .show-step's data-stage maps to layer(s) [data-stage] inside .show-stage.
+     "accrue" keeps prior layers on (like the Gather board); "replace" swaps. ---- */
+  function initShowcase() {
+    $$("[data-showcase]").forEach((root) => {
+      const mode = root.dataset.mode || "accrue";
+      const mobileBP = parseInt(root.dataset.mobile || "820", 10);
+      const steps = $$(".show-step", root);
+      if (!steps.length) return;
+      const stage = $(".show-stage", root);
+      if (stage && root.dataset.stickyTop) stage.style.setProperty("--sticky-top", root.dataset.stickyTop + "px");
+      const layers = stage ? $$("[data-stage]", stage) : [];
+      const stamp = $("[data-showcase-stamp]", root);
+      const order = steps.map((s) => s.dataset.stage);
+      let current = -1;
+
+      const apply = (idx) => {
+        if (idx === current) return;
+        current = idx;
+        const active = mode === "replace" ? [order[idx]] : order.slice(0, idx + 1);
+        layers.forEach((l) => l.classList.toggle("on", active.indexOf(l.dataset.stage) > -1));
+        root.classList.toggle("at-last", idx === steps.length - 1);
+        steps.forEach((s, i) => {
+          s.classList.toggle("done", mode === "accrue" && i < idx);
+          s.classList.toggle("active", i === idx);
+        });
+        const st = steps[idx];
+        if (stamp && st && st.dataset.label != null) stamp.textContent = st.dataset.label;
+        root.dispatchEvent(new CustomEvent("showcasechange", { detail: { stage: order[idx], idx: idx }, bubbles: true }));
+      };
+
+      if (window.matchMedia("(max-width:" + mobileBP + "px)").matches) {
+        // No sticky on small screens: accrue → show finished; replace → CSS shows per-step inline visuals.
+        if (mode === "accrue") { layers.forEach((l) => l.classList.add("on")); steps.forEach((s) => s.classList.add("done")); }
+        else { steps.forEach((s, i) => s.classList.toggle("active", i === 0)); }
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { const idx = steps.indexOf(e.target); if (idx > -1) apply(idx); } });
+      }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+      steps.forEach((s) => io.observe(s));
+      apply(0);
+    });
+  }
+
+  /* ---------------- tag filters ----------------
+     <div data-filter-scope>
+       <div class="filter-bar" data-filter-group="news">
+         <button class="chip" data-filter="all" aria-pressed="true">All</button> …
+       </div>
+       <x data-filter-item data-tags="model code">…</x> …
+     </div> ---- */
+  function initFilters() {
+    $$(".filter-bar[data-filter-group]").forEach((bar) => {
+      const scope = bar.closest("[data-filter-scope]") || document;
+      const chips = $$(".filter-chip", bar);
+      const items = $$("[data-filter-item]", scope);
+      const countEl = $("[data-filter-count]", scope);
+      const apply = (f) => {
+        let shown = 0;
+        items.forEach((it) => {
+          const tags = (it.dataset.tags || "").split(/\s+/);
+          const show = f === "all" || tags.indexOf(f) > -1;
+          it.classList.toggle("filtered-out", !show);
+          if (show) shown++;
+        });
+        if (countEl) countEl.textContent = shown;
+      };
+      chips.forEach((c) => c.addEventListener("click", () => {
+        chips.forEach((x) => x.setAttribute("aria-pressed", x === c ? "true" : "false"));
+        apply(c.dataset.filter);
+        Sound.click();
+      }));
+    });
+  }
+
   /* ---------------- boot ---------------- */
   document.addEventListener("DOMContentLoaded", () => {
     initHeader();
+    initMobileNav();
     initSoundToggle();
     initReveals();
     initDrawings();
@@ -655,6 +778,8 @@
     initMagnetic();
     initOsTabs();
     initScenes();
+    initShowcase();
+    initFilters();
     initHotspots();
     initSectionSound();
     const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
