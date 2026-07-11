@@ -320,10 +320,10 @@ section.chapter + section.chapter { border-top: 1px solid var(--line-soft); }
 .tour-tip strong { color: #F6C4AE; }
 
 /* ---------- mini website mockup (the visitor's project) ---------- */
-.site-mock { background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-2); overflow: hidden; }
+.site-mock { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-2); overflow: hidden; }
 .site-mock .bar { display: flex; gap: 5px; padding: 8px 10px; border-bottom: 1px solid var(--line-soft); background: var(--paper-2); align-items: center; }
 .site-mock .bar i { width: 8px; height: 8px; border-radius: 50%; background: #E0D9CA; }
-.site-mock .bar .url { flex: 1; margin-left: 6px; background: #fff; border-radius: 6px; font-size: .6rem; padding: 2px 8px; color: var(--ink-3); font-family: var(--mono); box-shadow: var(--shadow-inset); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.site-mock .bar .url { flex: 1; margin-left: 6px; background: var(--paper); border-radius: 6px; font-size: .6rem; padding: 2px 8px; color: var(--ink-3); font-family: var(--mono); box-shadow: var(--shadow-inset); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .site-mock .page { padding: 18px 16px; text-align: center; }
 .site-mock .avatar { width: 52px; height: 52px; border-radius: 50%; margin: 0 auto 10px; background: linear-gradient(135deg, #F3C5A8, #DE8E63); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.1rem; }
 .site-mock .name { font-family: var(--serif); font-weight: 700; font-size: 1rem; }
@@ -697,7 +697,7 @@ body.route-commands {
   transition: background .25s ease, color .25s ease;
 }
 .route-map a:hover { background: var(--accent-softer); color: var(--accent-deep); }
-.route-map .map-num { color: var(--accent); font-family: var(--mono); font-size: .72rem; font-weight: 800; }
+.route-map .map-num { color: var(--accent-deep); font-family: var(--mono); font-size: .72rem; font-weight: 800; }
 .route-map .map-name { font-family: var(--serif); font-weight: 700; line-height: 1.2; }
 @media (max-width: 900px) { .route-map { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .route-map { grid-template-columns: 1fr; } .route-map a { min-height: 82px; } }
@@ -785,12 +785,12 @@ body.route-commands {
   overflow: hidden;
   color: #28251F;
 }
-.gather-topbar { padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #EAE3D5; background: #F7F2E8; font-size: .72rem; color: #7C7468; }
+.gather-topbar { padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #EAE3D5; background: #F7F2E8; font-size: .72rem; color: #675F53; }
 .gather-mark { font-family: var(--serif); font-weight: 800; color: #36536D; font-size: .9rem; }
 .gather-content { padding: 22px; }
 .gather-date { display: inline-block; padding: 4px 9px; border-radius: 99px; background: #E7F0F6; color: #36536D; font-size: .68rem; font-weight: 800; }
 .gather-title { margin: 10px 0 3px; font-family: var(--serif); font-size: 1.45rem; line-height: 1.1; }
-.gather-place { color: #80786D; font-size: .75rem; }
+.gather-place { color: #6E665A; font-size: .75rem; }
 .gather-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 18px 0; }
 .gather-stat { border: 1px solid #E6DED0; border-radius: 10px; padding: 9px; background: #fff; }
 .gather-stat strong { display: block; font-size: 1.05rem; }
@@ -931,7 +931,7 @@ body.route-news {
 #live-board .gb-layer { opacity: 0; transform: translateY(9px); transition: opacity .5s ease, transform .5s ease; }
 #live-board .gb-layer.on { opacity: 1; transform: none; }
 .gather-board.stage-launch { box-shadow: 0 0 0 2px var(--accent-soft), var(--shadow-2); }
-.gb-url { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: #EDE7DA; border-bottom: 1px solid #E0D8C7; font-size: .64rem; color: #7C7468; }
+.gb-url { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: #EDE7DA; border-bottom: 1px solid #E0D8C7; font-size: .64rem; color: #675F53; }
 .gb-url i { width: 7px; height: 7px; border-radius: 50%; background: #C9BFA9; }
 .gb-url i:nth-child(1) { background: #E4A499; } .gb-url i:nth-child(2) { background: #E9CE86; } .gb-url i:nth-child(3) { background: #A9D0B4; }
 .gb-url span { margin-left: 6px; font-family: var(--mono); color: #5b7a52; }
@@ -939,7 +939,7 @@ body.route-news {
 .gb-db .gb-dot { width: 7px; height: 7px; border-radius: 50%; background: #4E8966; box-shadow: 0 0 0 0 rgba(78,137,102,.5); animation: gb-pulse 2.2s ease-out infinite; }
 .gb-votes { margin: 12px 0 2px; font-size: .72rem; color: #6f6659; }
 .gb-votes b { color: #36536D; }
-.gl-stamp { display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-top: 1px solid #EAE3D5; background: #F7F2E8; font-size: .66rem; color: #7C7468; font-weight: 600; }
+.gl-stamp { display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-top: 1px solid #EAE3D5; background: #F7F2E8; font-size: .66rem; color: #675F53; font-weight: 600; }
 .gl-stamp .gl-stamp-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 @keyframes gb-pulse { 0% { box-shadow: 0 0 0 0 rgba(78,137,102,.5); } 70% { box-shadow: 0 0 0 7px rgba(78,137,102,0); } 100% { box-shadow: 0 0 0 0 rgba(78,137,102,0); } }
 @media (max-width: 820px) {
@@ -1056,11 +1056,11 @@ body.route-news {
 .uc-caption { padding: 10px 16px; border-top: 1px solid var(--line-soft); background: var(--paper-2); font-size: .72rem; font-weight: 700; color: var(--accent-deep); }
 
 /* build view — a mini site */
-.uc-site { flex: 1; border-radius: 12px; border: 1px solid var(--line); background: linear-gradient(180deg, #fff, #FCFAF4); padding: 16px; display: flex; flex-direction: column; gap: 9px; }
+.uc-site { flex: 1; border-radius: 12px; border: 1px solid var(--line); background: linear-gradient(180deg, var(--card), var(--paper-2)); padding: 16px; display: flex; flex-direction: column; gap: 9px; }
 .uc-site .u-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.1; }
 .uc-site .u-sub { font-size: .8rem; color: var(--ink-2); }
 .uc-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
-.uc-pill { border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; font-size: .72rem; background: #fff; }
+.uc-pill { border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; font-size: .72rem; background: var(--card); }
 .uc-pill.solid { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
 
 /* everyday view — a mini chat */
@@ -1145,3 +1145,99 @@ body.route-news {
 .route-handoff .rh-body span { font-size: .86rem; color: var(--ink-2); }
 .route-handoff .rh-go { margin-left: auto; font-weight: 800; color: var(--accent-deep); white-space: nowrap; }
 @media (max-width: 560px) { .route-handoff .rh-go { display: none; } }
+
+/* ============================================================
+   DARK MODE — follows the OS by default (set via <html data-theme>),
+   toggleable in the header. Keeps mock "app preview" surfaces light
+   (they read as light screenshots inset in the dark UI).
+   ============================================================ */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #17130F;
+  --paper-2: #201A15;
+  --card: #221C17;
+  --ink: #F4EFE7;
+  --ink-2: #C6BCAF;
+  --ink-3: #9A9081;
+  --line: #372F28;
+  --line-soft: #2A231D;
+  /* --accent stays saturated so filled buttons keep white-on-coral;
+     only the "deep" (text/link) and soft tints change for dark. */
+  --accent-deep: #F0A587;
+  --accent-soft: #33241D;
+  --accent-softer: #241B15;
+  --slate: #7E9DB8;
+  --slate-deep: #A9C4D8;
+  --slate-soft: #1D2731;
+  --green: #5CB081;
+  --green-soft: #16271D;
+  --gold: #D3A54D;
+  --gold-soft: #2A2112;
+  --shadow-1: 0 1px 2px rgba(0,0,0,.34), 0 10px 30px rgba(0,0,0,.4);
+  --shadow-2: 0 2px 6px rgba(0,0,0,.38), 0 24px 60px rgba(0,0,0,.55);
+  --shadow-inset: inset 0 0 0 1px var(--line);
+}
+/* route themes in dark: keep --accent (button bg), lighten --accent-deep,
+   darken the soft tints */
+:root[data-theme="dark"] body.route-builder { --accent-deep: #A9C4D8; --accent-soft: #1C2833; --accent-softer: #141C24; }
+:root[data-theme="dark"] body.route-max { --accent-deep: #E6CA84; --accent-soft: #2A2112; --accent-softer: #1E180D; }
+:root[data-theme="dark"] body.route-commands { --accent-deep: #8FD3AC; --accent-soft: #152720; --accent-softer: #0F1D17; }
+:root[data-theme="dark"] body.route-news { --accent-deep: #C6B8F4; --accent-soft: #241D33; --accent-softer: #1A1524; }
+
+/* component touch-ups that used hardcoded light values */
+:root[data-theme="dark"] .site-header.scrolled { background: rgba(23,19,15,.86); box-shadow: 0 1px 0 var(--line); }
+:root[data-theme="dark"] .hero-bg .blob { opacity: .28; }
+:root[data-theme="dark"] body::before { opacity: .5; }
+:root[data-theme="dark"] .cc-msg.user { background: #2E3A45; color: #EAF1F6; }
+:root[data-theme="dark"] .uc-msg.ai { background: #2A241E; }
+:root[data-theme="dark"] .btn-ghost { color: var(--ink); }
+/* keep the in-scene website preview a light island (its content assumes light) */
+:root[data-theme="dark"] .cc-preview { background: #fff; color: #28251F; }
+:root[data-theme="dark"] .cc-preview .bar { background: #EFE9DC; color: #6B6257; border-bottom-color: #E4DDCC; }
+:root[data-theme="dark"] .cc-preview .bar .url { background: #fff; color: #6B6257; box-shadow: inset 0 0 0 1px #E4DDCC; }
+/* simulated Claude Code window: flip its hardcoded-light surfaces to dark */
+:root[data-theme="dark"] .cc-titlebar { background: linear-gradient(var(--paper-2), var(--card)); }
+:root[data-theme="dark"] .cc-replay,
+:root[data-theme="dark"] .cc-session.active,
+:root[data-theme="dark"] .cc-perm,
+:root[data-theme="dark"] .cc-perm button,
+:root[data-theme="dark"] .cc-file,
+:root[data-theme="dark"] .cc-composer { background: var(--card); }
+:root[data-theme="dark"] .cc-sidebar,
+:root[data-theme="dark"] .cc-msg.claude { background: var(--paper-2); }
+:root[data-theme="dark"] .cc-plan, :root[data-theme="dark"] .cc-attach { border-color: var(--line); }
+:root[data-theme="dark"] .cc-perm .allow, :root[data-theme="dark"] .cc-plan .approve { color: #17130F; }
+/* prompt/code cards stay dark in both themes (their text is fixed light) */
+:root[data-theme="dark"] .prompt-card, :root[data-theme="dark"] .builder-output { background: #100C09; }
+:root[data-theme="dark"] .swatch { background: var(--card); }
+:root[data-theme="dark"] .uc-kind.everyday { color: #7FC79E; }
+/* remaining hardcoded-light surfaces → flip to themed dark */
+:root[data-theme="dark"] .cc-window { background: var(--card); }
+:root[data-theme="dark"] .checklist label,
+:root[data-theme="dark"] .checklist .box,
+:root[data-theme="dark"] .os-tab[aria-selected="true"],
+:root[data-theme="dark"] .step .step-num,
+:root[data-theme="dark"] .cmd-palette { background: var(--card); }
+:root[data-theme="dark"] .failure-card { background: #241511; border-color: #4A2B22; }
+/* fix hardcoded ink/borders that don't flip */
+:root[data-theme="dark"] .note { color: var(--ink-2); border-color: var(--line); }
+:root[data-theme="dark"] .note.blue { border-color: var(--line); }
+/* dark "island" cards keep a fixed dark surface (their text is fixed light) */
+:root[data-theme="dark"] .teaser { background: #100C09; color: #C9C0B2; }
+:root[data-theme="dark"] .failure-card .failure-label { color: #E7A088; }
+/* starter page-local chips/cards with hardcoded #fff backgrounds */
+:root[data-theme="dark"] .journey .jstep,
+:root[data-theme="dark"] .cc-chipbtn,
+:root[data-theme="dark"] .mode-chip,
+:root[data-theme="dark"] .formula .f-card { background: var(--card); }
+:root[data-theme="dark"] .keyish { color: var(--ink); }
+:root[data-theme="dark"] .anatomy { background: #100C09; }
+:root[data-theme="dark"] .rewind-mock { background: var(--card); }
+:root[data-theme="dark"] .cc-toolbar { background: var(--paper-2); }
+
+/* theme toggle button (injected by app.js) */
+.theme-toggle { width: 42px; height: 42px; flex: none; border: 1px solid var(--line); background: var(--card); border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-size: .98rem; line-height: 1; transition: border-color .2s ease, background .2s ease; }
+.theme-toggle:hover { border-color: var(--accent); }
+.theme-toggle .tt-ico::before { content: "🌙"; }
+.theme-toggle[aria-pressed="true"] .tt-ico::before { content: "☀️"; }

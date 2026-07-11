@@ -763,9 +763,40 @@
     });
   }
 
+  /* ---------------- dark-mode toggle ---------------- */
+  function initTheme() {
+    const root = document.documentElement;
+    const nav = $(".site-header .header-actions");
+    if (!nav) return;
+    const media = matchMedia("(prefers-color-scheme: dark)");
+    const current = () => root.dataset.theme || (media.matches ? "dark" : "light");
+    if (!root.dataset.theme) root.dataset.theme = current();
+
+    const btn = el("button", "theme-toggle", '<span class="tt-ico" aria-hidden="true"></span>');
+    btn.setAttribute("title", "Toggle dark mode");
+    nav.insertBefore(btn, $("#sound-toggle", nav) || null);
+    const paint = () => {
+      const dark = current() === "dark";
+      btn.setAttribute("aria-pressed", dark ? "true" : "false");
+      btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    };
+    paint();
+    btn.addEventListener("click", () => {
+      const next = current() === "dark" ? "light" : "dark";
+      localStorage.setItem("ztl-theme", next);
+      root.dataset.theme = next;
+      paint();
+      Sound.click();
+    });
+    if (media.addEventListener) media.addEventListener("change", () => {
+      if (!localStorage.getItem("ztl-theme")) { root.dataset.theme = media.matches ? "dark" : "light"; paint(); }
+    });
+  }
+
   /* ---------------- boot ---------------- */
   document.addEventListener("DOMContentLoaded", () => {
     initHeader();
+    initTheme();
     initMobileNav();
     initSoundToggle();
     initReveals();
