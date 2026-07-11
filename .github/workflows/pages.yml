@@ -31,6 +31,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Auto-enable Pages (build type = GitHub Actions) if it isn't already,
+          # using the workflow's pages:write token — no manual settings toggle needed.
+          enablement: true
       - name: Upload site (zero-to-launched/)
         uses: actions/upload-pages-artifact@v3
         with:
