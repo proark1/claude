@@ -34,7 +34,7 @@
       <div>
         <span class="eyebrow reveal">News · the last two weeks</span>
         <h1 class="reveal" style="--d:.08s">What's new with <em>Claude.</em></h1>
-        <p class="lede reveal" style="--d:.16s">The world of Claude and Claude Code moves fast — new models, new abilities, new places to work. This page is a friendly, plain-language catch-up on everything that shipped in the last fortnight, with a link to the source for each story.</p>
+        <p class="lede reveal" style="--d:.16s">Claude changes fast — new models, new abilities, new places to work. This is a friendly, plain-language catch-up on everything that shipped in the last fortnight, with a link to the source for every story.</p>
         <div class="route-meta-line reveal" style="--d:.22s">
           <span>June 27 – July 11, 2026</span>
           <span>Plain language, no hype</span>
@@ -65,6 +65,18 @@
   </div>
 </section>
 
+<!-- AT A GLANCE -->
+<section class="chapter" data-chapter="At a glance" id="glance" style="padding-top:8px">
+  <div class="container">
+    <div class="stat-row reveal" style="justify-content:center;flex-wrap:wrap;gap:clamp(24px,5vw,52px)">
+      <div class="stat"><div class="stat-num" data-count-to="10">0</div><div class="stat-label">stories this fortnight</div></div>
+      <div class="stat"><div class="stat-num" data-count-to="4">0</div><div class="stat-label">Claude models in play</div></div>
+      <div class="stat"><div class="stat-num" data-count-to="5">0</div><div class="stat-label">Claude Code releases</div></div>
+      <div class="stat"><div class="stat-num" data-count-to="14">0</div><div class="stat-label">days covered</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- MAP -->
 <section class="chapter" data-chapter="Map" id="map" style="padding-top:20px">
   <div class="container">
@@ -88,11 +100,11 @@
           <span class="news-date">Jun 30, 2026</span><span class="news-tag model">New model</span>
         </div>
         <h2>A faster, cheaper model that acts on its own.</h2>
-        <p>Sonnet 5 is Anthropic's new mid-tier model built for <strong>agentic work</strong> — it can make plans, use tools like browsers and terminals, and run through multi-step jobs on its own, checking itself as it goes. Anthropic says it closes much of the gap with the flagship Opus 4.8 while costing a fraction as much. It's the new default for Free and Pro users, and it became the default model inside Claude Code too.</p>
+        <p>Sonnet 5 is Anthropic's new mid-tier model built for <button class="term" data-word="agentic" data-def="Able to act on its own toward a goal — making a plan, using tools, and checking its own work — instead of just answering one question.">agentic</button> work: it can make plans, use tools like browsers and terminals, and run through multi-step jobs on its own, checking itself as it goes. Anthropic says it closes much of the gap with the flagship Opus 4.8 while costing a fraction as much. It's the new default for Free and Pro users, and it became the default model inside Claude Code too.</p>
         <a class="btn btn-accent magnetic" href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Read the announcement <span class="arrow">→</span></a>
       </div>
       <div class="lead-side">
-        <div class="lead-spec"><span class="ls-k">Price</span><span>$2 / $10 per million tokens (introductory, through Aug 31) — then $3 / $15.</span></div>
+        <div class="lead-spec"><span class="ls-k">Price</span><span>$2 / $10 per million <button class="term" data-word="tokens" data-def="The little chunks of text an AI reads and writes — very roughly, one token is about ¾ of a word. Usage is priced per million of them.">tokens</button> (introductory, through Aug 31) — then $3 / $15.</span></div>
         <div class="lead-spec"><span class="ls-k">API</span><span><code>claude-sonnet-5</code></span></div>
         <div class="lead-spec"><span class="ls-k">Where</span><span>Free, Pro, Max, Team, Enterprise, Claude Code &amp; the Claude Platform.</span></div>
         <div class="lead-spec"><span class="ls-k">Good at</span><span>Coding, tool use, and long autonomous tasks.</span></div>
@@ -103,21 +115,21 @@
 
 <!-- FULL FEED -->
 <section class="chapter" data-chapter="The feed" id="feed">
-  <div class="container">
-    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Everything else, newest first</span><h2 class="reveal">The full feed.</h2><p class="lede reveal" style="--d:.1s">Ten more stories from the last two weeks — models, features, and the places Claude now shows up. Each card links to the source.</p></div>
+  <div class="container" data-filter-scope>
+    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Everything else, newest first</span><h2 class="reveal">The full feed.</h2><p class="lede reveal" style="--d:.1s">Ten more stories from the last two weeks. Filter by what you care about — each card links to its source.</p></div>
+
+    <div class="filter-bar reveal" data-filter-group="news" role="group" aria-label="Filter stories by topic">
+      <button class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-chip" data-filter="code" aria-pressed="false">Claude Code</button>
+      <button class="filter-chip" data-filter="product" aria-pressed="false">Product</button>
+      <button class="filter-chip" data-filter="company" aria-pressed="false">Company</button>
+      <button class="filter-chip" data-filter="safety" aria-pressed="false">Safety</button>
+    </div>
+    <p class="filter-note"><span data-filter-count>10</span> stories shown · newest first</p>
 
     <div class="news-feed">
 
-      <article class="news-card reveal">
-        <div class="nc-meta"><span class="news-date">Jul 9, 2026</span><span class="news-tag product">Feature</span></div>
-        <div>
-          <h3>Reflect: a mirror for how you use Claude</h3>
-          <p>A new dashboard (Settings → Reflect) shows the topics you spend time on, your most active day and peak hour, and gentle observations about how you work with Claude. It's in beta on Free, Pro, and Max — on the web and desktop — and needs memory switched on. Sensitive subjects are shown only at a high level, health topics are excluded, and Anthropic says the insights aren't used for anything else.</p>
-          <a class="nc-src" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom <span class="arrow">→</span></a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
+      <article class="news-card reveal" style="--d:.03s" data-filter-item data-tags="code">
         <div class="nc-meta"><span class="news-date">Jul 7–11</span><span class="news-tag code">Claude Code</span></div>
         <div>
           <h3>Claude Code: five releases in five days</h3>
@@ -126,7 +138,26 @@
         </div>
       </article>
 
-      <article class="news-card reveal">
+      <article class="news-card featured reveal" style="--d:.06s" data-filter-item data-tags="product">
+        <div class="nc-meta"><span class="news-date">Jul 9, 2026</span><span class="news-tag product">Feature</span></div>
+        <div>
+          <span class="nc-featured">Worth a look</span>
+          <h3>Reflect: a mirror for how you use Claude</h3>
+          <p>A new dashboard (Settings → Reflect) shows the topics you spend time on, your most active day and peak hour, and gentle observations about how you work with Claude. It's in beta on Free, Pro, and Max — on the web and desktop — and needs memory switched on. Sensitive subjects are shown only at a high level, health topics are excluded, and Anthropic says the insights aren't used for anything else.</p>
+          <a class="nc-src" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal" style="--d:.09s" data-filter-item data-tags="company">
+        <div class="nc-meta"><span class="news-date">Jul 9, 2026</span><span class="news-tag">Company</span></div>
+        <div>
+          <h3>Ben Bernanke joins Anthropic's trust</h3>
+          <p>Former Federal Reserve chair Ben Bernanke was appointed to Anthropic's Long-Term Benefit Trust, the governance body designed to keep the company accountable to its mission as it grows.</p>
+          <a class="nc-src" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="news-card reveal" style="--d:.12s" data-filter-item data-tags="code">
         <div class="nc-meta"><span class="news-date">Jul 8, 2026</span><span class="news-tag code">Editors</span></div>
         <div>
           <h3>VS Code adds multi-chat for Claude sessions</h3>
@@ -135,25 +166,26 @@
         </div>
       </article>
 
-      <article class="news-card reveal">
+      <article class="news-card featured reveal" style="--d:.15s" data-filter-item data-tags="product">
         <div class="nc-meta"><span class="news-date">Jul 7, 2026</span><span class="news-tag product">Product</span></div>
         <div>
+          <span class="nc-featured">Worth a look</span>
           <h3>Cowork breaks free of the desktop</h3>
           <p>Claude Cowork — the assistant that works alongside you across your files and apps — arrived on web and mobile, starting with Max subscribers. Sessions and files now follow you between devices, tasks keep running in the background even with no device online, and you can approve steps from your phone. Anthropic notes that more than 90% of Cowork use isn't coding at all — it's everyday business and content work.</p>
           <a class="nc-src" href="https://claude.com/blog/cowork-web-mobile" target="_blank" rel="noopener">Claude blog <span class="arrow">→</span></a>
         </div>
       </article>
 
-      <article class="news-card reveal">
+      <article class="news-card reveal" style="--d:.18s" data-filter-item data-tags="product">
         <div class="nc-meta"><span class="news-date">Jul 7, 2026</span><span class="news-tag product">Connectors</span></div>
         <div>
           <h3>Claude can now write to Microsoft 365</h3>
-          <p>The Microsoft 365 connector graduated from read-only to hands-on: with an administrator's consent, Claude can draft and send email, manage calendar events, tidy mailbox settings, and create or update files in OneDrive and SharePoint. (The Teams connector stays read-only for now.)</p>
+          <p>The Microsoft 365 <button class="term" data-word="connector" data-def="A ready-made link between Claude and an outside tool — here, your email, calendar and files — with a guided, permission-based setup.">connector</button> graduated from read-only to hands-on: with an administrator's consent, Claude can draft and send email, manage calendar events, tidy mailbox settings, and create or update files in OneDrive and SharePoint. (The Teams connector stays read-only for now.)</p>
           <a class="nc-src" href="https://support.claude.com/en/articles/12138966-release-notes" target="_blank" rel="noopener">Claude release notes <span class="arrow">→</span></a>
         </div>
       </article>
 
-      <article class="news-card reveal">
+      <article class="news-card reveal" style="--d:.21s" data-filter-item data-tags="code">
         <div class="nc-meta"><span class="news-date">Jul 6, 2026</span><span class="news-tag code">Feature story</span></div>
         <div>
           <h3>The making of Claude Code</h3>
@@ -162,7 +194,7 @@
         </div>
       </article>
 
-      <article class="news-card reveal">
+      <article class="news-card reveal" style="--d:.24s" data-filter-item data-tags="safety">
         <div class="nc-meta"><span class="news-date">Jul 2, 2026</span><span class="news-tag">Safety</span></div>
         <div>
           <h3>More on Fable 5's safeguards</h3>
@@ -171,7 +203,7 @@
         </div>
       </article>
 
-      <article class="news-card reveal">
+      <article class="news-card reveal" style="--d:.27s" data-filter-item data-tags="product">
         <div class="nc-meta"><span class="news-date">Jun 30, 2026</span><span class="news-tag product">Product</span></div>
         <div>
           <h3>Claude Science: a workbench for researchers</h3>
@@ -180,21 +212,12 @@
         </div>
       </article>
 
-      <article class="news-card reveal">
+      <article class="news-card reveal" style="--d:.3s" data-filter-item data-tags="company">
         <div class="nc-meta"><span class="news-date">Jun 29, 2026</span><span class="news-tag">Public sector</span></div>
         <div>
           <h3>California partners with Anthropic</h3>
           <p>In a first-of-its-kind agreement, California state agencies can access Claude at a roughly 50% per-seat discount, bundled with free workforce training and hands-on technical help — a sign of how quickly these tools are moving into government work.</p>
           <a class="nc-src" href="https://www.gov.ca.gov/2026/06/29/governor-newsom-announces-a-first-of-its-kind-partnership-providing-anthropic-tools-to-state-agencies-and-improving-services-for-californians/" target="_blank" rel="noopener">Office of the Governor <span class="arrow">→</span></a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="nc-meta"><span class="news-date">Jul 9, 2026</span><span class="news-tag">Company</span></div>
-        <div>
-          <h3>Ben Bernanke joins Anthropic's trust</h3>
-          <p>Former Federal Reserve chair Ben Bernanke was appointed to Anthropic's Long-Term Benefit Trust, the governance body designed to keep the company accountable to its mission as it grows.</p>
-          <a class="nc-src" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic newsroom <span class="arrow">→</span></a>
         </div>
       </article>
 
@@ -205,36 +228,36 @@
 <!-- MODELS AT A GLANCE -->
 <section class="chapter" data-chapter="Models" id="models">
   <div class="container">
-    <div class="chapter-head"><span class="chapter-number">03</span><span class="eyebrow">Information about Claude</span><h2 class="reveal">The model line-up, in plain terms.</h2><p class="lede reveal" style="--d:.1s">Claude isn't one model — it's a small family, each tuned for a different job. In Claude Code you can switch between them any time with <span class="keyish">/model</span>. Here's who's who as of July 2026.</p></div>
+    <div class="chapter-head"><span class="chapter-number">03</span><span class="eyebrow">Information about Claude</span><h2 class="reveal">The model line-up, in plain terms.</h2><p class="lede reveal" style="--d:.1s">Claude isn't one model — it's a small family, each tuned for a different job. In Claude Code you can switch between them any time with <span class="keyish">/model</span>. Tap a name to copy its API id.</p></div>
     <div class="model-grid">
       <div class="model-card flag reveal">
         <span class="m-flagtag">Flagship</span>
         <div class="m-name">Opus 4.8</div>
-        <div class="m-id">claude-opus-4-8</div>
+        <div class="m-id-row" data-copy-root><code class="m-id pc-text">claude-opus-4-8</code><button class="copy-btn copy-mini" aria-label="Copy model id">Copy</button></div>
         <p class="m-role">Anthropic's most capable model, for the hardest reasoning and the trickiest coding. Reach for it when a problem is genuinely difficult.</p>
         <div class="m-tags"><span class="m-pill">Deep reasoning</span><span class="m-pill">Hard coding</span><span class="m-pill">Most capable</span></div>
       </div>
       <div class="model-card reveal" style="--d:.06s">
         <span class="m-flagtag" style="background:#3E8E63">Newest</span>
         <div class="m-name">Sonnet 5</div>
-        <div class="m-id">claude-sonnet-5</div>
-        <p class="m-role">The new all-rounder built for agentic work — fast, affordable, and strong at multi-step tasks. Now the default in Claude Code and for Free &amp; Pro users.</p>
+        <div class="m-id-row" data-copy-root><code class="m-id pc-text">claude-sonnet-5</code><button class="copy-btn copy-mini" aria-label="Copy model id">Copy</button></div>
+        <p class="m-role">The new all-rounder built for <button class="term" data-word="agentic" data-def="Able to act on its own toward a goal — planning, using tools, and checking its own work — not just answering a single question.">agentic</button> work — fast, affordable, and strong at multi-step tasks. Now the default in Claude Code and for Free &amp; Pro users.</p>
         <div class="m-tags"><span class="m-pill">Agents</span><span class="m-pill">Great value</span><span class="m-pill">1M-token context</span></div>
       </div>
       <div class="model-card reveal" style="--d:.12s">
         <div class="m-name">Haiku 4.5</div>
-        <div class="m-id">claude-haiku-4-5</div>
+        <div class="m-id-row" data-copy-root><code class="m-id pc-text">claude-haiku-4-5</code><button class="copy-btn copy-mini" aria-label="Copy model id">Copy</button></div>
         <p class="m-role">The small, quick one. Ideal for simple edits, fast replies, and high-volume work where speed and cost matter more than raw power.</p>
         <div class="m-tags"><span class="m-pill">Fastest</span><span class="m-pill">Lowest cost</span></div>
       </div>
       <div class="model-card reveal" style="--d:.18s">
         <div class="m-name">Fable 5</div>
-        <div class="m-id">claude-fable-5</div>
+        <div class="m-id-row" data-copy-root><code class="m-id pc-text">claude-fable-5</code><button class="copy-btn copy-mini" aria-label="Copy model id">Copy</button></div>
         <p class="m-role">Part of the Claude 5 family, redeployed globally on July 1, 2026 with expanded cyber safeguards and a new framework for grading jailbreak severity.</p>
         <div class="m-tags"><span class="m-pill">Claude 5 family</span><span class="m-pill">Redeployed</span></div>
       </div>
     </div>
-    <div class="note reveal" style="margin-top:22px"><span class="n-icon">🧠</span><span><strong>Not sure which to use?</strong> A good rule: start on Sonnet 5, and switch up to Opus 4.8 the moment something feels hard. Model names and prices change often — in the app, <span class="keyish">/model</span> always shows the current, real list available to you.</span></div>
+    <div class="note reveal" style="margin-top:22px"><span class="n-icon">🧠</span><span><strong>Not sure which to use?</strong> A good rule: start on Sonnet 5, and switch up to Opus 4.8 the moment something feels hard. A bigger <button class="term" data-word="context window" data-def="How much text a model can hold in mind at once — its short-term memory for your conversation and files. Bigger means it can juggle more before forgetting.">context window</button> means it can juggle more at once. Names and prices change often — in the app, <span class="keyish">/model</span> always shows the current, real list.</span></div>
   </div>
 </section>
 

@@ -1115,3 +1115,33 @@ body.route-news {
 .also-news .an-item { display: flex; gap: 9px; align-items: baseline; font-size: .84rem; }
 .also-news .an-date { font-family: var(--mono); font-size: .66rem; color: var(--accent-deep); white-space: nowrap; }
 @media (max-width: 680px) { .also-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   PHASE 2 — news presentation
+   ============================================================ */
+.news-card.featured { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent), var(--shadow-1); }
+.news-card.featured h3 { font-size: 1.32rem; }
+.news-card .nc-featured { display: inline-block; font-size: .58rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-deep); background: var(--accent-soft); border-radius: 999px; padding: 2px 8px; margin-bottom: 6px; }
+.filter-bar { margin-bottom: 22px; }
+.filter-note { font-size: .8rem; color: var(--ink-3); margin: 0 0 18px; }
+/* copyable model id */
+.m-id-row { display: flex; align-items: center; gap: 8px; margin: 3px 0 12px; flex-wrap: wrap; }
+.m-id-row .m-id { margin: 0; }
+.copy-btn.copy-mini { position: static; background: var(--accent-softer); color: var(--accent-deep); border: 1px solid var(--line); font-size: .64rem; padding: 3px 9px; border-radius: 7px; font-weight: 700; }
+.copy-btn.copy-mini:hover { border-color: var(--accent); }
+.copy-btn.copy-mini.copied { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ============================================================
+   PHASE 3 — route connective tissue ("one journey, three steps")
+   ============================================================ */
+.journey-badge { display: inline-flex; align-items: center; gap: 9px; font-size: .72rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--accent-deep); background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 999px; padding: 5px 13px; margin-bottom: 14px; }
+.journey-badge .jb-dots { display: inline-flex; gap: 4px; }
+.journey-badge .jb-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: .28; }
+.journey-badge .jb-dots i.on { opacity: 1; }
+.route-handoff { display: flex; align-items: center; gap: 16px; margin-top: 26px; padding: 18px 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--accent-softer); text-decoration: none; color: var(--ink); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.route-handoff:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); border-color: var(--accent); color: var(--ink); }
+.route-handoff .rh-num { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-family: var(--serif); font-size: 1.3rem; font-weight: 700; flex: none; }
+.route-handoff .rh-body strong { display: block; font-size: 1.05rem; }
+.route-handoff .rh-body span { font-size: .86rem; color: var(--ink-2); }
+.route-handoff .rh-go { margin-left: auto; font-weight: 800; color: var(--accent-deep); white-space: nowrap; }
+@media (max-width: 560px) { .route-handoff .rh-go { display: none; } }
