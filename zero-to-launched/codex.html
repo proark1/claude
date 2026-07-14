@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Codex Playbook — Run Codex like an engineering org | Zero to Launched</title>
+<meta name="description" content="An immersive operating manual for building real software with OpenAI Codex: treat it as an engineering organization — plan, delegate to specialist agents, verify with evidence, review independently, and ship behind a human gate. One example, end to end.">
+<meta property="og:title" content="The Codex Software Project Playbook">
+<meta property="og:description" content="Run Codex as an engineering organization — one martial-arts gym platform, from idea to launch.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="route-codex">
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Routes">
+    <a class="header-link" href="starter.html">Starter</a>
+    <a class="header-link" href="builder.html">Builder</a>
+    <a class="header-link" href="max.html">Max</a>
+    <a class="header-link" href="commands.html">Commands</a>
+    <a class="header-link" href="news.html">News</a>
+    <a class="header-link" href="codex.html" aria-current="page">Codex</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
+  </nav>
+</header>
+
+<div class="rail" aria-label="Playbook progress"><div class="rail-track"><div class="rail-fill"></div></div></div>
+
+<!-- ============ HERO ============ -->
+<section class="chapter route-hero" data-chapter="Welcome" id="welcome">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="journey-badge reveal"><span class="jb-dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span> A companion playbook · for Codex</span>
+        <span class="eyebrow reveal" style="--d:.04s">The Codex Software Project Playbook</span>
+        <h1 class="reveal" style="--d:.08s">Don't prompt one developer. Run a whole <em>engineering org.</em></h1>
+        <p class="lede reveal" style="--d:.16s">The mistake is treating Codex as one coder receiving one enormous prompt. Treat it as an organization: a lead agent that plans, delegates to specialists, integrates the work, demands evidence, and brings every result back to one human decision.</p>
+        <div class="route-meta-line reveal" style="--d:.22s"><span>Idea → launch</span><span>One running example</span><span>Reusable prompts &amp; templates</span></div>
+        <p class="hero-note reveal" style="--d:.28s">The running example, all the way through: an <strong>AI-enabled customer app and internal CRM for a martial-arts gym</strong> — schedules, bookings, memberships, lead management, an employee dashboard, and an assistant.</p>
+        <a class="btn btn-accent magnetic reveal" style="--d:.34s" href="#map">See the operating plan <span class="arrow">↓</span></a>
+      </div>
+
+      <div class="reveal-scale" style="--d:.18s">
+        <div class="cc-window codex tall" data-scene="boot">
+          <div class="cc-titlebar"><span class="cc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cc-title">codex · dojo-platform <span class="cc-badge">simulation</span></span><button class="cc-replay">↺ Replay</button></div>
+          <div class="cc-body"><div class="cc-main"><div class="cc-chat" aria-live="polite"></div>
+            <div class="cc-composer"><span class="ph">Give the lead its objective…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" aria-hidden="true" tabindex="-1">↑</button></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><div class="mouse"></div>scroll</div>
+</section>
+
+<!-- ============ MAP ============ -->
+<section class="chapter" data-chapter="Map" id="map">
+  <div class="container">
+    <div class="chapter-head"><span class="eyebrow reveal">What this manual covers</span><h2 class="reveal" style="--d:.08s">One system, built the way a team would build it.</h2><p class="lede reveal" style="--d:.14s">The same backbone works for SaaS platforms, games, internal tools, mobile apps, marketplaces and AI products. Here it builds the gym.</p></div>
+    <nav class="route-map reveal-scale" aria-label="Playbook map">
+      <a href="#operating"><span class="map-num">01</span><span class="map-name">The operating model</span></a>
+      <a href="#models"><span class="map-num">02</span><span class="map-name">Model selection</span></a>
+      <a href="#lifecycle"><span class="map-num">03</span><span class="map-name">The project lifecycle</span></a>
+      <a href="#repo"><span class="map-num">04</span><span class="map-name">Prepare the repository</span></a>
+      <a href="#contract"><span class="map-num">05</span><span class="map-name">The task contract</span></a>
+      <a href="#testing"><span class="map-num">06</span><span class="map-name">Testing, by design</span></a>
+      <a href="#review"><span class="map-num">07</span><span class="map-name">Review from many angles</span></a>
+      <a href="#boundaries"><span class="map-num">08</span><span class="map-name">Tools &amp; who owns what</span></a>
+      <a href="#pitfalls"><span class="map-num">09</span><span class="map-name">Efficiency killers</span></a>
+      <a href="#orchestrate"><span class="map-num">10</span><span class="map-name">The master prompt</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ 01 · OPERATING MODEL ============ -->
+<section class="chapter" data-chapter="Operating model" id="operating">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">01</span><span class="eyebrow">The core idea</span><h2>The lead agent runs the org. It doesn't do all the work.</h2><p class="lede">Work flows down from you and reports back up. Discovery fans out to specialists; consequential decisions funnel back to one accountable human.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="org-flow reveal-scale" aria-label="You direct the lead agent, which delegates to specialists working against the repository, whose output is independently reviewed and returned to a human for approval and release.">
+          <div class="org-tier"><span class="org-node human"><strong>You · product owner</strong><small>objective, budget, priorities, risk</small></span></div>
+          <div class="org-conn" aria-hidden="true"></div>
+          <div class="org-tier"><span class="org-node lead"><strong>Lead Codex agent</strong><small>plan · delegate · integrate · gatekeep</small></span></div>
+          <div class="org-conn" aria-hidden="true"></div>
+          <div class="org-tier"><span class="org-agents"><span class="org-agent">Research</span><span class="org-agent">Architect</span><span class="org-agent">Backend</span><span class="org-agent">Frontend</span><span class="org-agent">Test</span><span class="org-agent">Docs</span></span></div>
+          <div class="org-conn" aria-hidden="true"></div>
+          <div class="org-tier"><span class="org-node"><strong>Repository, tools, tests &amp; docs</strong><small>the single source of truth</small></span></div>
+          <div class="org-conn" aria-hidden="true"></div>
+          <div class="org-tier"><span class="org-agents"><span class="org-agent">Correctness</span><span class="org-agent">Security</span><span class="org-agent">Maintainability</span><span class="org-agent">UX</span></span></div>
+          <div class="org-conn" aria-hidden="true"></div>
+          <div class="org-tier"><span class="org-node human"><strong>Human approval &amp; release</strong><small>the decision Codex never makes alone</small></span></div>
+        </div>
+      </div>
+      <div class="lesson-stack">
+        <div><span class="eyebrow">What the lead agent actually does</span></div>
+        <ol class="loop-list">
+          <li>Understand the objective</li>
+          <li>Inspect the repository and documentation</li>
+          <li>Create an implementation plan</li>
+          <li>Break work into <b>isolated, testable tasks</b></li>
+          <li>Delegate parallelizable research and development</li>
+          <li>Integrate the outputs</li>
+          <li>Run verification — with evidence</li>
+          <li>Request independent reviews</li>
+          <li>Report decisions, risks and remaining work</li>
+        </ol>
+        <div class="takeaway"><h3>Autonomy inside boundaries beats full autonomy.</h3><p>High agent independence within clearly defined scope, with humans owning the consequential calls. That's the whole model — everything below is how to hold it.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · MODEL SELECTION ============ -->
+<section class="chapter" data-chapter="Models" id="models">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Right tool, right job</span><h2>Pick the cheapest model that reliably finishes the task.</h2><p class="lede">This playbook uses a three-model frame — <span class="mdl sol">Sol</span>, <span class="mdl terra">Terra</span> and <span class="mdl luna">Luna</span>. Sol for the hard and ambiguous, Terra as the general workhorse, Luna for the clear and repetitive.</p></div>
+
+    <div class="model-grid reveal" style="margin-bottom:34px">
+      <div class="model-card flag"><span class="m-flagtag">Default power setting</span><div class="m-name">Sol</div><div class="m-id">difficult · ambiguous · costly-to-get-wrong</div><p class="m-role">Reach for Sol when a mistake means expensive rework: architecture, gnarly debugging, security-sensitive code, final acceptance.</p><div class="m-tags"><span class="m-pill">Architecture</span><span class="m-pill">Debugging</span><span class="m-pill">Security</span><span class="m-pill">Acceptance</span></div></div>
+      <div class="model-card"><div class="m-name">Terra</div><div class="m-id">the general workhorse</div><p class="m-role">Most day-to-day building: normal features, exploration, and generating tests. Medium reasoning, dependable throughput.</p><div class="m-tags"><span class="m-pill">Features</span><span class="m-pill">Exploration</span><span class="m-pill">Tests</span></div></div>
+      <div class="model-card"><div class="m-name">Luna</div><div class="m-id">clear · repetitive · high-volume</div><p class="m-role">The mechanical tier: formatting, extraction, renames, and large repetitive migrations where the shape is already known.</p><div class="m-tags"><span class="m-pill">Formatting</span><span class="m-pill">Renames</span><span class="m-pill">Migrations</span></div></div>
+    </div>
+
+    <div class="matrix-wrap reveal">
+      <table class="matrix">
+        <thead><tr><th scope="col">Work</th><th scope="col">Model</th><th scope="col">Reasoning</th></tr></thead>
+        <tbody>
+          <tr><td class="m-work">Product strategy &amp; architecture</td><td class="m-model"><span class="mdl sol">Sol</span></td><td><span class="rlevel high">High / Extended</span></td></tr>
+          <tr><td class="m-work">Complex debugging</td><td class="m-model"><span class="mdl sol">Sol</span></td><td><span class="rlevel high">High</span></td></tr>
+          <tr><td class="m-work">Security-sensitive implementation</td><td class="m-model"><span class="mdl sol">Sol</span></td><td><span class="rlevel high">High</span></td></tr>
+          <tr><td class="m-work">Normal feature implementation</td><td class="m-model"><span class="mdl terra">Terra</span></td><td><span class="rlevel med">Medium</span></td></tr>
+          <tr><td class="m-work">Codebase exploration</td><td class="m-model"><span class="mdl terra">Terra</span> / <span class="mdl sol">Sol</span></td><td><span class="rlevel med">Medium</span></td></tr>
+          <tr><td class="m-work">Test creation</td><td class="m-model"><span class="mdl terra">Terra</span></td><td><span class="rlevel med">Medium</span></td></tr>
+          <tr><td class="m-work">Documentation updates</td><td class="m-model"><span class="mdl terra">Terra</span></td><td><span class="rlevel low">Low / Med</span></td></tr>
+          <tr><td class="m-work">Formatting, extraction, renaming</td><td class="m-model"><span class="mdl luna">Luna</span></td><td><span class="rlevel low">Low</span></td></tr>
+          <tr><td class="m-work">Large repetitive migrations</td><td class="m-model"><span class="mdl luna">Luna</span> / <span class="mdl terra">Terra</span></td><td><span class="rlevel low">Low / Med</span></td></tr>
+          <tr><td class="m-work">Final acceptance review</td><td class="m-model"><span class="mdl sol">Sol</span></td><td><span class="rlevel high">High</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lesson-grid" style="margin-top:34px">
+      <div class="failure-card"><span class="failure-label">Wasteful</span><h3>Using the top tier for everything</h3><p>Don't spend Sol on renaming variables, straightforward CRUD endpoints, standard unit tests, or reformatting config. It costs more without making simple work more correct.</p></div>
+      <div class="takeaway"><h3>Spend the reasoning where the mistakes are expensive.</h3><p>Escalate to Sol when getting it wrong causes rework, data loss, or a security hole. Everywhere else, let Terra and Luna carry the volume.</p></div>
+    </div>
+    <p class="source-note">The <b>Sol / Terra / Luna</b> naming is this playbook's operating frame for reasoning against cost — apply the same logic to whatever model tiers your Codex account actually exposes.</p>
+  </div>
+</section>
+
+<!-- ============ 03 · LIFECYCLE (scrollytelling) ============ -->
+<section class="chapter" data-chapter="Lifecycle" id="lifecycle">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">03</span><span class="eyebrow">Idea → launch</span><h2>Watch the gym platform build itself, one gate at a time.</h2><p class="lede">Every phase produces an artifact you can review before the next begins. Scroll — the repository fills in as the work advances. No phase starts until the previous one has a clear exit.</p></div>
+
+    <div class="showcase" data-showcase data-mode="accrue" data-sticky-top="96">
+      <div class="show-stage">
+        <div class="build-console" aria-hidden="true">
+          <div class="bc-bar"><span class="dots"><i></i><i></i><i></i></span><span>codex</span><span class="bc-repo">~/dojo-platform</span></div>
+          <div class="bc-body">
+            <div class="bc-line" data-stage="define"><span class="bc-check">✓</span><span class="bc-path">docs/product/<b>vision.md</b> · target-users · success-metrics</span><span class="bc-tag">Define</span></div>
+            <div class="bc-line" data-stage="research"><span class="bc-check">✓</span><span class="bc-path">docs/research/<b>competitor-analysis.md</b> · user-needs</span><span class="bc-tag">Research</span></div>
+            <div class="bc-line" data-stage="prd"><span class="bc-check">✓</span><span class="bc-path">docs/product/<b>prd.md</b> · acceptance-criteria.md</span><span class="bc-tag">Requirements</span></div>
+            <div class="bc-line" data-stage="arch"><span class="bc-check">✓</span><span class="bc-path">docs/architecture/<b>ADR-002-postgres.md</b> · data-model</span><span class="bc-tag">Architecture</span></div>
+            <div class="bc-line" data-stage="repo"><span class="bc-check">✓</span><span class="bc-path"><b>AGENTS.md</b> · .claude/skills/create-feature</span><span class="bc-tag">Repo</span></div>
+            <div class="bc-line" data-stage="milestones"><span class="bc-check">✓</span><span class="bc-path">docs/product/<b>release-plan.md</b> · 7 milestones</span><span class="bc-tag">Plan</span></div>
+            <div class="bc-line" data-stage="build"><span class="bc-check">✓</span><span class="bc-path">services/api/src/<b>booking/</b> · packages/contracts</span><span class="bc-tag">Build</span></div>
+            <div class="bc-line" data-stage="test"><span class="bc-check">✓</span><span class="bc-path">tests/booking/<b>*.test.ts</b> · 42 passing</span><span class="bc-tag">Test</span></div>
+            <div class="bc-line" data-stage="review"><span class="bc-check">✓</span><span class="bc-path">docs/reviews/<b>milestone-3.md</b> · 3 verified</span><span class="bc-tag">Review</span></div>
+            <div class="bc-line" data-stage="release"><span class="bc-check">✓</span><span class="bc-path">deploy → limited rollout · <b>rollback: 7f21</b></span><span class="bc-tag">Ship</span></div>
+          </div>
+          <div class="bc-foot"><span class="bc-dot"></span> current phase · <b data-showcase-stamp>Define the outcome</b></div>
+        </div>
+      </div>
+
+      <div class="show-steps">
+        <div class="show-step" data-stage="define" data-label="Define the outcome">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 0 · Define</span>
+          <h3>Define the outcome before touching code</h3>
+          <p>The first task is never "build the app." It's a Project Definition Package: who the user is, the problem, what success means, and what is explicitly <em>not</em> being built.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">First task</span><button class="copy-btn">Copy</button><span class="pc-text">Act as lead product engineer. Don't write code. Inspect all project files, create a Project Definition Package under docs/product/, separate facts from assumptions and open questions, define measurable success, and state what's out of the first release. Mark uncertain info as an assumption.</span></div>
+        </div>
+        <div class="show-step" data-stage="research" data-label="Collect the evidence">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 1 · Research</span>
+          <h3>Research before architecture</h3>
+          <p>Four streams — market, users, technical, and the existing systems (the old CRM, spreadsheets, WhatsApp, the door system). Every finding ends in a decision: build, buy, integrate, defer, reject, or investigate.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Research brief</span><button class="copy-btn">Copy</button><span class="pc-text">Act as the product &amp; competitive research agent. Identify table-stakes vs differentiating capabilities for a modern gym platform, and where customers abandon booking. Cite every external claim with a confidence level. Do not change code. End with the five biggest implications and a build/buy/integrate/defer call for each finding.</span></div>
+        </div>
+        <div class="show-step" data-stage="prd" data-label="Write the requirements">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 2 · Requirements</span>
+          <h3>Turn research into a PRD</h3>
+          <p>Strong user stories carry acceptance criteria. Weak: "users can book courses." Strong: a parent sees only age-appropriate courses for each child, conflicts surface before confirmation, and a failed notification never reverses a successful booking.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">PRD prompt</span><button class="copy-btn">Copy</button><span class="pc-text">Act as senior PM. From the approved research, produce a PRD for the first releasable version. Per feature: target user, problem, business outcome, acceptance criteria, analytics events, dependencies, privacy/security implications, and a Must/Should/Could/Not-Now class. Don't include a feature just because a competitor has it. No code.</span></div>
+        </div>
+        <div class="show-step" data-stage="arch" data-label="Design the system">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 3 · Architecture</span>
+          <h3>Design before implementation</h3>
+          <p>One app or split customer/CRM front-ends? How are parents, children and memberships linked? How is double-booking prevented? Each consequential answer becomes an <button class="term" data-word="ADR" data-def="Architecture Decision Record — a short note capturing the context, the decision, alternatives considered, consequences, and when to revisit it.">ADR</button> with a threat model.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Architecture prompt</span><button class="copy-btn">Copy</button><span class="pc-text">Act as principal architect. Read docs/product, docs/research and the repo. Propose the simplest architecture that meets the requirements — avoid microservices unless scaling, ownership or isolation demands them. Define system boundaries, sources of truth, and a failure mode for every external integration. Produce a threat model and ADRs. Request review before implementation.</span></div>
+        </div>
+        <div class="show-step" data-stage="repo" data-label="Prepare the repository">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 4 · Repo</span>
+          <h3>Prepare the repo for agentic work</h3>
+          <p>Codex shouldn't rediscover your rules every session. A root <span class="keyish">AGENTS.md</span> maps the repo; narrower files sit beside the code; repeatable jobs become <a href="#repo">skills</a>. (Full detail in the next chapter.)</p>
+        </div>
+        <div class="show-step" data-stage="milestones" data-label="Slice into atomic tasks">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 5 · Milestones</span>
+          <h3>Break the release into atomic tasks</h3>
+          <p>Never "build the booking platform." A good task has one outcome, one bounded area, testable criteria, and is reviewable as a single diff. Foundation → discovery → booking → accounts → CRM → AI → hardening.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Better task</span><button class="copy-btn">Copy</button><span class="pc-text">Add a transactional booking service that prevents two confirmed reservations from consuming the same final course slot — with tests for the concurrent case. Scope to the booking domain only.</span></div>
+        </div>
+        <div class="show-step" data-stage="build" data-label="Implement in a controlled loop">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 6 · Implement</span>
+          <h3>Implement with a controlled loop</h3>
+          <p>Read → inspect → restate → plan → smallest coherent change → scoped tests → inspect the diff → broaden verification → update docs → report. Checkpoints for risky work stop an agent building the wrong thing for an hour.</p>
+        </div>
+        <div class="show-step" data-stage="test" data-label="Design the tests">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 7 · Test</span>
+          <h3>Testing is designed, not appended</h3>
+          <p>Unit for rules and permissions, integration for transactions and adapters, end-to-end for the journeys that matter — register, book, cancel, convert a lead. An <a href="#testing">independent test agent</a> tries to disprove "done."</p>
+        </div>
+        <div class="show-step" data-stage="review" data-label="Review from many angles">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 8 · Review</span>
+          <h3>Review before you integrate</h3>
+          <p>One "review my code" pass is too broad. Run focused lenses — correctness, security, maintainability, performance, UX — then integrate the milestone against a clean database and a real migration. (Detail in <a href="#review">chapter 07</a>.)</p>
+        </div>
+        <div class="show-step" data-stage="release" data-label="Ship behind a gate">
+          <span class="uc-kind build" style="background:var(--accent-soft);color:var(--accent-deep)">Step 9 · Release &amp; monitor</span>
+          <h3>Ship on purpose — then watch</h3>
+          <p>Local → CI → preview → staging → limited rollout → full. Gates: tests, review, security, migrations verified, rollback possible, owner approves. After launch, monitor the signals that matter and let automations do triage — never the deploy.</p>
+          <div class="prompt-card mini" data-copy-root><span class="pc-label">Weekly automation</span><button class="copy-btn">Copy</button><span class="pc-text">Review the last 7 days: merged PRs, repeated review feedback, flaky tests, doc drift, new TODOs, recurring mistakes, dependency alerts. Recommend AGENTS.md improvements, new skills and missing checks. Do not change production code. Produce a concise engineering-system improvement report.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · REPOSITORY ============ -->
+<section class="chapter" data-chapter="Repository" id="repo">
+  <div class="container"><div class="lesson-grid reverse">
+    <div class="lesson-stack">
+      <div class="artifact-tree reveal" aria-label="Recommended repository structure for agentic development"><span class="at-file">AGENTS.md</span>          <span class="at-note"># a map, not a manual</span>
+<span class="at-dir">docs/</span>
+  <span class="at-dir">product/</span> <span class="at-dir">research/</span> <span class="at-dir">architecture/</span>
+  <span class="at-dir">decisions/</span> <span class="at-dir">runbooks/</span>
+<span class="at-dir">.agents/skills/</span>
+  <span class="at-dir">create-feature/</span> <span class="at-dir">review-api/</span>
+  <span class="at-dir">run-release/</span> <span class="at-dir">update-docs/</span>
+<span class="at-dir">scripts/</span> <span class="at-file">setup test lint typecheck verify</span>
+
+<span class="at-note"># narrower rules sit beside the code:</span>
+<span class="at-file">apps/admin-web/AGENTS.md</span>
+<span class="at-file">services/api/AGENTS.md</span></div>
+      <div class="cc-window codex short" data-scene="repo"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">codex · scaffold</span><button class="cc-replay">↺ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Prepare the repo…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+    </div>
+    <div class="lesson-stack">
+      <div><span class="chapter-number">04</span><span class="eyebrow">The biggest efficiency step</span><h2>Give the org a memory it doesn't have to rebuild.</h2><p class="lede">A root <button class="term" data-word="AGENTS.md" data-def="A persistent instructions file at the repo root that tells Codex how to navigate the project, run tests, and follow conventions. Keep it a map — one giant manual becomes counterproductive.">AGENTS.md</button> should tell Codex how to navigate, how to run tests, and which conventions hold — as a <em>map</em>, not a 30-page manual. Put narrower rules in nested files close to the code they govern.</p></div>
+      <div class="concept-card"><h3>AGENTS.md says what is stable.</h3><p>Project purpose, repository map, required workflow, commands, and a crisp definition of done that every session inherits.</p></div>
+      <div class="concept-card"><h3>A skill says how to do a repeatable job.</h3><p>Adding a database-backed feature, creating an endpoint, running a release. Keep each skill focused, with explicit inputs and outputs — and only package a workflow after you've done it successfully.</p></div>
+      <div class="note blue"><span class="n-icon">⌁</span><span>Use <strong>ChatGPT Work</strong> for broad multi-source investigation, <strong>Codex</strong> when the task touches the repository, <strong>MCP</strong> for direct access to outside docs and tools, and <strong>plugins</strong> to package skills, connectors and MCP tools into a reusable workflow.</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ============ 05 · TASK CONTRACT ============ -->
+<section class="chapter" data-chapter="Task contract" id="contract">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">05</span><span class="eyebrow">The unit of real work</span><h2>A role isn't a sentence. It's a contract.</h2><p class="lede">"Be a senior backend developer and implement waiting lists" is a wish. A task contract is a specification an agent can be held to — and reviewed against.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="prompt-card" data-copy-root><span class="pc-label">Agent task contract</span><button class="copy-btn">Copy</button><div class="pc-text">ROLE
+Backend engineer for the booking domain.
+
+OBJECTIVE
+Implement cancellation and waiting-list promotion for course bookings.
+
+CONTEXT
+Read AGENTS.md, docs/product/booking.md, ADR-007-booking-concurrency.md, and the existing booking service and tests.
+
+SCOPE — you may change
+  services/api/src/booking/
+  services/api/tests/booking/
+  packages/contracts/src/booking/
+Do NOT change auth, unrelated tables, frontend styling, or payment behavior.
+
+REQUIREMENTS
+1. A customer may cancel an eligible confirmed booking.
+2. Cancellation releases capacity transactionally.
+3. The oldest eligible waiting-list entry is promoted.
+4. Promotion is idempotent.
+5. Notification failure must not roll back booking state.
+6. All state changes produce audit events.
+
+EDGE CASES
+simultaneous cancellations · already-cancelled booking · customer no longer eligible · notification provider down · cutoff crossed · invalid waitlist entries.
+
+VERIFICATION
+Add unit + integration tests. Run lint, typecheck and the relevant suites. Do not claim success unless commands complete.
+
+OUTPUT
+Summary · files changed · decisions · commands run + results · unresolved risks · suggested follow-up.</div></div>
+      </div>
+      <div class="lesson-stack">
+        <div><span class="eyebrow">A useful agent definition contains</span></div>
+        <div class="contract-legend">
+          <div><b>Responsibility</b> — the one job</div>
+          <div><b>Scope</b> — files it may and may not touch</div>
+          <div><b>Inputs</b> — what to read first</div>
+          <div><b>Authority</b> — what it may decide</div>
+          <div><b>Constraints</b> — the hard limits</div>
+          <div><b>Output</b> — the exact shape of the report</div>
+          <div><b>Definition of done</b> — measurable</div>
+          <div><b>Escalation</b> — when to stop and ask</div>
+        </div>
+        <div class="cc-window codex" data-scene="contract"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">codex · booking domain</span><button class="cc-replay">↺ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Hand over the contract…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="failure-card"><span class="failure-label">Require evidence</span><h3>"Everything works" is not a result</h3><p>Make the agent report the commands it ran and what passed — and, just as important, what it did <em>not</em> verify (production notification provider, load above 200 concurrent cancels).</p></div>
+      </div>
+    </div>
+    <div class="takeaway" style="margin-top:26px"><h3>The controlled implementation loop</h3><p>Read instructions → inspect code → restate the task → name assumptions → small plan → smallest coherent change → scoped tests → inspect the diff → fix → broaden verification → update docs → completion report. Add checkpoints (plan → contracts &amp; tests → implementation → security → integration) for anything high-risk.</p></div>
+  </div>
+</section>
+
+<!-- ============ 06 · TESTING ============ -->
+<section class="chapter" data-chapter="Testing" id="testing">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">06</span><span class="eyebrow">Prove it, don't append it</span><h2>The pyramid is a plan, not an afterthought.</h2><p class="lede">Design the layers up front, then hand the finished feature to an agent whose only job is to prove it isn't done.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="pyramid reveal-scale">
+          <div class="pyr-tier e2e"><strong>End-to-end</strong><small>register · book · cancel · convert a lead</small></div>
+          <div class="pyr-tier integ"><strong>Integration</strong><small>db · transactions · adapters · API contracts</small></div>
+          <div class="pyr-tier unit"><strong>Unit</strong><small>rules · validation · permissions · state transitions</small></div>
+          <div class="pyr-base"><strong>Non-functional</strong><small>load · accessibility · security · failure injection · backup restore · migration tests</small></div>
+        </div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window codex" data-scene="test"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">codex · adversarial test</span><button class="cc-replay">↺ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Try to break it…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="prompt-card" data-copy-root><span class="pc-label">Independent test agent</span><button class="copy-btn">Copy</button><div class="pc-text">Act as an adversarial test engineer. Do not modify the implementation yet. Read the requirements and try to disprove that the feature is complete: missing acceptance criteria, edge cases, concurrency, invalid states, permissions, error handling, data integrity, accessibility, observability. Produce findings first. Only add tests after documenting the gaps.</div></div>
+        <div class="note blue"><span class="n-icon">⌁</span><span>The agent that wrote the feature is biased toward its own reading of the spec. A <strong>separate</strong> agent, prompted to refute, catches what self-review never will.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 · REVIEW ============ -->
+<section class="chapter" data-chapter="Review" id="review">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">07</span><span class="eyebrow">Many lenses, one report</span><h2>Split "review my code" into five sharp questions.</h2><p class="lede">Each reviewer gets one lens and one job. The coordinator deduplicates, verifies evidence, and ranks by impact — not by volume.</p></div>
+    <div class="lesson-grid reverse">
+      <div class="lesson-stack">
+        <div class="agent-report"><span class="agent-dot">1</span><div><strong>Correctness</strong><p>Diff vs the stated acceptance criteria — missing or partial behavior</p></div></div>
+        <div class="agent-report"><span class="agent-dot">2</span><div><strong>Security</strong><p>Auth, location/tenant boundaries, input validation, secrets, injection</p></div></div>
+        <div class="agent-report"><span class="agent-dot">3</span><div><strong>Maintainability</strong><p>Complexity, duplication, hidden coupling, weak names, module boundaries</p></div></div>
+        <div class="agent-report"><span class="agent-dot">4</span><div><strong>Performance</strong><p>Query behavior, indexes, repeated calls, caching, concurrency</p></div></div>
+        <div class="agent-report"><span class="agent-dot">5</span><div><strong>UX &amp; accessibility</strong><p>Loading / empty / error / success states, keyboard, focus, contrast</p></div></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window codex" data-scene="review"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">codex · review room</span><button class="cc-replay">↺ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Review the diff…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div class="note"><span class="n-icon">🛡️</span><span><strong>Codex Security</strong> can scan the repo or a specific change, validate the vulnerability, and propose a patch — run the standard scan before the deeper one. Apply findings, then re-review to confirm they're resolved.</span></div>
+        <div class="failure-card"><span class="failure-label">Never</span><h3>Let the implementer approve itself</h3><p>The author's review is the weakest review. Independent correctness, security, maintainability and UX passes are what make a diff trustworthy.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 · BOUNDARIES ============ -->
+<section class="chapter" data-chapter="Boundaries" id="boundaries">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">08</span><span class="eyebrow">Access &amp; ownership</span><h2>Give each agent only the tools its job needs.</h2><p class="lede">A documentation agent doesn't need production database access. A marketing agent doesn't need merge rights. A test agent rarely needs deploy credentials. More permissions do not mean more effectiveness.</p></div>
+    <div class="split">
+      <div class="lesson-stack">
+        <div class="concept-card" style="border-left:4px solid var(--ink);"><h3>Human-owned decisions</h3>
+          <ul class="plain-list" style="margin-top:12px">
+            <li>Business objective &amp; budget</li>
+            <li>Product priorities &amp; major trade-offs</li>
+            <li>Acceptable risk &amp; personal-data policy</li>
+            <li>Production credentials</li>
+            <li>Final UX &amp; security acceptance</li>
+            <li>Release authorization</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson-stack">
+        <div class="concept-card takeaway"><h3>Agent-owned execution</h3>
+          <ul class="plain-list" style="margin-top:12px">
+            <li>Repository exploration &amp; plans</li>
+            <li>Routine coding &amp; test generation</li>
+            <li>Migrations &amp; documentation</li>
+            <li>Structured research</li>
+            <li>Repetitive refactoring &amp; code review</li>
+            <li>Incident investigation &amp; release prep</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:24px"><span class="n-icon">🔑</span><span>For anything near production, insist on <strong>least privilege</strong>: explicit approvals, sandboxing, restricted credentials, short-lived tokens, protected branches, and audited pipelines. A sensible Codex default is approval-on-request, not unrestricted command execution — and <strong>cloud routines run without approval dialogs</strong>, so strip every permission the job doesn't need.</span></div>
+  </div>
+</section>
+
+<!-- ============ 09 · PITFALLS ============ -->
+<section class="chapter" data-chapter="Pitfalls" id="pitfalls">
+  <div class="container">
+    <div class="chapter-head"><span class="eyebrow reveal">The twelve efficiency killers</span><h2 class="reveal" style="--d:.08s">The failures that quietly waste the most.</h2><p class="lede reveal" style="--d:.14s">Almost every stalled Codex project traces back to one of these. Fix the system, not just the next agent.</p></div>
+    <div class="cmd-grid reveal">
+      <div class="failure-card"><span class="failure-label">01</span><h3>Starting with code</h3><p>Research, requirements and architecture stay implicit — so the agent invents hundreds of small assumptions.</p></div>
+      <div class="failure-card"><span class="failure-label">02</span><h3>One enormous task</h3><p>Huge prompts make huge diffs that are hard to test, review and reverse.</p></div>
+      <div class="failure-card"><span class="failure-label">03</span><h3>Top model for everything</h3><p>Burns capacity without making straightforward work any more correct.</p></div>
+      <div class="failure-card"><span class="failure-label">04</span><h3>Every agent the same role</h3><p>Five "senior engineers" aren't a team. Give each a distinct responsibility and output.</p></div>
+      <div class="failure-card"><span class="failure-label">05</span><h3>Parallelizing overlapping edits</h3><p>Parallel work is only faster when the boundaries are actually stable.</p></div>
+      <div class="failure-card"><span class="failure-label">06</span><h3>No persistent instructions</h3><p>Without AGENTS.md, conventions get re-explained every session and drift.</p></div>
+      <div class="failure-card"><span class="failure-label">07</span><h3>No reliable test command</h3><p>An agent can't prove its work when there's no deterministic verification path.</p></div>
+      <div class="failure-card"><span class="failure-label">08</span><h3>Self-approval</h3><p>Letting the implementation agent sign off on its own work. Use independent reviewers.</p></div>
+      <div class="failure-card"><span class="failure-label">09</span><h3>Activity mistaken for progress</h3><p>Ten agents can produce ten documents without resolving one critical decision.</p></div>
+      <div class="failure-card"><span class="failure-label">10</span><h3>Undocumented assumptions</h3><p>Every significant assumption should be visible in a decision or assumption log.</p></div>
+      <div class="failure-card"><span class="failure-label">11</span><h3>Unrestricted tool access</h3><p>Broad permissions add risk, not capability.</p></div>
+      <div class="failure-card"><span class="failure-label">12</span><h3>Never updating the system</h3><p>When agents repeat a mistake, fix AGENTS.md, the skill, the lint rule, the test — not just the next prompt.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 · ORCHESTRATE + FINALE ============ -->
+<section class="chapter" data-chapter="Orchestrate" id="orchestrate">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">10</span><span class="eyebrow">Put it all together</span><h2>The prompt that starts a serious milestone.</h2><p class="lede">One lead agent, coordinating — not implementing everything itself. This is the repeatable backbone of the whole playbook.</p></div>
+    <div class="lesson-grid">
+      <div class="lesson-stack">
+        <div class="prompt-card" data-copy-root><span class="pc-label">Master orchestration prompt</span><button class="copy-btn">Copy</button><div class="pc-text">You are the lead engineering agent for this repository. Coordinate the work — do not immediately implement everything yourself.
+
+First:
+1. Read all applicable AGENTS.md files.
+2. Read the product requirements, architecture decisions and current milestone.
+3. Inspect the relevant structure and existing tests.
+4. Identify facts, assumptions, blockers and unresolved decisions.
+5. Produce a dependency-aware implementation plan.
+
+Then:
+6. Divide the work into atomic tasks.
+7. Identify which can safely run in parallel.
+8. Assign specialist subagents only where responsibilities don't overlap.
+9. Give each an explicit scope, allowed files, required outputs and verification.
+10. Keep shared contracts and architecture decisions under your control.
+
+During execution:
+11. Require agents to run relevant checks.
+12. Accept no claim without command results or inspectable evidence.
+13. Integrate in dependency order.
+14. Resolve contract inconsistencies before continuing.
+15. Maintain a decision log and risk register.
+
+Before completion:
+16. Run the full milestone verification.
+17. Request independent correctness, security, maintainability and UX reviews.
+18. Resolve blocking findings.
+19. Update documentation.
+20. Produce a final report: done · not done · files changed · checks run · decisions · accepted risks · unresolved issues · next milestone.
+
+Do not hide uncertainty. Do not silently expand scope. Do not deploy to production without explicit human authorization.</div></div>
+      </div>
+      <div class="lesson-stack">
+        <div class="cc-window codex tall" data-scene="orchestrate"><div class="cc-titlebar"><span class="cc-dots"><i></i><i></i><i></i></span><span class="cc-title">codex · milestone 3</span><button class="cc-replay">↺ Replay</button></div><div class="cc-body"><div class="cc-main"><div class="cc-chat"></div><div class="cc-composer"><span class="ph">Run the milestone…</span><span class="cc-composer-text"></span><span class="cc-caret"></span><button class="send" tabindex="-1">↑</button></div></div></div></div>
+        <div><span class="eyebrow">The day-to-day backbone</span></div>
+        <ol class="loop-list">
+          <li>Product agent clarifies requirements</li>
+          <li>Lead maps affected systems</li>
+          <li>Architect reviews consequential changes</li>
+          <li>Test agent defines verification scenarios</li>
+          <li>Implementers work in bounded areas</li>
+          <li>Lead integrates &amp; automated checks run</li>
+          <li>Independent reviewers inspect the diff</li>
+          <li>Findings fixed · full verification · docs updated</li>
+          <li>Human reviews and approves release</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="finale route-finale reveal-scale" style="margin-top:70px">
+      <span class="eyebrow" style="justify-content:center">The playbook, in one line</span>
+      <h2>You didn't prompt a coder.<br>You ran an engineering organization.</h2>
+      <p class="lede" style="margin-inline:auto">Define the outcome, gather evidence, design before building, prepare the repo, slice atomic tasks, delegate with contracts, verify with evidence, review independently — and keep the consequential decisions human.</p>
+      <div class="release-strip" style="justify-content:center"><span class="release-chip">defined</span><span class="release-chip">researched</span><span class="release-chip">architected</span><span class="release-chip">tested</span><span class="release-chip">reviewed</span><span class="release-chip">shipped behind a gate</span></div>
+      <button class="btn btn-accent magnetic" id="codex-finale" style="margin-top:14px">Run the org ✨</button>
+      <p class="source-note">An independent, opinionated operating manual — not affiliated with or endorsed by OpenAI. Adapt the model tiers, tools and commands to whatever your Codex setup actually provides.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · a friendly companion playbook for <a href="https://openai.com/codex" target="_blank" rel="noopener">Codex</a>, beside the <a href="index.html">Claude Code tutorial</a></span><span><a href="index.html">Home</a> · <a href="starter.html">Starter</a> · <a href="builder.html">Builder</a> · <a href="max.html">Max</a> · <span id="year"></span></span></div></footer>
+
+<script>
+window.ZTL_SCENES = {
+  boot: [
+    { u: "You're the lead engineering agent. Build an AI customer app and internal CRM for a martial-arts gym. Don't write code yet — plan it.", gap: 500 },
+    { think: "Reading the repo, docs and existing systems…", ms: 1100 },
+    { c: "Understood. I'll act as the lead, not a lone coder. First a Project Definition Package, then research, then architecture — <strong>only then</strong> bounded tasks.", gap: 700 },
+    { plan: { title: "Lead agent · approach", items: ["Inspect repo + documentation", "Draft vision, users, success metrics", "Map milestones &amp; atomic tasks", "Delegate research to subagents", "Own contracts, review &amp; the release gate"], approve: "Approve approach", ms: 1700 }, gap: 500 },
+    { c: "Approach approved. Nothing is being built yet — that's the point. <strong>Define the outcome first.</strong>", gap: 400 }
+  ],
+  repo: [
+    { u: "Prepare the repo so you don't relearn our rules every session.", gap: 450 },
+    { files: [ { name: "AGENTS.md", add: "46" }, { name: "apps/admin-web/AGENTS.md", add: "18" }, { name: ".claude/skills/create-feature/SKILL.md", add: "40" } ], gap: 550 },
+    { c: "Root AGENTS.md is a map, not a manual. Narrow rules live beside the code; repeatable jobs are skills — <strong>/create-feature</strong>, <strong>/run-release</strong>.", gap: 400 }
+  ],
+  contract: [
+    { u: "Implement booking cancellation + waiting-list promotion. Here's the task contract.", gap: 450 },
+    { think: "Reading AGENTS.md, ADR-007 and the existing booking service…", ms: 950 },
+    { c: "Scope locked to the booking domain. Cancellation releases capacity transactionally; the oldest eligible waiter is promoted; promotion is idempotent.", gap: 600 },
+    { files: [ { name: "booking/cancel.ts", add: "88" }, { name: "booking/waitlist.ts", add: "64" }, { name: "tests/booking/*.test.ts", add: "120" } ], gap: 550 },
+    { c: "Verification: <strong>pnpm test booking → 42 passed</strong> · typecheck passed · lint passed. Not verified: load above 200 concurrent cancels.", gap: 400 }
+  ],
+  test: [
+    { u: "Act as an adversarial test engineer. Try to prove the booking feature is NOT done.", gap: 450 },
+    { think: "Attacking edge cases and concurrency…", ms: 1000 },
+    { c: "Three gaps: a simultaneous-cancellation race, an already-cancelled no-op, and a notification outage that rolls back state. <strong>Documented before writing a single new test.</strong>", gap: 400 }
+  ],
+  review: [
+    { u: "Review the diff from five angles — one lens each. Don't merge them.", gap: 450 },
+    { think: "correctness · security · maintainability · performance · a11y…", ms: 1100 },
+    { c: "Correctness ✓ · Security flagged an unscoped location boundary · Performance found an N+1 on the waiting list. <strong>3 verified findings, ranked by impact.</strong>", gap: 600 },
+    { u: "Fix the two blockers and re-review.", gap: 450 },
+    { c: "Blockers resolved and the re-run is clean. Codex Security standard scan: no new vulnerabilities.", gap: 400 }
+  ],
+  orchestrate: [
+    { u: "Run milestone 3. Coordinate the work — don't do it all yourself.", gap: 450 },
+    { plan: { title: "Milestone 3 · Booking", items: ["Dependency-aware plan", "Delegate isolated tasks", "Own the shared contracts", "Verify with evidence", "Independent reviews", "Human release gate"], approve: "Approve plan", ms: 1600 }, gap: 500 },
+    { think: "Integrating in dependency order…", ms: 900 },
+    { c: "Requirements met · full suite green · migration &amp; rollback verified · risks logged. <strong>Recommendation: ship — pending your authorization.</strong>", gap: 550 },
+    { perm: { title: "Deploy the reviewed release", desc: "Human-owned gate: least privilege, short-lived token, audited pipeline.", allow: "Authorize", ms: 1400 }, gap: 500 },
+    { c: "Deployed to a limited rollout. Monitoring is live. Every result came back to one accountable decision — <strong>yours.</strong> ✅", gap: 300 }
+  ]
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const done = document.getElementById("codex-finale");
+  if (done) done.addEventListener("click", () => {
+    window.ZTL_celebrate();
+    done.textContent = "The org is running ✨";
+  });
+});
+</script>
+<script src="shared/app.js"></script>
+</body>
+</html>
