@@ -1381,7 +1381,8 @@ body.route-codex {
 .bc-line .bc-path b { color: var(--term-teal-2); font-weight: 600; }
 .bc-line .bc-tag { font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--term-ink-3); border: 1px solid var(--term-line-2); border-radius: 99px; padding: 2px 8px; white-space: nowrap; }
 .bc-foot { display: flex; align-items: center; gap: 9px; padding: 11px 16px; border-top: 1px solid var(--term-line); background: var(--term-bar); font-size: .68rem; color: var(--term-ink-2); }
-.bc-foot .bc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--term-teal); box-shadow: 0 0 0 0 rgba(63,191,174,.5); animation: asof-pulse 2.4s ease-out infinite; }
+.bc-foot .bc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--term-teal); box-shadow: 0 0 0 0 rgba(63,191,174,.5); animation: codex-pulse 2.4s ease-out infinite; }
+@keyframes codex-pulse { 0% { box-shadow: 0 0 0 0 rgba(63,191,174,.5); } 70% { box-shadow: 0 0 0 9px rgba(63,191,174,0); } 100% { box-shadow: 0 0 0 0 rgba(63,191,174,0); } }
 .bc-foot b { color: var(--term-teal-2); font-weight: 700; }
 
 /* ---- testing pyramid ---- */
