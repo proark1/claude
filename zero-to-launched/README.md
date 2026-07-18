@@ -1,15 +1,18 @@
 # Zero to Launched
 
-An interactive, scroll-driven tutorial website that teaches complete beginners how to use the
-**Claude Code desktop app** — from install to a website live on the internet.
+An interactive, editorial learning website with separate paths for **Claude / Claude Code** and
+**OpenAI Codex**, plus a sourced product comparison.
 
-- `index.html` — landing page: hero + route picker
+- `index.html` — concise **Claude overview** with the four-route picker
 - `starter.html` — **Starter route**, complete (9 chapters)
 - `builder.html` — **Builder route**, complete (10 chapters): build and deploy Gather with PostgreSQL
 - `max.html` — **Max route**, complete (12 chapters): agents, skills, browser tests, hooks, connectors, routines, and release practice
 - `commands.html` — **Commands cheat sheet** (bonus tab): powerful, underused slash commands and gestures, grouped by intent; uses `body.route-commands` (green theme) plus the `.cmd-palette` / `.cmd-card` / `.gesture` components. Anchored on the honesty rule: it tells readers to type `/` or `/help` for their live, version-specific list.
 - `news.html` — **News & Updates tab**: a plain-language roundup of the latest Claude / Claude Code news (a rolling ~two-week window), plus a "models at a glance" reference and a directory of official resources. Uses `body.route-news` (violet theme) plus `.news-lead` / `.news-card` / `.model-card` / `.resource-link` / `.asof` components. Carries a visible "snapshot as of &lt;date&gt;" stamp and links every story to its source — **re-verify and re-date before each refresh**, since it is the most time-sensitive page on the site.
-- `codex.html` — **The Codex Software Project Playbook** (companion tab): an immersive, opinionated operating manual for running **OpenAI Codex** like an engineering organization, followed through one running example (an AI customer app + internal CRM for a martial-arts gym). Uses `body.route-codex` (teal theme) plus a **terminal-skinned `.cc-window.codex`** command window that reuses the shared scene engine, a `.matrix` model-selection table, a vertical `.org-flow`, a scroll-driven `.build-console` (via `data-showcase` accrue), a `.pyramid`, and the dark `.codex-callout` used on the homepage. It's an editorial guidebook — **not affiliated with or endorsed by OpenAI**; the Sol/Terra/Luna model tiers are the author's operating frame, not verified product names, so treat the model facts as opinion, not documentation.
+- `codex-home.html` — concise **Codex overview** with links to both Codex guides
+- `codex.html` — **The Codex Software Project Playbook**: an immersive operating manual for running Codex like an engineering organization, followed through one running example
+- `codex-commands.html` — **Codex Commands & Use**: Codex-specific planning, AGENTS.md, subagents, permissions, review, speed, recovery, and delivery reference
+- `compare.html` — **Claude vs. Codex**: sourced side-by-side comparison of pricing, context, models, surfaces, agents, controls, and use cases; re-verify and re-date all product facts when refreshing
 - `shared/styles.css` — the whole design system (light, warm, editorial)
 - `shared/app.js` — animation engine: reveals, SVG drawing, progress rail, sound,
   confetti, checklists, glossary tooltips, and the **scene player**

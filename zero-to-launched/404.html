@@ -5,9 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page not found — Zero to Launched</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="shared/styles.css">
+<script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="shared/styles.css?v=20260718a">
 </head>
 <body>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Main navigation">
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="claude-menu">Claude</button><div class="product-popover" id="claude-menu" aria-label="Claude routes">
+      <a class="product-link" href="index.html">Overview</a><a class="product-link" href="starter.html">Start Up</a><a class="product-link" href="builder.html">Build</a><a class="product-link" href="max.html">Max</a><a class="product-link" href="commands.html">Commands &amp; Use</a>
+    </div></div>
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="codex-menu">Codex</button><div class="product-popover" id="codex-menu" aria-label="Codex routes">
+      <a class="product-link" href="codex-home.html">Overview</a><a class="product-link" href="codex.html">Software Playbook</a><a class="product-link" href="codex-commands.html">Commands &amp; Use</a>
+    </div></div>
+    <a class="header-link compare-link" href="compare.html">Compare</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
+  </nav>
+</header>
 <div class="err-wrap">
   <div>
     <div class="err-code">404</div>
@@ -16,6 +30,6 @@
     <a class="btn btn-accent magnetic" href="index.html" style="margin-top:14px">Back to the start <span class="arrow">→</span></a>
   </div>
 </div>
-<script src="shared/app.js"></script>
+<script src="shared/app.js?v=20260718a"></script>
 </body>
 </html>

@@ -641,24 +641,120 @@
     secs.forEach((s) => io.observe(s));
   }
 
+  /* ---------------- grouped product menus ---------------- */
+  function initProductNav() {
+    const groups = $$("[data-product-menu]");
+    if (!groups.length) return;
+
+    const closeAll = (except, restoreFocus) => {
+      groups.forEach((group) => {
+        if (group === except) return;
+        const trigger = $(".product-trigger", group);
+        group.classList.remove("is-open");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+        if (restoreFocus && trigger) trigger.focus();
+      });
+    };
+
+    groups.forEach((group) => {
+      const trigger = $(".product-trigger", group);
+      const panel = $(".product-popover", group);
+      const links = panel ? $$("a", panel) : [];
+      if (!trigger || !panel || !links.length) return;
+      if ($('[aria-current="page"]', panel)) group.classList.add("has-current");
+
+      const open = (focusFirst) => {
+        closeAll(group, false);
+        group.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        if (focusFirst) links[0].focus();
+      };
+      const close = (focusTrigger) => {
+        group.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        if (focusTrigger) trigger.focus();
+      };
+
+      trigger.addEventListener("click", () => {
+        group.classList.contains("is-open") ? close(false) : open(false);
+        Sound.click();
+      });
+      trigger.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open(true);
+        }
+        if (e.key === "Escape") close(false);
+      });
+      panel.addEventListener("keydown", (e) => {
+        const index = links.indexOf(document.activeElement);
+        if (e.key === "Escape") { e.preventDefault(); close(true); return; }
+        if (e.key === "Home") { e.preventDefault(); links[0].focus(); return; }
+        if (e.key === "End") { e.preventDefault(); links[links.length - 1].focus(); return; }
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault();
+          const delta = e.key === "ArrowDown" ? 1 : -1;
+          links[(index + delta + links.length) % links.length].focus();
+        }
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("[data-product-menu]")) closeAll(null, false);
+    });
+    addEventListener("resize", () => closeAll(null, false));
+  }
+
   /* ---------------- mobile menu ---------------- */
   function initMobileNav() {
     const header = $(".site-header");
     if (!header) return;
     const nav = $(".header-actions", header);
-    const links = nav ? $$(".header-link", nav) : [];
-    if (!links.length) return;
+    if (!nav) return;
+    const groups = $$("[data-product-menu]", nav);
+    const standaloneLinks = $$(".header-link", nav);
+    if (!groups.length && !standaloneLinks.length) return;
 
     const toggle = el("button", "nav-toggle", "<span></span><span></span><span></span>");
     toggle.setAttribute("aria-label", "Open menu");
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", "mobile-site-menu");
 
     const menu = el("nav", "mobile-menu");
+    menu.id = "mobile-site-menu";
     menu.setAttribute("aria-label", "Site");
-    links.forEach((l) => {
-      const a = el("a", "mm-link", l.textContent.trim());
-      a.href = l.getAttribute("href");
-      if (l.getAttribute("aria-current")) a.setAttribute("aria-current", l.getAttribute("aria-current"));
+    groups.forEach((group, groupIndex) => {
+      const sourceTrigger = $(".product-trigger", group);
+      const sourceLinks = $$(".product-link", group);
+      const section = el("section", "mm-group");
+      const panelId = "mobile-product-group-" + groupIndex;
+      const groupToggle = el("button", "mm-group-toggle", '<span>' + sourceTrigger.textContent.trim() + '</span><span class="mm-plus" aria-hidden="true"></span>');
+      const linksWrap = el("div", "mm-group-links");
+      const hasCurrent = sourceLinks.some((link) => link.getAttribute("aria-current") === "page");
+      groupToggle.setAttribute("aria-expanded", hasCurrent ? "true" : "false");
+      groupToggle.setAttribute("aria-controls", panelId);
+      linksWrap.id = panelId;
+      linksWrap.hidden = !hasCurrent;
+      sourceLinks.forEach((link) => {
+        const a = el("a", "mm-link", link.textContent.trim());
+        a.href = link.getAttribute("href");
+        if (link.getAttribute("aria-current")) a.setAttribute("aria-current", link.getAttribute("aria-current"));
+        linksWrap.appendChild(a);
+      });
+      groupToggle.addEventListener("click", () => {
+        const expanded = groupToggle.getAttribute("aria-expanded") === "true";
+        groupToggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+        linksWrap.hidden = expanded;
+        Sound.click();
+      });
+      section.appendChild(groupToggle);
+      section.appendChild(linksWrap);
+      menu.appendChild(section);
+    });
+    standaloneLinks.forEach((link) => {
+      const a = el("a", "mm-link mm-standalone", link.textContent.trim());
+      a.href = link.getAttribute("href");
+      if (link.getAttribute("aria-current")) a.setAttribute("aria-current", link.getAttribute("aria-current"));
       menu.appendChild(a);
     });
     const scrim = el("div", "mobile-scrim");
@@ -673,11 +769,18 @@
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       toggle.classList.toggle("is-open", open);
     };
-    toggle.addEventListener("click", () => { setOpen(!document.body.classList.contains("menu-open")); Sound.click(); });
+    toggle.addEventListener("click", () => {
+      const opening = !document.body.classList.contains("menu-open");
+      setOpen(opening);
+      if (opening) $("button, a", menu)?.focus();
+      Sound.click();
+    });
     scrim.addEventListener("click", () => setOpen(false));
     menu.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
-    addEventListener("resize", () => { if (innerWidth > 640) setOpen(false); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && document.body.classList.contains("menu-open")) { setOpen(false); toggle.focus(); }
+    });
+    addEventListener("resize", () => { if (innerWidth > 880) setOpen(false); });
   }
 
   /* ---------------- scroll showcase (generalized sticky-unlock) ----
@@ -797,6 +900,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     initHeader();
     initTheme();
+    initProductNav();
     initMobileNav();
     initSoundToggle();
     initReveals();

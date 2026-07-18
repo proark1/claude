@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codex — delegate software work with confidence | Zero to Launched</title>
+<meta name="description" content="A concise introduction to OpenAI Codex, with a software-project playbook and a practical Codex commands and usage reference.">
+<meta property="og:title" content="Codex — Zero to Launched">
+<meta property="og:description" content="Understand Codex, learn its engineering workflow, and choose the right Codex guide.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="shared/styles.css?v=20260718a">
+</head>
+<body class="editorial-home route-codex-home">
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Main navigation">
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="claude-menu">Claude</button><div class="product-popover" id="claude-menu" aria-label="Claude routes">
+      <a class="product-link" href="index.html">Overview</a><a class="product-link" href="starter.html">Start Up</a><a class="product-link" href="builder.html">Build</a><a class="product-link" href="max.html">Max</a><a class="product-link" href="commands.html">Commands &amp; Use</a>
+    </div></div>
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="codex-menu">Codex</button><div class="product-popover" id="codex-menu" aria-label="Codex routes">
+      <a class="product-link" href="codex-home.html" aria-current="page">Overview</a><a class="product-link" href="codex.html">Software Playbook</a><a class="product-link" href="codex-commands.html">Commands &amp; Use</a>
+    </div></div>
+    <a class="header-link compare-link" href="compare.html">Compare</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
+  </nav>
+</header>
+
+<main>
+  <section class="editorial-hero">
+    <div class="container editorial-hero-grid">
+      <div>
+        <span class="eyebrow reveal">Codex overview</span>
+        <h1 class="reveal" style="--d:.06s">Give the task to Codex. <em>Keep the decision.</em></h1>
+        <p class="lede reveal" style="--d:.12s">Codex is OpenAI’s coding agent for software development. It can understand a repository, plan a change, edit and run code, coordinate specialized agents, verify the result, and return the work for you to review.</p>
+        <div class="hero-ctas reveal" style="--d:.18s"><a class="btn btn-accent magnetic" href="#routes">Choose a Codex guide <span class="arrow">→</span></a><a class="btn btn-ghost" href="compare.html">Compare with Claude</a></div>
+      </div>
+      <div class="product-definition reveal-scale" style="--d:.12s" aria-label="Codex definition and working model">
+        <div class="definition-row"><span class="definition-term">Codex</span><div class="definition-copy"><strong>A software-engineering agent</strong><span>Use it in the ChatGPT desktop app, web, CLI, or IDE to work directly with code, tools, tests, and delivery evidence.</span></div></div>
+        <div class="definition-row"><span class="definition-term">Your role</span><div class="definition-copy"><strong>Set scope and approve outcomes</strong><span>You provide the goal, constraints, repository context, and definition of done. Codex carries out the bounded work and shows what changed.</span></div></div>
+        <div class="definition-foot">Delegated execution. Human release judgment.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-chapter="Workflow">
+    <div class="container">
+      <div class="chapter-head"><span class="eyebrow reveal">The working loop</span><h2 class="reveal" style="--d:.06s">A task moves through five gates.</h2><p class="lede reveal" style="--d:.12s">The useful distinction is not “chatbot versus code generator.” Codex works best as an accountable engineering loop.</p></div>
+      <div class="workflow-line reveal-scale"><div class="workflow-step"><b>01 · Plan</b><span>Understand the goal and inspect the repository.</span></div><div class="workflow-step"><b>02 · Delegate</b><span>Split independent investigation or review work.</span></div><div class="workflow-step"><b>03 · Implement</b><span>Edit the smallest coherent surface.</span></div><div class="workflow-step"><b>04 · Verify</b><span>Run tests, review the diff, and collect evidence.</span></div><div class="workflow-step"><b>05 · Ship</b><span>Bring the result back to a human release gate.</span></div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="routes" data-chapter="Codex routes">
+    <div class="container">
+      <div class="chapter-head"><span class="eyebrow reveal">Two useful guides</span><h2 class="reveal" style="--d:.06s">Learn the system, then keep the moves close.</h2></div>
+      <div class="route-index codex-index">
+        <a class="route-entry reveal" href="codex.html"><span class="route-label">End to end · operating model</span><h3>Software Playbook</h3><p>Follow one ambitious project from idea to release while Codex plans, delegates, integrates, verifies, reviews, and ships behind a human gate.</p><span class="route-arrow">Open playbook →</span></a>
+        <a class="route-entry reveal" style="--d:.08s" href="codex-commands.html"><span class="route-label">At hand · practical reference</span><h3>Commands &amp; Use</h3><p>Find the Codex-specific prompts, commands, configuration surfaces, approval habits, review moves, and recovery patterns you need during real work.</p><span class="route-arrow">Open reference →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-chapter="Fit">
+    <div class="container">
+      <div class="fit-panel reveal-scale">
+        <div><span class="eyebrow" style="color:#63D4C6">Codex may fit you if</span><h2>You want software work delegated across a repository.</h2><a class="btn btn-ghost" href="compare.html">See the direct comparison <span class="arrow">→</span></a></div>
+        <div class="fit-list"><div class="fit-item">You want an agent to inspect, edit, run, test, and review code in one bounded task.</div><div class="fit-item">Your work benefits from parallel exploration, testing, or specialist review.</div><div class="fit-item">You want durable repository rules in AGENTS.md and repeatable workflows in skills.</div><div class="fit-item">You prefer evidence—diffs, tests, screenshots, and logs—before accepting a change.</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an independent guide, not affiliated with OpenAI</span><span><a href="index.html">Claude</a> · <a href="codex-home.html">Codex</a> · <a href="compare.html">Compare</a> · <a href="news.html">News</a> · <span id="year"></span></span></div></footer>
+<script src="shared/app.js?v=20260718a"></script>
+</body>
+</html>

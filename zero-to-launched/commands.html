@@ -3,24 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Power Commands — the cheat sheet | Zero to Launched</title>
+<title>Claude Commands &amp; Use — the cheat sheet | Zero to Launched</title>
 <meta name="description" content="The Claude Code slash commands and shortcuts most people never discover — plan before building, rewind mistakes, review your own code, and automate the boring parts.">
-<meta property="og:title" content="Power Commands — the Claude Code cheat sheet">
+<meta property="og:title" content="Claude Commands &amp; Use — the Claude Code cheat sheet">
 <meta property="og:description" content="The slash commands and gestures worth stealing, grouped by what you're trying to do.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
-<link rel="stylesheet" href="shared/styles.css">
+<link rel="stylesheet" href="shared/styles.css?v=20260718a">
 </head>
 <body class="route-commands">
 
 <header class="site-header">
   <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
-  <nav class="header-actions" aria-label="Routes">
-    <a class="header-link" href="starter.html">Starter</a>
-    <a class="header-link" href="builder.html">Builder</a>
-    <a class="header-link" href="max.html">Max</a>
-    <a class="header-link" href="news.html">News</a>
-    <a class="header-link" href="codex.html">Codex</a>
+  <nav class="header-actions" aria-label="Main navigation">
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="claude-menu">Claude</button><div class="product-popover" id="claude-menu" aria-label="Claude routes">
+      <a class="product-link" href="index.html">Overview</a><a class="product-link" href="starter.html">Start Up</a><a class="product-link" href="builder.html">Build</a><a class="product-link" href="max.html">Max</a><a class="product-link" href="commands.html" aria-current="page">Commands &amp; Use</a>
+    </div></div>
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="codex-menu">Codex</button><div class="product-popover" id="codex-menu" aria-label="Codex routes">
+      <a class="product-link" href="codex-home.html">Overview</a><a class="product-link" href="codex.html">Software Playbook</a><a class="product-link" href="codex-commands.html">Commands &amp; Use</a>
+    </div></div>
+    <a class="header-link compare-link" href="compare.html">Compare</a>
     <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
   </nav>
 </header>
@@ -32,7 +34,7 @@
   <div class="container">
     <div class="split">
       <div>
-        <span class="eyebrow reveal">Bonus tab · the power-user cheat sheet</span>
+        <span class="eyebrow reveal">Claude · Commands &amp; Use</span>
         <h1 class="reveal" style="--d:.08s">The commands most people <em>never discover.</em></h1>
         <p class="lede reveal" style="--d:.16s">Type one key — <span class="keyish">/</span> — in the message box and a whole menu of shortcuts appears. Most people use three of them. This page is the handful that quietly make you twice as capable, grouped by what you're trying to do.</p>
         <div class="route-meta-line reveal" style="--d:.22s"><span>Lives in the Code tab</span><span>Type <span class="keyish">/</span> to see yours</span><span>No memorizing required</span></div>
@@ -172,7 +174,7 @@
   </div>
 </section>
 
-<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span><span><a href="index.html">Home</a> · <a href="starter.html">Starter</a> · <a href="builder.html">Builder</a> · <a href="max.html">Max</a> · <a href="codex.html">Codex</a> · <span id="year"></span></span></div></footer>
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an independent learning guide for Claude and Codex</span><span><a href="index.html">Claude</a> · <a href="codex-home.html">Codex</a> · <a href="compare.html">Compare</a> · <a href="news.html">News</a> · <span id="year"></span></span></div></footer>
 
 <script>
 window.ZTL_SCENES = {
@@ -201,6 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<script src="shared/app.js"></script>
+<script src="shared/app.js?v=20260718a"></script>
 </body>
 </html>

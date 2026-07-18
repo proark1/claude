@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude vs. Codex — price, context, models, and use | Zero to Launched</title>
+<meta name="description" content="A direct, sourced comparison of Claude and Codex across pricing, context windows, model versions, workflows, agents, tools, permissions, and best-fit use cases.">
+<meta property="og:title" content="Claude vs. Codex — direct comparison">
+<meta property="og:description" content="Compare current prices, context limits, models, workflows, and ideal uses side by side.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="shared/styles.css?v=20260718a">
+</head>
+<body class="route-compare">
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Main navigation">
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="claude-menu">Claude</button><div class="product-popover" id="claude-menu" aria-label="Claude routes">
+      <a class="product-link" href="index.html">Overview</a><a class="product-link" href="starter.html">Start Up</a><a class="product-link" href="builder.html">Build</a><a class="product-link" href="max.html">Max</a><a class="product-link" href="commands.html">Commands &amp; Use</a>
+    </div></div>
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="codex-menu">Codex</button><div class="product-popover" id="codex-menu" aria-label="Codex routes">
+      <a class="product-link" href="codex-home.html">Overview</a><a class="product-link" href="codex.html">Software Playbook</a><a class="product-link" href="codex-commands.html">Commands &amp; Use</a>
+    </div></div>
+    <a class="header-link compare-link" href="compare.html" aria-current="page">Compare</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
+  </nav>
+</header>
+
+<main>
+  <section class="compare-hero">
+    <div class="container compare-hero-grid">
+      <div><span class="eyebrow reveal">Claude vs. Codex</span><h1 class="reveal" style="--d:.06s">Two capable systems. <em>Different centers of gravity.</em></h1><p class="lede reveal" style="--d:.12s">Claude centers an ongoing conversation that can move into software work through Claude Code. Codex centers delegated repository execution. Compare the published facts first; choose from the work you actually need done.</p></div>
+      <div class="verified-stamp reveal-scale"><span>Facts checked<strong>18 July 2026</strong>Official sources</span></div>
+    </div>
+  </section>
+
+  <section style="padding:0 0 clamp(72px,11vh,130px)">
+    <div class="container">
+      <nav class="comparison-jump" aria-label="Comparison categories"><a href="#overview">Overview</a><a href="#pricing">Price</a><a href="#context">Context</a><a href="#models">Models</a><a href="#agents">Agents</a><a href="#controls">Controls</a><a href="#recommendations">Recommendations</a></nav>
+
+      <div class="compare-ledger">
+        <div class="compare-row compare-head"><div class="compare-label">Compare</div><div class="product-column-title"><strong>Claude</strong><span>Anthropic</span></div><div class="product-column-title"><strong>Codex</strong><span>OpenAI</span></div></div>
+
+        <div class="compare-row" id="overview"><div class="compare-label"><span class="section-key">What it is</span></div><div class="compare-value"><span class="best-for">Conversation first</span><h3>Claude + Claude Code</h3><p>Claude is a broad AI assistant for reasoning, writing, research, and creation. Claude Code brings the same product family into repositories to inspect, edit, run, test, and ship software.</p></div><div class="compare-value"><span class="best-for">Execution first</span><h3>A coding agent</h3><p>Codex is OpenAI’s software-development agent. It works directly with repositories and tools, can coordinate subagents, and returns changes and evidence for review.</p></div></div>
+
+        <div class="compare-row"><div class="compare-label"><span class="section-key">Best fit</span></div><div class="compare-value"><h3>Collaborative exploration</h3><p>Strong when the work moves between ideas, writing, research, visual feedback, product decisions, and interactive implementation.</p></div><div class="compare-value"><h3>Bounded repository work</h3><p>Strong when a concrete engineering task should be planned, delegated, implemented, tested, reviewed, and prepared for delivery.</p></div></div>
+
+        <div class="compare-row"><div class="compare-label"><span class="section-key">Where you work</span></div><div class="compare-value"><h3>Claude Code surfaces</h3><ul><li>Terminal CLI</li><li>VS Code and JetBrains</li><li>Claude desktop app</li><li>Claude Code on the web</li></ul></div><div class="compare-value"><h3>Codex surfaces</h3><ul><li>ChatGPT desktop app and web</li><li>Codex CLI and IDE extension</li><li>Codex cloud tasks</li><li>Supported mobile access</li></ul></div></div>
+
+        <div class="compare-row" id="pricing"><div class="compare-label"><span class="section-key">Individual pricing</span></div><div class="compare-value"><div class="plan-stack"><div class="plan-line"><strong><span>Free</span><span>$0</span></strong><small>General Claude access. Anthropic lists Claude Code from Pro.</small></div><div class="plan-line"><strong><span>Pro</span><span>$17–$20/mo</span></strong><small>$17 per month with a $200 annual payment; $20 billed monthly. Includes Claude Code.</small></div><div class="plan-line"><strong><span>Max</span><span>From $100/mo</span></strong><small>Everything in Pro with a choice of 5× or 20× more usage per five-hour session and higher output limits.</small></div></div><a class="source-link" href="https://claude.com/pricing" target="_blank" rel="noopener">Official Claude pricing ↗</a></div><div class="compare-value"><div class="plan-stack"><div class="plan-line"><strong><span>Free / Go</span><span>$0 / $8 mo</span></strong><small>Quick or lightweight coding tasks.</small></div><div class="plan-line"><strong><span>Plus</span><span>$20/mo</span></strong><small>Focused weekly coding sessions across web, CLI, IDE, iOS, cloud review, and integrations.</small></div><div class="plan-line"><strong><span>Pro</span><span>From $100/mo</span></strong><small>5× or 20× Plus usage; includes GPT‑5.3‑Codex‑Spark research-preview access.</small></div></div><a class="source-link" href="https://learn.chatgpt.com/docs/pricing.md" target="_blank" rel="noopener">Official Codex pricing ↗</a></div></div>
+
+        <div class="compare-row"><div class="compare-label"><span class="section-key">Team pricing</span></div><div class="compare-value"><div class="plan-stack"><div class="plan-line"><strong><span>Team standard</span><span>$20–$25 seat/mo</span></strong><small>$20 billed annually or $25 monthly. Includes Claude Code and Claude Cowork.</small></div><div class="plan-line"><strong><span>Team premium</span><span>$100–$125 seat/mo</span></strong><small>Five times more usage than standard seats.</small></div></div></div><div class="compare-value"><div class="plan-stack"><div class="plan-line"><strong><span>Business</span><span>$20–$25 user/mo</span></strong><small>$20 per user monthly when billed annually, for two or more users; $25 when billed monthly.</small></div><div class="plan-line"><strong><span>Enterprise &amp; Edu</span><span>Contact sales</span></strong><small>Adds enterprise controls, audit capabilities, retention, and residency options.</small></div></div></div></div>
+
+        <div class="compare-row"><div class="compare-label"><span class="section-key">API option</span></div><div class="compare-value"><p>Claude API billing is separate from Claude subscriptions and is charged by tokens and tools. Current model token prices appear below.</p><a class="source-link" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener">Claude API models ↗</a></div><div class="compare-value"><p>Codex can authenticate with an API key in the CLI, SDK, or IDE. This uses API token pricing and does not include cloud-only integrations such as GitHub review or Slack.</p><a class="source-link" href="https://platform.openai.com/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing ↗</a></div></div>
+
+        <div class="compare-row" id="context"><div class="compare-label"><span class="section-key">Published context</span></div><div class="compare-value"><h3>Up to 1,000,000 tokens</h3><p>Fable 5, Opus 4.8, and Sonnet 5 list 1M-token context windows. Haiku 4.5 lists 200K. Maximum synchronous output is 128K for the three larger models and 64K for Haiku 4.5.</p><p class="source-note">Product usage limits and long-session compaction remain separate from a model’s API context specification.</p></div><div class="compare-value"><h3>Up to 1,050,000 tokens</h3><p>GPT‑5.6 Sol, Terra, and Luna each list a 1.05M-token context window and 128K maximum output. Spark is a separate Pro research preview; its public Codex guide does not publish an equivalent context figure.</p><p class="source-note">Repository retrieval, compaction, task limits, and subscription usage are separate from model context.</p></div></div>
+
+        <div class="compare-row" id="models"><div class="compare-label"><span class="section-key">Current models</span></div><div class="compare-value"><div class="model-stack"><div class="model-line"><strong><span>Claude Fable 5</span><span>$10 / $50</span></strong><small>Long-running agents · 1M context · API input/output per million tokens.</small></div><div class="model-line"><strong><span>Claude Opus 4.8</span><span>$5 / $25</span></strong><small>Complex agentic coding and enterprise work · 1M context.</small></div><div class="model-line"><strong><span>Claude Sonnet 5</span><span>$3 / $15</span></strong><small>Speed and intelligence balance · 1M context.</small></div><div class="model-line"><strong><span>Claude Haiku 4.5</span><span>$1 / $5</span></strong><small>Fastest cost-efficient option · 200K context.</small></div></div><a class="source-link" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener">Official model table ↗</a></div><div class="compare-value"><div class="model-stack"><div class="model-line"><strong><span>GPT‑5.6 Sol</span><span>$5 / $30</span></strong><small>Frontier complex professional work · 1.05M context · API input/output per million tokens.</small></div><div class="model-line"><strong><span>GPT‑5.6 Terra</span><span>$2.50 / $15</span></strong><small>Balanced intelligence and cost · 1.05M context.</small></div><div class="model-line"><strong><span>GPT‑5.6 Luna</span><span>$1 / $6</span></strong><small>Cost-sensitive, high-volume work · 1.05M context.</small></div><div class="model-line"><strong><span>GPT‑5.3‑Codex‑Spark</span><span>Pro preview</span></strong><small>Near-instant text-only iteration; separate usage limits.</small></div></div><a class="source-link" href="https://learn.chatgpt.com/docs/models" target="_blank" rel="noopener">Official Codex model guide ↗</a></div></div>
+
+        <div class="compare-row" id="agents"><div class="compare-label"><span class="section-key">Parallel agents</span></div><div class="compare-value"><h3>Agent teams and custom agents</h3><p>Claude Code can spawn multiple agents for parallel work and supports custom agents, shared project guidance, hooks, and skills. Availability and UI vary by surface.</p></div><div class="compare-value"><h3>Subagent workflows</h3><p>Codex can delegate independent work to subagents in the app, CLI, and IDE. Custom agents can carry specialized instructions, models, reasoning levels, and sandbox settings.</p></div></div>
+
+        <div class="compare-row"><div class="compare-label"><span class="section-key">Durable context</span></div><div class="compare-value"><h3>CLAUDE.md</h3><p>Stores project instructions and memories. Claude Code settings, hooks, MCP servers, skills, and custom commands extend the working environment.</p></div><div class="compare-value"><h3>AGENTS.md</h3><p>Stores repository layout, commands, conventions, constraints, and verification rules. Nested files can narrow guidance for a subtree.</p></div></div>
+
+        <div class="compare-row" id="controls"><div class="compare-label"><span class="section-key">Permissions &amp; safety</span></div><div class="compare-value"><h3>Permission modes and hooks</h3><p>Claude Code can plan without editing, request approval for actions, and enforce repeatable checks through hooks and project settings.</p></div><div class="compare-value"><h3>Approval mode and sandbox mode</h3><p>Codex separates when it asks for permission from what the operating sandbox can access. Subagents inherit the parent turn’s live policy unless explicitly constrained further.</p></div></div>
+
+        <div class="compare-row"><div class="compare-label"><span class="section-key">Extensibility</span></div><div class="compare-value"><p>MCP servers, connectors, hooks, skills, plugins, custom commands, and integrations connect Claude Code to external systems and repeatable team workflows.</p></div><div class="compare-value"><p>MCP servers and app connectors provide live external access; skills package workflows; plugins bundle reusable capabilities; hooks enforce lifecycle checks; automations schedule stable work.</p></div></div>
+      </div>
+      <p class="source-note" style="margin-top:18px">Prices exclude applicable taxes and can change. Subscription usage is not a fixed token allowance. Model context is a technical maximum, not a promise that every product session exposes the full window. All factual values were checked against the linked official Anthropic and OpenAI sources on 18 July 2026.</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="recommendations" data-chapter="Recommendations">
+    <div class="container"><div class="chapter-head"><span class="eyebrow reveal">Choose from the work</span><h2 class="reveal" style="--d:.06s">There is no universal winner.</h2><p class="lede reveal" style="--d:.12s">The better fit is the one whose working style removes friction from your actual task.</p></div><div class="comparison-verdicts"><article class="verdict-card reveal"><span class="verdict-question">Research, writing, product thinking</span><h3>Start with Claude</h3><p>The broader conversational surface keeps non-code work and implementation in one collaborative thread.</p></article><article class="verdict-card reveal" style="--d:.06s"><span class="verdict-question">Parallel repository execution</span><h3>Start with Codex</h3><p>The product is organized around bounded software tasks, subagents, evidence, review, and delivery.</p></article><article class="verdict-card reveal" style="--d:.12s"><span class="verdict-question">Unsure or mixed workflow</span><h3>Try the same small task</h3><p>Use the same repository, definition of done, and time box. Compare the review experience—not only the first generated code.</p></article></div></div>
+  </section>
+
+  <section class="chapter"><div class="narrow center"><span class="eyebrow reveal">Choose a path</span><h2 class="reveal">Learn the tool in its own language.</h2><div class="hero-ctas" style="justify-content:center"><a class="btn btn-accent" href="index.html">Explore Claude <span class="arrow">→</span></a><a class="btn btn-ghost" href="codex-home.html">Explore Codex <span class="arrow">→</span></a></div></div></section>
+</main>
+
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · independent comparison using official published sources</span><span><a href="index.html">Claude</a> · <a href="codex-home.html">Codex</a> · <a href="compare.html">Compare</a> · <span id="year"></span></span></div></footer>
+<script src="shared/app.js?v=20260718a"></script>
+</body>
+</html>

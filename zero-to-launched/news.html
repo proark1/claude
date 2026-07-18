@@ -10,19 +10,20 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
-<link rel="stylesheet" href="shared/styles.css">
+<link rel="stylesheet" href="shared/styles.css?v=20260718a">
 </head>
 <body class="route-news">
 
 <header class="site-header">
   <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
-  <nav class="header-actions" aria-label="Sections">
-    <a class="header-link" href="starter.html">Starter</a>
-    <a class="header-link" href="builder.html">Builder</a>
-    <a class="header-link" href="max.html">Max</a>
-    <a class="header-link" href="commands.html">Commands</a>
-    <a class="header-link" href="news.html" aria-current="page">News</a>
-    <a class="header-link" href="codex.html">Codex</a>
+  <nav class="header-actions" aria-label="Main navigation">
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="claude-menu">Claude</button><div class="product-popover" id="claude-menu" aria-label="Claude routes">
+      <a class="product-link" href="index.html">Overview</a><a class="product-link" href="starter.html">Start Up</a><a class="product-link" href="builder.html">Build</a><a class="product-link" href="max.html">Max</a><a class="product-link" href="commands.html">Commands &amp; Use</a>
+    </div></div>
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="codex-menu">Codex</button><div class="product-popover" id="codex-menu" aria-label="Codex routes">
+      <a class="product-link" href="codex-home.html">Overview</a><a class="product-link" href="codex.html">Software Playbook</a><a class="product-link" href="codex-commands.html">Commands &amp; Use</a>
+    </div></div>
+    <a class="header-link compare-link" href="compare.html">Compare</a>
     <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
   </nav>
 </header>
@@ -306,7 +307,7 @@
   </div>
 </section>
 
-<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an unofficial, friendly tutorial for <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></span><span><a href="index.html">Home</a> · <a href="starter.html">Starter</a> · <a href="builder.html">Builder</a> · <a href="max.html">Max</a> · <a href="commands.html">Commands</a> · <a href="codex.html">Codex</a> · <span id="year"></span></span></div></footer>
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an independent learning guide for Claude and Codex</span><span><a href="index.html">Claude</a> · <a href="codex-home.html">Codex</a> · <a href="compare.html">Compare</a> · <a href="news.html">News</a> · <span id="year"></span></span></div></footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -317,6 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<script src="shared/app.js"></script>
+<script src="shared/app.js?v=20260718a"></script>
 </body>
 </html>

@@ -10,19 +10,20 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
-<link rel="stylesheet" href="shared/styles.css">
+<link rel="stylesheet" href="shared/styles.css?v=20260718a">
 </head>
 <body class="route-codex">
 
 <header class="site-header">
   <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
-  <nav class="header-actions" aria-label="Routes">
-    <a class="header-link" href="starter.html">Starter</a>
-    <a class="header-link" href="builder.html">Builder</a>
-    <a class="header-link" href="max.html">Max</a>
-    <a class="header-link" href="commands.html">Commands</a>
-    <a class="header-link" href="news.html">News</a>
-    <a class="header-link" href="codex.html" aria-current="page">Codex</a>
+  <nav class="header-actions" aria-label="Main navigation">
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="claude-menu">Claude</button><div class="product-popover" id="claude-menu" aria-label="Claude routes">
+      <a class="product-link" href="index.html">Overview</a><a class="product-link" href="starter.html">Start Up</a><a class="product-link" href="builder.html">Build</a><a class="product-link" href="max.html">Max</a><a class="product-link" href="commands.html">Commands &amp; Use</a>
+    </div></div>
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="codex-menu">Codex</button><div class="product-popover" id="codex-menu" aria-label="Codex routes">
+      <a class="product-link" href="codex-home.html">Overview</a><a class="product-link" href="codex.html" aria-current="page">Software Playbook</a><a class="product-link" href="codex-commands.html">Commands &amp; Use</a>
+    </div></div>
+    <a class="header-link compare-link" href="compare.html">Compare</a>
     <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
   </nav>
 </header>
@@ -117,7 +118,7 @@
 <!-- ============ 02 · MODEL SELECTION ============ -->
 <section class="chapter" data-chapter="Models" id="models">
   <div class="container">
-    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Right tool, right job</span><h2>Pick the cheapest model that reliably finishes the task.</h2><p class="lede">This playbook uses a three-model frame — <span class="mdl sol">Sol</span>, <span class="mdl terra">Terra</span> and <span class="mdl luna">Luna</span>. Sol for the hard and ambiguous, Terra as the general workhorse, Luna for the clear and repetitive.</p></div>
+    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Right tool, right job</span><h2>Pick the cheapest model that reliably finishes the task.</h2><p class="lede">The current GPT‑5.6 family gives Codex three useful roles — <span class="mdl sol">Sol</span>, <span class="mdl terra">Terra</span> and <span class="mdl luna">Luna</span>. Sol for the hard and ambiguous, Terra as the general workhorse, Luna for clear, high-volume work.</p></div>
 
     <div class="model-grid reveal" style="margin-bottom:34px">
       <div class="model-card flag"><span class="m-flagtag">Default power setting</span><div class="m-name">Sol</div><div class="m-id">difficult · ambiguous · costly-to-get-wrong</div><p class="m-role">Reach for Sol when a mistake means expensive rework: architecture, gnarly debugging, security-sensitive code, final acceptance.</p><div class="m-tags"><span class="m-pill">Architecture</span><span class="m-pill">Debugging</span><span class="m-pill">Security</span><span class="m-pill">Acceptance</span></div></div>
@@ -129,7 +130,7 @@
       <table class="matrix">
         <thead><tr><th scope="col">Work</th><th scope="col">Model</th><th scope="col">Reasoning</th></tr></thead>
         <tbody>
-          <tr><td class="m-work">Product strategy &amp; architecture</td><td class="m-model"><span class="mdl sol">Sol</span></td><td><span class="rlevel high">High / Extended</span></td></tr>
+          <tr><td class="m-work">Product strategy &amp; architecture</td><td class="m-model"><span class="mdl sol">Sol</span></td><td><span class="rlevel high">High / Extra High</span></td></tr>
           <tr><td class="m-work">Complex debugging</td><td class="m-model"><span class="mdl sol">Sol</span></td><td><span class="rlevel high">High</span></td></tr>
           <tr><td class="m-work">Security-sensitive implementation</td><td class="m-model"><span class="mdl sol">Sol</span></td><td><span class="rlevel high">High</span></td></tr>
           <tr><td class="m-work">Normal feature implementation</td><td class="m-model"><span class="mdl terra">Terra</span></td><td><span class="rlevel med">Medium</span></td></tr>
@@ -147,7 +148,7 @@
       <div class="failure-card"><span class="failure-label">Wasteful</span><h3>Using the top tier for everything</h3><p>Don't spend Sol on renaming variables, straightforward CRUD endpoints, standard unit tests, or reformatting config. It costs more without making simple work more correct.</p></div>
       <div class="takeaway"><h3>Spend the reasoning where the mistakes are expensive.</h3><p>Escalate to Sol when getting it wrong causes rework, data loss, or a security hole. Everywhere else, let Terra and Luna carry the volume.</p></div>
     </div>
-    <p class="source-note">The <b>Sol / Terra / Luna</b> naming is this playbook's operating frame for reasoning against cost — apply the same logic to whatever model tiers your Codex account actually exposes.</p>
+    <p class="source-note"><b>Sol, Terra, and Luna are the current GPT‑5.6 Codex model roles.</b> The task assignments above are this playbook's recommendations, not OpenAI guarantees. Availability varies by plan and surface; verified against the official Codex model guide on 18 July 2026.</p>
   </div>
 </section>
 
@@ -487,7 +488,7 @@ Do not hide uncertainty. Do not silently expand scope. Do not deploy to producti
   </div>
 </section>
 
-<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · a friendly companion playbook for <a href="https://openai.com/codex" target="_blank" rel="noopener">Codex</a>, beside the <a href="index.html">Claude Code tutorial</a></span><span><a href="index.html">Home</a> · <a href="starter.html">Starter</a> · <a href="builder.html">Builder</a> · <a href="max.html">Max</a> · <span id="year"></span></span></div></footer>
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · an independent learning guide for Claude and Codex</span><span><a href="index.html">Claude</a> · <a href="codex-home.html">Codex</a> · <a href="compare.html">Compare</a> · <a href="news.html">News</a> · <span id="year"></span></span></div></footer>
 
 <script>
 window.ZTL_SCENES = {
@@ -540,6 +541,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<script src="shared/app.js"></script>
+<script src="shared/app.js?v=20260718a"></script>
 </body>
 </html>

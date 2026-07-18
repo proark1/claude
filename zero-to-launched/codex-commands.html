@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codex Commands &amp; Use — practical reference | Zero to Launched</title>
+<meta name="description" content="A Codex-specific reference for planning, AGENTS.md, subagents, permissions, skills, review, fast mode, recovery, and delivery.">
+<meta property="og:title" content="Codex Commands &amp; Use">
+<meta property="og:description" content="The Codex commands, prompts, and working habits worth keeping beside your repository.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="shared/styles.css?v=20260718a">
+</head>
+<body class="route-codex-commands">
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="mark">Z→</span> Zero to Launched</a>
+  <nav class="header-actions" aria-label="Main navigation">
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="claude-menu">Claude</button><div class="product-popover" id="claude-menu" aria-label="Claude routes">
+      <a class="product-link" href="index.html">Overview</a><a class="product-link" href="starter.html">Start Up</a><a class="product-link" href="builder.html">Build</a><a class="product-link" href="max.html">Max</a><a class="product-link" href="commands.html">Commands &amp; Use</a>
+    </div></div>
+    <div class="product-menu" data-product-menu><button class="product-trigger" aria-expanded="false" aria-controls="codex-menu">Codex</button><div class="product-popover" id="codex-menu" aria-label="Codex routes">
+      <a class="product-link" href="codex-home.html">Overview</a><a class="product-link" href="codex.html">Software Playbook</a><a class="product-link" href="codex-commands.html" aria-current="page">Commands &amp; Use</a>
+    </div></div>
+    <a class="header-link compare-link" href="compare.html">Compare</a>
+    <button id="sound-toggle" class="sound-toggle" aria-pressed="false" title="Toggle gentle sounds"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span> Sound</button>
+  </nav>
+</header>
+
+<main>
+  <section class="compare-hero">
+    <div class="container compare-hero-grid">
+      <div><span class="eyebrow reveal">Codex · practical reference</span><h1 class="reveal" style="--d:.06s">Commands matter. <em>Context matters more.</em></h1><p class="lede reveal" style="--d:.12s">Use this page beside a real repository. Each move tells Codex what to do, when to use it, and what evidence should come back before you accept the work.</p></div>
+      <div class="verified-stamp reveal-scale"><span>Codex reference<strong>Verified 18 Jul 2026</strong>Official manual</span></div>
+    </div>
+  </section>
+
+  <section class="chapter" data-chapter="Reference">
+    <div class="container">
+      <div class="reference-grid">
+        <article class="reference-card reveal" id="start"><span class="ref-label">Start · choose the work mode</span><h3>Open Codex on the repository.</h3><p>Start in the project directory, then give one bounded goal with context, constraints, and a clear finish line.</p><div class="prompt-card" data-copy-root><span class="pc-label">CLI</span><button class="copy-btn">Copy</button><div class="pc-text">codex -m gpt-5.6</div></div><div class="ref-meta"><span><b>Use this when:</b> beginning an interactive local task.</span><span><b>Watch for:</b> the wrong working directory or missing project instructions.</span></div></article>
+
+        <article class="reference-card reveal" style="--d:.05s" id="plan"><span class="ref-label">Plan · inspect before editing</span><h3>Make ambiguity cheap.</h3><p>Plan mode lets Codex gather context, ask questions, and propose the work before it changes files.</p><div class="prompt-card" data-copy-root><span class="pc-label">Interactive command</span><button class="copy-btn">Copy</button><div class="pc-text">/plan</div></div><div class="ref-meta"><span><b>Use this when:</b> the task crosses systems, has unclear requirements, or could be risky.</span><span><b>Shortcut:</b> Shift+Tab also toggles Plan mode in supported clients.</span></div></article>
+
+        <article class="reference-card reveal" id="agents-md"><span class="ref-label">Memory · durable repository guidance</span><h3>Give the project an operating map.</h3><p>AGENTS.md loads into context automatically. Keep it short: layout, commands, conventions, constraints, and what “done” means.</p><div class="prompt-card" data-copy-root><span class="pc-label">CLI scaffold</span><button class="copy-btn">Copy</button><div class="pc-text">/init</div></div><div class="ref-meta"><span><b>Use this when:</b> a repository needs repeatable guidance across tasks.</span><span><b>Watch for:</b> vague essays. Narrower AGENTS.md files should live closer to the code they govern.</span></div></article>
+
+        <article class="reference-card reveal" style="--d:.05s" id="delegate"><span class="ref-label">Delegate · parallel agents</span><h3>Split independent work, not one tangled edit.</h3><p>Ask directly for subagents when exploration, tests, security review, and maintainability review can run independently.</p><div class="prompt-card" data-copy-root><span class="pc-label">Delegation prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Review this branch with parallel subagents. Use one for correctness, one for security, and one for missing tests. Wait for all three, then return one prioritized report with file references.</div></div><div class="ref-meta"><span><b>Inspect threads:</b> use <span class="keyish">/agent</span> in the CLI.</span><span><b>Watch for:</b> parallel write-heavy tasks that compete for the same files.</span></div></article>
+
+        <article class="reference-card reveal" id="skills"><span class="ref-label">Reuse · skills, plugins, connectors</span><h3>Package work that repeats.</h3><p>Use a skill for a reusable workflow, a plugin for a shareable bundle, and an MCP server or connector for live outside data and actions.</p><div class="prompt-card" data-copy-root><span class="pc-label">Design prompt</span><button class="copy-btn">Copy</button><div class="pc-text">We repeat this release audit every week. Propose the smallest reusable Codex surface for it: prompt, AGENTS.md rule, skill, plugin, connector, hook, or automation. Explain the boundary before creating anything.</div></div><div class="ref-meta"><span><b>Use this when:</b> a successful pattern should stop living in memory.</span><span><b>Watch for:</b> turning a one-off instruction into permanent configuration.</span></div></article>
+
+        <article class="reference-card reveal" style="--d:.05s" id="permissions"><span class="ref-label">Safety · permissions and sandbox</span><h3>Choose authority before delegation.</h3><p>Approval mode controls when Codex asks; sandbox mode controls what the command can read or write. Subagents inherit the parent turn’s live policy.</p><div class="prompt-card" data-copy-root><span class="pc-label">Interactive command</span><button class="copy-btn">Copy</button><div class="pc-text">/permissions</div></div><div class="ref-meta"><span><b>Use this when:</b> the task needs a different permission boundary.</span><span><b>Default:</b> keep access tight and expand it only for a concrete need in a trusted repository.</span></div></article>
+
+        <article class="reference-card reveal" id="review"><span class="ref-label">Review · inspect the change</span><h3>Ask for a second pass before acceptance.</h3><p>Review uncommitted changes, a commit, or the branch against its base. Then inspect the diff yourself.</p><div class="prompt-card" data-copy-root><span class="pc-label">Interactive command</span><button class="copy-btn">Copy</button><div class="pc-text">/review</div></div><div class="ref-meta"><span><b>Use this when:</b> implementation is complete but not yet trusted.</span><span><b>Require:</b> prioritized findings, file references, and explicit test gaps.</span></div></article>
+
+        <article class="reference-card reveal" style="--d:.05s" id="fast"><span class="ref-label">Speed · faster supported models</span><h3>Spend more credits only when latency matters.</h3><p>Fast mode increases supported model speed by 1.5× and consumes credits at a higher rate. It is different from choosing the separate Spark model.</p><div class="prompt-card" data-copy-root><span class="pc-label">CLI controls</span><button class="copy-btn">Copy</button><div class="pc-text">/fast on
+/fast status
+/fast off</div></div><div class="ref-meta"><span><b>Use this when:</b> short iteration time is worth the higher credit multiplier.</span><span><b>Watch for:</b> leaving fast mode on for long, low-urgency runs.</span></div></article>
+
+        <article class="reference-card reveal" id="evidence"><span class="ref-label">Verify · define done</span><h3>Return evidence, not reassurance.</h3><p>Codex works best when the prompt names the checks and the final response reports what actually ran.</p><div class="prompt-card" data-copy-root><span class="pc-label">Verification prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Implement the approved change. Before finishing, run the relevant tests and lint, inspect the final diff, test the user-visible behavior, and report each command and result. If a check cannot run, say exactly why.</div></div><div class="ref-meta"><span><b>Use this when:</b> every implementation task.</span><span><b>Watch for:</b> “should work” without executed checks.</span></div></article>
+
+        <article class="reference-card reveal" style="--d:.05s" id="recover"><span class="ref-label">Recover · preserve user work</span><h3>Diagnose before undoing.</h3><p>When the direction is wrong, inspect the working tree and separate your changes from existing user work before reverting anything.</p><div class="prompt-card" data-copy-root><span class="pc-label">Recovery prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Stop editing. Show git status and the relevant diff, identify which changes came from this task, and propose the smallest recoverable rollback. Preserve all unrelated user changes. Do not use a hard reset.</div></div><div class="ref-meta"><span><b>Use this when:</b> a change drifted or a test exposed the wrong approach.</span><span><b>Watch for:</b> destructive resets and broad file replacement.</span></div></article>
+
+        <article class="reference-card reveal" id="ship"><span class="ref-label">Ship · keep the human gate</span><h3>Prepare delivery; do not hide the decision.</h3><p>Have Codex summarize scope, verification, risks, and the exact external action before committing, pushing, deploying, or opening a pull request.</p><div class="prompt-card" data-copy-root><span class="pc-label">Delivery prompt</span><button class="copy-btn">Copy</button><div class="pc-text">Prepare this change for delivery. Summarize the diff, checks, remaining risks, and proposed commit message. Stop before any push, deployment, or pull-request action unless I explicitly asked for it.</div></div><div class="ref-meta"><span><b>Use this when:</b> the code is ready to leave the local workspace.</span><span><b>Watch for:</b> treating a passing build as automatic release approval.</span></div></article>
+
+        <article class="reference-card reveal" style="--d:.05s" id="noninteractive"><span class="ref-label">Automate · non-interactive run</span><h3>Use a bounded command for CI-shaped work.</h3><p>Codex exec is useful for scripted review and automation when the prompt, permissions, and expected output are already stable.</p><div class="prompt-card" data-copy-root><span class="pc-label">CLI</span><button class="copy-btn">Copy</button><div class="pc-text">codex exec -m gpt-5.6 "Review the current changes and report correctness risks with file references."</div></div><div class="ref-meta"><span><b>Use this when:</b> the task is repeatable and does not need live clarification.</span><span><b>Watch for:</b> jobs that require an approval dialog; non-interactive runs cannot invent new authority.</span></div></article>
+      </div>
+      <p class="source-note" style="margin-top:28px">Verified against the official Codex <a href="https://learn.chatgpt.com/guides/best-practices.md" target="_blank" rel="noopener">best-practices guide</a>, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents.md" target="_blank" rel="noopener">subagent guide</a>, and <a href="https://learn.chatgpt.com/docs/models" target="_blank" rel="noopener">model guide</a> on 18 July 2026. Availability can vary by surface and plan.</p>
+    </div>
+  </section>
+
+  <section class="chapter" data-chapter="Playbook"><div class="narrow center"><span class="eyebrow reveal">Need the complete system?</span><h2 class="reveal">Follow one project end to end.</h2><p class="lede reveal" style="--d:.08s">The Software Playbook shows how these moves combine across planning, implementation, independent review, security, and release.</p><a class="btn btn-accent reveal" style="--d:.14s" href="codex.html">Open the Software Playbook <span class="arrow">→</span></a></div></section>
+</main>
+
+<footer class="site-footer"><div class="container foot-grid"><span>Zero to Launched · independent Codex reference</span><span><a href="codex-home.html">Codex overview</a> · <a href="codex.html">Playbook</a> · <a href="compare.html">Compare</a> · <span id="year"></span></span></div></footer>
+<script src="shared/app.js?v=20260718a"></script>
+</body>
+</html>
