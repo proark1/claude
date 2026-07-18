@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Codex Commands &amp; Use — practical reference | Zero to Launched</title>
-<meta name="description" content="A Codex-specific reference for planning, AGENTS.md, subagents, permissions, skills, review, fast mode, recovery, and delivery.">
+<meta name="description" content="A Codex-specific reference for reasoning effort, planning, context, AGENTS.md, subagents, permissions, review, recovery, and delivery.">
 <meta property="og:title" content="Codex Commands &amp; Use">
 <meta property="og:description" content="The Codex commands, prompts, and working habits worth keeping beside your repository.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
-<link rel="stylesheet" href="shared/styles.css?v=20260718a">
+<link rel="stylesheet" href="shared/styles.css?v=20260718b">
 </head>
 <body class="route-codex-commands">
 
@@ -33,6 +33,36 @@
     <div class="container compare-hero-grid">
       <div><span class="eyebrow reveal">Codex · practical reference</span><h1 class="reveal" style="--d:.06s">Commands matter. <em>Context matters more.</em></h1><p class="lede reveal" style="--d:.12s">Use this page beside a real repository. Each move tells Codex what to do, when to use it, and what evidence should come back before you accept the work.</p></div>
       <div class="verified-stamp reveal-scale"><span>Codex reference<strong>Verified 18 Jul 2026</strong>Official manual</span></div>
+    </div>
+  </section>
+
+  <section class="chapter product-effort-guide" id="reasoning" data-chapter="Reasoning">
+    <div class="container">
+      <div class="chapter-head"><span class="eyebrow reveal">Choose the smallest useful budget</span><h2 class="reveal" style="--d:.06s">Reasoning changes <em>depth, wait, and usage.</em></h2><p class="lede reveal" style="--d:.12s">It does not change the model's listed input or output rate. It changes how many reasoning tokens and tool steps the work may need—and those generated tokens count toward usage.</p></div>
+      <div class="effort-guide-grid">
+        <div class="effort-dial-card reveal">
+          <div class="effort-dial-head"><span>Codex effort</span><strong>Use the lowest level that holds quality</strong></div>
+          <div class="effort-dial" aria-label="Codex reasoning effort progression">
+            <div><b>Light / Low</b><small>Clear, quick, scoped</small></div>
+            <div class="is-default"><b>Medium</b><small>Everyday planning and coding</small></div>
+            <div><b>High</b><small>Debugging and deep planning</small></div>
+            <div><b>Extra High</b><small>Long, difficult analysis</small></div>
+            <div><b>Max</b><small>Hardest single task</small></div>
+          </div>
+          <p class="mode-note"><strong>Ultra is orchestration, not a bigger dial mark.</strong> It sends meaningful parts to parallel subagents. Use it only when the task actually separates.</p>
+        </div>
+        <div class="effort-decision reveal" style="--d:.08s">
+          <article><span>Small change</span><h3>Stay Low</h3><p>“Rename this label and run the focused test.” A precise finish line matters more than extra thought.</p></article>
+          <article><span>Uncertain failure</span><h3>Start Medium</h3><p>Ask Codex to collect evidence. Raise to High if several causes remain plausible.</p></article>
+          <article><span>High-stakes system</span><h3>Use High or Extra High</h3><p>Security, migrations, architecture, and difficult reviews justify more checking.</p></article>
+        </div>
+      </div>
+      <div class="effort-control-strip reveal" style="--d:.12s">
+        <div><span class="control-label">Desktop / web / IDE</span><p>Use the reasoning control beneath the composer. The IDE also exposes <span class="keyish">/reasoning</span>.</p></div>
+        <div data-copy-root><span class="control-label">Codex CLI</span><p>Run <span class="pc-text keyish">/model</span> to choose the model and supported effort.</p><button class="copy-btn copy-mini">Copy</button></div>
+        <div data-copy-root><span class="control-label">Project default</span><p><span class="pc-text keyish">model_reasoning_effort = "medium"</span></p><button class="copy-btn copy-mini">Copy</button></div>
+      </div>
+      <p class="source-note">The available names depend on the model and surface. Max gives one model more time; Ultra uses subagents. Higher effort generally takes longer and uses more tokens. See the official <a href="https://learn.chatgpt.com/docs/models" target="_blank" rel="noopener">Codex model guide</a> and the <a href="compare.html#reasoning">worked API-cost examples</a>.</p>
     </div>
   </section>
 
@@ -65,7 +95,27 @@
 
         <article class="reference-card reveal" style="--d:.05s" id="noninteractive"><span class="ref-label">Automate · non-interactive run</span><h3>Use a bounded command for CI-shaped work.</h3><p>Codex exec is useful for scripted review and automation when the prompt, permissions, and expected output are already stable.</p><div class="prompt-card" data-copy-root><span class="pc-label">CLI</span><button class="copy-btn">Copy</button><div class="pc-text">codex exec -m gpt-5.6 "Review the current changes and report correctness risks with file references."</div></div><div class="ref-meta"><span><b>Use this when:</b> the task is repeatable and does not need live clarification.</span><span><b>Watch for:</b> jobs that require an approval dialog; non-interactive runs cannot invent new authority.</span></div></article>
       </div>
-      <p class="source-note" style="margin-top:28px">Verified against the official Codex <a href="https://learn.chatgpt.com/guides/best-practices.md" target="_blank" rel="noopener">best-practices guide</a>, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents.md" target="_blank" rel="noopener">subagent guide</a>, and <a href="https://learn.chatgpt.com/docs/models" target="_blank" rel="noopener">model guide</a> on 18 July 2026. Availability can vary by surface and plan.</p>
+
+      <div class="command-shelf-head">
+        <div><span class="eyebrow reveal">Working-session shelf</span><h2 class="reveal" style="--d:.06s">Twelve commands worth keeping close.</h2></div>
+        <p class="reveal" style="--d:.1s">These are compact controls, not another workflow. Type <span class="keyish">/</span> in your client for the complete live menu.</p>
+      </div>
+      <div class="command-shelf">
+        <article class="command-row" data-copy-root><code class="pc-text">/model</code><div><strong>Choose model and effort</strong><span>Before a task when speed, depth, or cost needs to change.</span></div><button class="copy-btn copy-mini" aria-label="Copy /model">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/status</code><div><strong>Inspect the active session</strong><span>Check model, permissions, writable roots, and remaining context.</span></div><button class="copy-btn copy-mini" aria-label="Copy /status">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/usage</code><div><strong>See account activity</strong><span>Inspect token activity and applicable rate-limit information.</span></div><button class="copy-btn copy-mini" aria-label="Copy /usage">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/mention</code><div><strong>Attach a file or folder</strong><span>Point the next turn at exact repository context.</span></div><button class="copy-btn copy-mini" aria-label="Copy /mention">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/diff</code><div><strong>Review every edit</strong><span>See tracked and untracked changes before tests or delivery.</span></div><button class="copy-btn copy-mini" aria-label="Copy /diff">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/compact</code><div><strong>Free context</strong><span>Summarize a long transcript while retaining the useful decisions.</span></div><button class="copy-btn copy-mini" aria-label="Copy /compact">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/fork</code><div><strong>Branch this conversation</strong><span>Explore a different approach without losing the current path.</span></div><button class="copy-btn copy-mini" aria-label="Copy /fork">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/resume</code><div><strong>Reopen saved work</strong><span>Continue a previous CLI conversation with its context.</span></div><button class="copy-btn copy-mini" aria-label="Copy /resume">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/new</code><div><strong>Start clean in this repo</strong><span>Reset chat context without leaving the CLI session.</span></div><button class="copy-btn copy-mini" aria-label="Copy /new">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/ps</code><div><strong>Inspect background terminals</strong><span>Check long-running commands and their recent output.</span></div><button class="copy-btn copy-mini" aria-label="Copy /ps">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/stop</code><div><strong>Stop background work</strong><span>Cancel terminal processes started by the current session.</span></div><button class="copy-btn copy-mini" aria-label="Copy /stop">Copy</button></article>
+        <article class="command-row" data-copy-root><code class="pc-text">/side</code><div><strong>Ask without derailing</strong><span>Open an ephemeral side chat; <span class="keyish">/btw</span> is an alias.</span></div><button class="copy-btn copy-mini" aria-label="Copy /side">Copy</button></article>
+      </div>
+
+      <p class="source-note" style="margin-top:28px">Verified against the official Codex <a href="https://learn.chatgpt.com/docs/developer-commands?surface=cli" target="_blank" rel="noopener">CLI command guide</a>, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents.md" target="_blank" rel="noopener">subagent guide</a>, and <a href="https://learn.chatgpt.com/docs/models" target="_blank" rel="noopener">model guide</a> on 18 July 2026. Availability can vary by surface, model, and plan.</p>
     </div>
   </section>
 

@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claude Commands &amp; Use — the cheat sheet | Zero to Launched</title>
-<meta name="description" content="The Claude Code slash commands and shortcuts most people never discover — plan before building, rewind mistakes, review your own code, and automate the boring parts.">
+<meta name="description" content="The Claude Code reasoning controls, slash commands, and shortcuts worth knowing — choose effort, manage context, review changes, recover, and work in parallel.">
 <meta property="og:title" content="Claude Commands &amp; Use — the Claude Code cheat sheet">
 <meta property="og:description" content="The slash commands and gestures worth stealing, grouped by what you're trying to do.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
-<link rel="stylesheet" href="shared/styles.css?v=20260718a">
+<link rel="stylesheet" href="shared/styles.css?v=20260718b">
 </head>
 <body class="route-commands">
 
@@ -44,6 +44,7 @@
         <div class="cmd-palette" aria-label="A preview of the slash-command menu">
           <div class="cmd-palette-head"><span class="slash">/</span><span class="ph2">Type a command…</span><span class="esc">esc to close</span></div>
           <div class="cmd-row hi reveal" style="--d:.1s"><span class="c-name">/plan</span><span class="c-desc">Propose an approach before changing anything</span></div>
+          <div class="cmd-row reveal" style="--d:.13s"><span class="c-name">/effort</span><span class="c-desc">Choose how much reasoning this task deserves</span></div>
           <div class="cmd-row reveal" style="--d:.16s"><span class="c-name">/rewind</span><span class="c-desc">Jump back to an earlier point</span></div>
           <div class="cmd-row reveal" style="--d:.22s"><span class="c-name">/code-review</span><span class="c-desc">Get a second pair of eyes on your changes</span></div>
           <div class="cmd-row reveal" style="--d:.28s"><span class="c-name">/compact</span><span class="c-desc">Free up room without losing the thread</span></div>
@@ -64,21 +65,53 @@
 <!-- MAP -->
 <section class="chapter" data-chapter="Map" id="map" style="padding-top:20px">
   <div class="container">
-    <div class="chapter-head"><span class="eyebrow reveal">Five kinds of power move</span><h2 class="reveal" style="--d:.08s">Pick by what you're doing right now.</h2></div>
+    <div class="chapter-head"><span class="eyebrow reveal">Six kinds of power move</span><h2 class="reveal" style="--d:.08s">Pick by what you're doing right now.</h2></div>
     <nav class="route-map reveal-scale" aria-label="Cheat-sheet groups">
-      <a href="#steer"><span class="map-num">01</span><span class="map-name">Steer &amp; stay safe</span></a>
-      <a href="#ship"><span class="map-num">02</span><span class="map-name">Ship with confidence</span></a>
-      <a href="#scale"><span class="map-num">03</span><span class="map-name">Work bigger</span></a>
-      <a href="#tune"><span class="map-num">04</span><span class="map-name">Set up &amp; tune</span></a>
-      <a href="#gestures"><span class="map-num">05</span><span class="map-name">Gestures, not commands</span></a>
+      <a href="#reasoning"><span class="map-num">01</span><span class="map-name">Choose reasoning</span></a>
+      <a href="#steer"><span class="map-num">02</span><span class="map-name">Steer &amp; stay safe</span></a>
+      <a href="#ship"><span class="map-num">03</span><span class="map-name">Ship with confidence</span></a>
+      <a href="#scale"><span class="map-num">04</span><span class="map-name">Work bigger</span></a>
+      <a href="#tune"><span class="map-num">05</span><span class="map-name">Set up &amp; tune</span></a>
+      <a href="#gestures"><span class="map-num">06</span><span class="map-name">Gestures, not commands</span></a>
     </nav>
   </div>
 </section>
 
-<!-- 01 STEER -->
+<!-- 01 REASONING -->
+<section class="chapter product-effort-guide" data-chapter="Reasoning" id="reasoning">
+  <div class="container">
+    <div class="chapter-head"><span class="chapter-number">01</span><span class="eyebrow">Spend thought where it changes the answer</span><h2 class="reveal">Higher effort is deeper—<em>and more expensive.</em></h2><p class="lede reveal" style="--d:.1s">Effort guides how many tokens Claude spends on the response, including thinking, tool calls, and explanations. It is a behavioral signal, not a strict token budget.</p></div>
+    <div class="effort-guide-grid">
+      <div class="effort-dial-card reveal">
+        <div class="effort-dial-head"><span>Claude effort</span><strong>High is the supported-model default</strong></div>
+        <div class="effort-dial claude-dial" aria-label="Claude reasoning effort progression">
+          <div><b>Low</b><small>Fast, narrow, efficient</small></div>
+          <div><b>Medium</b><small>Balanced agentic work</small></div>
+          <div class="is-default"><b>High</b><small>Complex coding and reasoning</small></div>
+          <div><b>XHigh</b><small>Long-horizon exploration</small></div>
+          <div><b>Max</b><small>Absolute depth first</small></div>
+        </div>
+        <p class="mode-note"><strong>Ultracode is not another API effort value.</strong> Claude Code combines XHigh reasoning with automatic multiagent orchestration.</p>
+      </div>
+      <div class="effort-decision reveal" style="--d:.08s">
+        <article><span>Rename, format, extract</span><h3>Use Low</h3><p>A specific task with an obvious check rarely benefits from a longer internal search.</p></article>
+        <article><span>Implement and verify</span><h3>Use Medium or High</h3><p>Start Medium when cost matters; keep High for difficult code, tools, and ambiguity.</p></article>
+        <article><span>Migration or security</span><h3>Use XHigh deliberately</h3><p>Reserve Max for frontier problems where measured quality gains justify the wait and usage.</p></article>
+      </div>
+    </div>
+    <div class="effort-control-strip reveal" style="--d:.12s">
+      <div data-copy-root><span class="control-label">In a session</span><p><span class="pc-text keyish">/effort</span> opens the slider; add <span class="keyish">low</span>, <span class="keyish">medium</span>, <span class="keyish">high</span>, <span class="keyish">xhigh</span>, or <span class="keyish">max</span>.</p><button class="copy-btn copy-mini">Copy</button></div>
+      <div data-copy-root><span class="control-label">At launch</span><p><span class="pc-text keyish">claude --effort high</span> sets the current session without changing the saved default.</p><button class="copy-btn copy-mini">Copy</button></div>
+      <div><span class="control-label">Model picker</span><p>Run <span class="keyish">/model</span>, then use left and right arrows on supported models to adjust effort.</p></div>
+    </div>
+    <p class="source-note">Higher effort can use more output tokens and tool calls. On the API, original thinking tokens are billed at the model's output rate even when only a summary is visible. See Anthropic's official <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener">effort guide</a>, <a href="https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking" target="_blank" rel="noopener">thinking billing</a>, and the <a href="compare.html#reasoning">worked cost examples</a>.</p>
+  </div>
+</section>
+
+<!-- 02 STEER -->
 <section class="chapter" data-chapter="Steer" id="steer">
   <div class="container">
-    <div class="chapter-head"><span class="chapter-number">01</span><span class="eyebrow">The four everyone should know</span><h2 class="reveal">Stay in the driver's seat.</h2><p class="lede reveal" style="--d:.1s">These four turn Claude Code from "hope it goes well" into "I'm steering." Learn only these and you're ahead of most people.</p></div>
+    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">The four everyone should know</span><h2 class="reveal">Stay in the driver's seat.</h2><p class="lede reveal" style="--d:.1s">These four turn Claude Code from "hope it goes well" into "I'm steering." Learn only these and you're ahead of most people.</p></div>
     <div class="lesson-grid">
       <div class="lesson-stack">
         <div class="cc-window" data-scene="steer">
@@ -96,10 +129,10 @@
   </div>
 </section>
 
-<!-- 02 SHIP -->
+<!-- 03 SHIP -->
 <section class="chapter" data-chapter="Ship" id="ship">
   <div class="container">
-    <div class="chapter-head"><span class="chapter-number">02</span><span class="eyebrow">Quality on demand</span><h2 class="reveal">Let Claude check its own work.</h2><p class="lede reveal" style="--d:.1s">You don't need to be able to read the code to ask for a review. Claude can grade its own changes — and even send a whole crew of reviewers into the cloud.</p></div>
+    <div class="chapter-head"><span class="chapter-number">03</span><span class="eyebrow">Quality on demand</span><h2 class="reveal">Let Claude check its own work.</h2><p class="lede reveal" style="--d:.1s">You don't need to be able to read the code to ask for a review. Claude can grade its own changes — and even send a whole crew of reviewers into the cloud.</p></div>
     <div class="lesson-grid reverse">
       <div class="cmd-grid" style="grid-template-columns:1fr">
         <div class="cmd-card reveal"><span class="cc-name">/code-review</span><h4>A second pair of eyes</h4><p>Reviews the changes in your current session for bugs and rough edges, and offers to fix what it finds. Fast, and free with your plan.</p><span class="when"><b>Reach for it when:</b> before you call something "done."</span></div>
@@ -118,10 +151,10 @@
   </div>
 </section>
 
-<!-- 03 SCALE -->
+<!-- 04 SCALE -->
 <section class="chapter" data-chapter="Bigger" id="scale">
   <div class="container">
-    <div class="chapter-head"><span class="chapter-number">03</span><span class="eyebrow">Do more without doing it yourself</span><h2 class="reveal">Set goals, repeat work, run on a schedule.</h2><p class="lede reveal" style="--d:.1s">These hand Claude a bigger slice of the job — a target to keep working toward, a task to repeat, or a whole app to launch and test.</p></div>
+    <div class="chapter-head"><span class="chapter-number">04</span><span class="eyebrow">Do more without doing it yourself</span><h2 class="reveal">Set goals, repeat work, run on a schedule.</h2><p class="lede reveal" style="--d:.1s">These hand Claude a bigger slice of the job — a target to keep working toward, a task to repeat, or a whole app to launch and test.</p></div>
     <div class="cmd-grid">
       <div class="cmd-card reveal"><span class="cc-name">/goal</span><h4>Keep going until it's done</h4><p>Give Claude a finish line — "make every page work on mobile" — and it keeps working toward that goal instead of stopping after one step.</p><span class="when"><b>Reach for it when:</b> the job needs several rounds.</span></div>
       <div class="cmd-card reveal" style="--d:.06s"><span class="cc-name">/run</span><h4>Launch &amp; drive your app</h4><p>Starts your project and clicks through it so you can see the change working for real — not just a promise that it does.</p><span class="when"><b>Reach for it when:</b> "show me it actually runs."</span></div>
@@ -134,10 +167,10 @@
   </div>
 </section>
 
-<!-- 04 TUNE -->
+<!-- 05 TUNE -->
 <section class="chapter" data-chapter="Tune" id="tune">
   <div class="container">
-    <div class="chapter-head"><span class="chapter-number">04</span><span class="eyebrow">Housekeeping worth knowing</span><h2 class="reveal">Set things up and keep them tidy.</h2></div>
+    <div class="chapter-head"><span class="chapter-number">05</span><span class="eyebrow">Housekeeping worth knowing</span><h2 class="reveal">Set things up and keep them tidy.</h2></div>
     <div class="cmd-grid">
       <div class="cmd-card reveal"><span class="cc-name">/init</span><h4>Teach the project</h4><p>Creates a <span class="keyish">CLAUDE.md</span> — a note Claude reads at the start of every session — describing your project's rules and how to run it.</p><span class="when"><b>New project?</b> Run this first.</span></div>
       <div class="cmd-card reveal" style="--d:.05s"><span class="cc-name">/memory</span><h4>Edit what it remembers</h4><p>Opens the notes Claude keeps about your work so you can add, correct, or remove them.</p><span class="when"><b>When it keeps</b> forgetting or misremembering.</span></div>
@@ -148,13 +181,32 @@
       <div class="cmd-card reveal" style="--d:.3s"><span class="cc-name">/config</span><h4>Open settings</h4><p>Jump to Claude Code's settings to adjust preferences without hunting through menus.</p><span class="when"><b>When you</b> want to change how it behaves.</span></div>
       <div class="cmd-card reveal" style="--d:.35s"><span class="cc-name">/help</span><h4>The master list</h4><p>Shows every command available to <em>you</em> right now. When in doubt, this is home base.</p><span class="when"><b>Always safe</b> to run. Start here.</span></div>
     </div>
+
+    <div class="command-shelf-head">
+      <div><span class="eyebrow reveal">Working-session shelf</span><h2 class="reveal" style="--d:.06s">Twelve more controls that save real time.</h2></div>
+      <p class="reveal" style="--d:.1s">Compact, high-value commands for context, parallel work, recovery, and diagnostics.</p>
+    </div>
+    <div class="command-shelf claude-command-shelf">
+      <article class="command-row" data-copy-root><code class="pc-text">/effort</code><div><strong>Choose reasoning depth</strong><span>Change speed, thoroughness, and likely token usage for this session.</span></div><button class="copy-btn copy-mini" aria-label="Copy /effort">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/context</code><div><strong>See what fills memory</strong><span>Inspect conversation, files, tools, skills, and instructions in context.</span></div><button class="copy-btn copy-mini" aria-label="Copy /context">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/usage</code><div><strong>Measure real usage</strong><span>See session cost, plan limits, and activity; <span class="keyish">/cost</span> is an alias.</span></div><button class="copy-btn copy-mini" aria-label="Copy /usage">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/diff</code><div><strong>Inspect the changes</strong><span>Review the current file edits before testing, review, or delivery.</span></div><button class="copy-btn copy-mini" aria-label="Copy /diff">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/branch</code><div><strong>Fork an earlier path</strong><span>Explore another approach without overwriting the current conversation.</span></div><button class="copy-btn copy-mini" aria-label="Copy /branch">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/resume</code><div><strong>Continue saved work</strong><span>Return to an earlier conversation and its project context.</span></div><button class="copy-btn copy-mini" aria-label="Copy /resume">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/btw</code><div><strong>Ask a quick aside</strong><span>Get a short answer without adding the exchange to main history.</span></div><button class="copy-btn copy-mini" aria-label="Copy /btw">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/agents</code><div><strong>Manage subagents</strong><span>Inspect and configure the agents Claude can use for side work.</span></div><button class="copy-btn copy-mini" aria-label="Copy /agents">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/tasks</code><div><strong>Inspect background tasks</strong><span>See what is running and manage the current session's background work.</span></div><button class="copy-btn copy-mini" aria-label="Copy /tasks">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/background</code><div><strong>Detach the session</strong><span>Let the current work continue while your terminal becomes available.</span></div><button class="copy-btn copy-mini" aria-label="Copy /background">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/batch</code><div><strong>Split a large change</strong><span>Decompose independent units and run each in an isolated worktree.</span></div><button class="copy-btn copy-mini" aria-label="Copy /batch">Copy</button></article>
+      <article class="command-row" data-copy-root><code class="pc-text">/doctor</code><div><strong>Diagnose the environment</strong><span>Check installation, runtime, and configuration when Claude Code misbehaves.</span></div><button class="copy-btn copy-mini" aria-label="Copy /doctor">Copy</button></article>
+    </div>
   </div>
 </section>
 
-<!-- 05 GESTURES -->
+<!-- 06 GESTURES -->
 <section class="chapter" data-chapter="Gestures" id="gestures">
   <div class="container">
-    <div class="chapter-head"><span class="chapter-number">05</span><span class="eyebrow">No slash required</span><h2 class="reveal">Four moves that aren't commands at all.</h2><p class="lede reveal" style="--d:.1s">Some of the most useful power moves are just things you can do in the message box — and beginners almost never realize they exist.</p></div>
+    <div class="chapter-head"><span class="chapter-number">06</span><span class="eyebrow">No slash required</span><h2 class="reveal">Four moves that aren't commands at all.</h2><p class="lede reveal" style="--d:.1s">Some of the most useful power moves are just things you can do in the message box — and beginners almost never realize they exist.</p></div>
     <div class="gesture-row">
       <div class="gesture reveal"><div class="g-key">＠</div><strong>@ a file</strong><span>Type <span class="keyish">@</span> and a filename to pull that file into the conversation — no copy-paste.</span></div>
       <div class="gesture reveal" style="--d:.08s"><div class="g-key">🖼️</div><strong>Paste a screenshot</strong><span>Drag or paste an image of what looks wrong. Claude can see it and fix from the picture.</span></div>
@@ -167,7 +219,7 @@
       <h2>You don't have to remember them.<br>You just have to know they're there.</h2>
       <p class="lede" style="margin-inline:auto">Bookmark this tab. Next time you're stuck doing something the slow way, there's probably a <span class="keyish">/</span> for it — and <span class="keyish">/help</span> will always show you the current, real list.</p>
       <button class="btn btn-accent magnetic" id="commands-finale" style="margin-top:10px">Steal these ✨</button>
-      <p class="source-note">Command names verified against the official <a href="https://code.claude.com/docs/en/commands" target="_blank" rel="noopener">Claude Code commands</a> and <a href="https://code.claude.com/docs/en/desktop" target="_blank" rel="noopener">desktop</a> documentation. Because the menu grows often, type <span class="keyish">/help</span> in the app for the definitive, up-to-date list.</p>
+      <p class="source-note">Command names and effort controls verified against the official <a href="https://code.claude.com/docs/en/commands" target="_blank" rel="noopener">Claude Code commands</a>, <a href="https://code.claude.com/docs/en/cli-usage" target="_blank" rel="noopener">CLI</a>, and <a href="https://code.claude.com/docs/en/desktop" target="_blank" rel="noopener">desktop</a> documentation on 18 July 2026. Because the menu grows often, type <span class="keyish">/help</span> in the app for the definitive live list.</p>
     </div>
 
     <div class="narrow" style="margin-top:44px;padding:0"><div class="teaser reveal-scale"><span class="eyebrow" style="color:#9BD3B2">keep going</span><h3>New here? Start with the journey.</h3><p>The cheat sheet makes the most sense once you've built something. If you haven't yet, the Starter route gets you from zero to a live website in an afternoon.</p><a class="btn btn-accent magnetic" href="starter.html">Take the Starter route <span class="arrow">→</span></a></div></div>

@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claude vs. Codex — price, context, models, and use | Zero to Launched</title>
-<meta name="description" content="A direct, sourced comparison of Claude and Codex across pricing, context windows, model versions, workflows, agents, tools, permissions, and best-fit use cases.">
+<meta name="description" content="A direct, sourced comparison of Claude and Codex across pricing, context windows, reasoning effort, model versions, workflows, agents, tools, permissions, and best-fit use cases.">
 <meta property="og:title" content="Claude vs. Codex — direct comparison">
 <meta property="og:description" content="Compare current prices, context limits, models, workflows, and ideal uses side by side.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>(function(){try{var t=localStorage.getItem('ztl-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
-<link rel="stylesheet" href="shared/styles.css?v=20260718a">
+<link rel="stylesheet" href="shared/styles.css?v=20260718b">
 </head>
 <body class="route-compare">
 
@@ -38,7 +38,7 @@
 
   <section style="padding:0 0 clamp(72px,11vh,130px)">
     <div class="container">
-      <nav class="comparison-jump" aria-label="Comparison categories"><a href="#overview">Overview</a><a href="#pricing">Price</a><a href="#context">Context</a><a href="#models">Models</a><a href="#agents">Agents</a><a href="#controls">Controls</a><a href="#recommendations">Recommendations</a></nav>
+      <nav class="comparison-jump" aria-label="Comparison categories"><a href="#overview">Overview</a><a href="#pricing">Price</a><a href="#context">Context</a><a href="#models">Models</a><a href="#reasoning">Reasoning</a><a href="#agents">Agents</a><a href="#controls">Controls</a><a href="#recommendations">Recommendations</a></nav>
 
       <div class="compare-ledger">
         <div class="compare-row compare-head"><div class="compare-label">Compare</div><div class="product-column-title"><strong>Claude</strong><span>Anthropic</span></div><div class="product-column-title"><strong>Codex</strong><span>OpenAI</span></div></div>
@@ -57,7 +57,79 @@
 
         <div class="compare-row" id="context"><div class="compare-label"><span class="section-key">Published context</span></div><div class="compare-value"><h3>Up to 1,000,000 tokens</h3><p>Fable 5, Opus 4.8, and Sonnet 5 list 1M-token context windows. Haiku 4.5 lists 200K. Maximum synchronous output is 128K for the three larger models and 64K for Haiku 4.5.</p><p class="source-note">Product usage limits and long-session compaction remain separate from a model’s API context specification.</p></div><div class="compare-value"><h3>Up to 1,050,000 tokens</h3><p>GPT‑5.6 Sol, Terra, and Luna each list a 1.05M-token context window and 128K maximum output. Spark is a separate Pro research preview; its public Codex guide does not publish an equivalent context figure.</p><p class="source-note">Repository retrieval, compaction, task limits, and subscription usage are separate from model context.</p></div></div>
 
-        <div class="compare-row" id="models"><div class="compare-label"><span class="section-key">Current models</span></div><div class="compare-value"><div class="model-stack"><div class="model-line"><strong><span>Claude Fable 5</span><span>$10 / $50</span></strong><small>Long-running agents · 1M context · API input/output per million tokens.</small></div><div class="model-line"><strong><span>Claude Opus 4.8</span><span>$5 / $25</span></strong><small>Complex agentic coding and enterprise work · 1M context.</small></div><div class="model-line"><strong><span>Claude Sonnet 5</span><span>$3 / $15</span></strong><small>Speed and intelligence balance · 1M context.</small></div><div class="model-line"><strong><span>Claude Haiku 4.5</span><span>$1 / $5</span></strong><small>Fastest cost-efficient option · 200K context.</small></div></div><a class="source-link" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener">Official model table ↗</a></div><div class="compare-value"><div class="model-stack"><div class="model-line"><strong><span>GPT‑5.6 Sol</span><span>$5 / $30</span></strong><small>Frontier complex professional work · 1.05M context · API input/output per million tokens.</small></div><div class="model-line"><strong><span>GPT‑5.6 Terra</span><span>$2.50 / $15</span></strong><small>Balanced intelligence and cost · 1.05M context.</small></div><div class="model-line"><strong><span>GPT‑5.6 Luna</span><span>$1 / $6</span></strong><small>Cost-sensitive, high-volume work · 1.05M context.</small></div><div class="model-line"><strong><span>GPT‑5.3‑Codex‑Spark</span><span>Pro preview</span></strong><small>Near-instant text-only iteration; separate usage limits.</small></div></div><a class="source-link" href="https://learn.chatgpt.com/docs/models" target="_blank" rel="noopener">Official Codex model guide ↗</a></div></div>
+        <div class="compare-row" id="models"><div class="compare-label"><span class="section-key">Current models</span></div><div class="compare-value"><div class="model-stack"><div class="model-line"><strong><span>Claude Fable 5</span><span>$10 / $50</span></strong><small>Long-running agents · 1M context · API input/output per million tokens.</small></div><div class="model-line"><strong><span>Claude Opus 4.8</span><span>$5 / $25</span></strong><small>Complex agentic coding and enterprise work · 1M context.</small></div><div class="model-line"><strong><span>Claude Sonnet 5</span><span>$2 / $10 intro</span></strong><small>Speed and intelligence balance · 1M context. Introductory pricing through 31 Aug 2026; standard rate is $3 / $15.</small></div><div class="model-line"><strong><span>Claude Haiku 4.5</span><span>$1 / $5</span></strong><small>Fastest cost-efficient option · 200K context.</small></div></div><a class="source-link" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener">Official model table ↗</a></div><div class="compare-value"><div class="model-stack"><div class="model-line"><strong><span>GPT‑5.6 Sol</span><span>$5 / $30</span></strong><small>Frontier complex professional work · 1.05M context · API input/output per million tokens.</small></div><div class="model-line"><strong><span>GPT‑5.6 Terra</span><span>$2.50 / $15</span></strong><small>Balanced intelligence and cost · 1.05M context.</small></div><div class="model-line"><strong><span>GPT‑5.6 Luna</span><span>$1 / $6</span></strong><small>Cost-sensitive, high-volume work · 1.05M context.</small></div><div class="model-line"><strong><span>GPT‑5.3‑Codex‑Spark</span><span>Pro preview</span></strong><small>Near-instant text-only iteration; separate usage limits.</small></div></div><a class="source-link" href="https://learn.chatgpt.com/docs/models" target="_blank" rel="noopener">Official Codex model guide ↗</a></div></div>
+
+        <section class="reasoning-lab" id="reasoning" aria-labelledby="reasoning-title">
+          <div class="reasoning-lab-head">
+            <div><span class="eyebrow">Reasoning &amp; cost</span><h2 id="reasoning-title">More thought is a budget, <em>not a magic switch.</em></h2></div>
+            <p>Higher effort can improve difficult work, but it usually takes longer and uses more tokens or plan allowance. There is no honest fixed multiplier: the model, prompt, context, tools, and task all change the result.</p>
+          </div>
+
+          <div class="effort-ladder-grid">
+            <article class="effort-panel claude-effort">
+              <div class="effort-panel-head"><span>Claude</span><strong>Single-model effort</strong></div>
+              <ol class="effort-ladder">
+                <li><b>Low</b><span>Fastest, most economical</span><small>Clear lookups, narrow edits, lightweight subagents.</small></li>
+                <li><b>Medium</b><span>Balanced</span><small>Routine agentic work that still needs a plan.</small></li>
+                <li class="effort-default"><b>High</b><span>API default</span><small>Complex reasoning, difficult coding, and tool-heavy tasks.</small></li>
+                <li><b>XHigh</b><span>Long horizon</span><small>Hard coding and agentic work with extended exploration.</small></li>
+                <li><b>Max</b><span>Depth first</span><small>The hardest problems when speed and spend are secondary.</small></li>
+              </ol>
+              <p class="mode-note"><strong>Ultracode is separate.</strong> Claude Code pairs XHigh with standing permission to orchestrate multiagent workflows; it is not a sixth API effort value.</p>
+              <a class="source-link" href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener">Claude effort guide ↗</a>
+            </article>
+
+            <article class="effort-panel codex-effort">
+              <div class="effort-panel-head"><span>Codex</span><strong>Single-model effort</strong></div>
+              <ol class="effort-ladder">
+                <li><b>Light / Low</b><span>Quick and scoped</span><small>Small edits, extraction, classification, and fast iteration.</small></li>
+                <li class="effort-default"><b>Medium</b><span>Balanced default</span><small>Planning, agentic coding, and everyday multi-step work.</small></li>
+                <li><b>High</b><span>Hard reasoning</span><small>Complex debugging, deep planning, and high-value decisions.</small></li>
+                <li><b>Extra High</b><span>Extended depth</span><small>Security review, deep research, and challenging long runs.</small></li>
+                <li><b>Max</b><span>One task, more time</span><small>The hardest single task when quality matters more than usage.</small></li>
+              </ol>
+              <p class="mode-note"><strong>Ultra is separate.</strong> It divides meaningful parts across subagents in parallel; most tasks do not need it.</p>
+              <a class="source-link" href="https://learn.chatgpt.com/docs/models" target="_blank" rel="noopener">Codex model guide ↗</a>
+            </article>
+          </div>
+
+          <div class="billing-split">
+            <article><span class="billing-kicker">Subscription</span><h3>No per-message token invoice</h3><p>Claude and ChatGPT/Codex plans use allowances, rate limits, or credits. Higher effort generally consumes that allowance faster, but it is not a separate dollar charge after each response.</p><strong>Think: relative usage + latency.</strong></article>
+            <article><span class="billing-kicker">API</span><h3>Reasoning is billed as output</h3><p>Internal reasoning or thinking tokens count at the selected model's output-token rate. Tool loops can add later input, reasoning, visible output, and tool charges.</p><strong>Think: input + all generated tokens.</strong></article>
+          </div>
+
+          <div class="receipt-intro"><div><span class="eyebrow">Worked example</span><h3>Same illustrative request. Same visible answer. Different internal work.</h3></div><p>Assume 20,000 input tokens and 2,000 visible output tokens. The reasoning counts below demonstrate the arithmetic only—they are not promised Low or High averages.</p></div>
+
+          <div class="receipt-grid">
+            <article class="reasoning-receipt">
+              <header><div><span>Claude Opus 4.8</span><strong>Low → High</strong></div><small>$5 input / $25 output per MTok</small></header>
+              <div class="receipt-line"><span>Input · both runs</span><b>20K × $5/M</b><strong>$0.100</strong></div>
+              <div class="receipt-run low-run"><span><i>Low</i> 1K thinking + 2K visible</span><b>3K × $25/M</b><strong>$0.075</strong></div>
+              <div class="receipt-total"><span>Illustrative Low total</span><strong>$0.175</strong></div>
+              <div class="receipt-run high-run"><span><i>High</i> 10K thinking + 2K visible</span><b>12K × $25/M</b><strong>$0.300</strong></div>
+              <div class="receipt-total emphatic"><span>Illustrative High total</span><strong>$0.400</strong></div>
+            </article>
+
+            <article class="reasoning-receipt">
+              <header><div><span>GPT‑5.6 Terra</span><strong>Low → High</strong></div><small>$2.50 input / $15 output per MTok · short context</small></header>
+              <div class="receipt-line"><span>Input · both runs</span><b>20K × $2.50/M</b><strong>$0.050</strong></div>
+              <div class="receipt-run low-run"><span><i>Low</i> 1K reasoning + 2K visible</span><b>3K × $15/M</b><strong>$0.045</strong></div>
+              <div class="receipt-total"><span>Illustrative Low total</span><strong>$0.095</strong></div>
+              <div class="receipt-run high-run"><span><i>High</i> 10K reasoning + 2K visible</span><b>12K × $15/M</b><strong>$0.180</strong></div>
+              <div class="receipt-total emphatic"><span>Illustrative High total</span><strong>$0.230</strong></div>
+            </article>
+          </div>
+
+          <p class="reasoning-warning"><strong>Why input can also rise:</strong> the one-call examples hold input constant. In an agentic run, tool results and retained history can become input to later calls, so deeper work may increase both sides of the invoice. Always inspect actual usage rather than applying a universal multiplier.</p>
+
+          <div class="reasoning-scenarios">
+            <article><span>01 · Rename a button</span><h3>Choose Low</h3><p>One known file, one visible result, one quick check. More reasoning is unlikely to improve the outcome.</p></article>
+            <article><span>02 · Intermittent test failure</span><h3>Choose Medium → High</h3><p>Gather evidence at Medium. Raise to High when hypotheses compete or the failure crosses systems.</p></article>
+            <article><span>03 · Authentication migration</span><h3>Choose High → XHigh</h3><p>Security, rollout, rollback, data migration, and edge cases justify depth. Use Max only when measured value beats the extra wait and usage.</p></article>
+          </div>
+
+          <div class="reasoning-sources"><a href="https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking" target="_blank" rel="noopener">Anthropic thinking-token billing ↗</a><a href="https://developers.openai.com/api/docs/guides/reasoning" target="_blank" rel="noopener">OpenAI reasoning-token billing ↗</a><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API rates ↗</a></div>
+        </section>
 
         <div class="compare-row" id="agents"><div class="compare-label"><span class="section-key">Parallel agents</span></div><div class="compare-value"><h3>Agent teams and custom agents</h3><p>Claude Code can spawn multiple agents for parallel work and supports custom agents, shared project guidance, hooks, and skills. Availability and UI vary by surface.</p></div><div class="compare-value"><h3>Subagent workflows</h3><p>Codex can delegate independent work to subagents in the app, CLI, and IDE. Custom agents can carry specialized instructions, models, reasoning levels, and sandbox settings.</p></div></div>
 
