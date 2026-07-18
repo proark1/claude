@@ -8,3 +8,6 @@ Thumbs.db
 # Dependencies / build output (none today, but safe defaults)
 node_modules/
 dist/
+
+# Local visual brainstorming artifacts
+.superpowers/
